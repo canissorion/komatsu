@@ -1,0 +1,32 @@
+# This file configures the analyzer to use the lint rule set from `package:lint`
+
+# For apps, use the default set
+include: package:lint/analysis_options.yaml
+
+# Packages, that may be distributed (i.e. via pub.dev) should use the package 
+# version, resulting in a better pub score.
+# include: package:lint/analysis_options_package.yaml
+
+# You might want to exclude auto-generated files from dart analysis
+analyzer:
+  exclude:
+    #- '**.freezed.dart'
+
+# You can customize the lint rules set to your own liking. A list of all rules
+# can be found at https://dart-lang.github.io/linter/lints/options/options.html
+linter:
+  rules:
+    # Style rules
+      always_use_package_imports : false
+      camel_case_types : true
+      library_names : true
+      avoid_catches_without_on_clauses : true
+      avoid_empty_else : true
+      unnecessary_brace_in_string_interps : true
+      avoid_redundant_argument_values : true
+      leading_newlines_in_multiline_strings : true
+      prefer_relative_imports : true
+    # formatting
+      lines_longer_than_80_chars : true
+    # doc comments
+      slash_for_doc_comments : true
