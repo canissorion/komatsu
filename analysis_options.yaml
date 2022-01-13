@@ -26,6 +26,8 @@ linter:
       avoid_redundant_argument_values : true
       leading_newlines_in_multiline_strings : true
       prefer_relative_imports : true
+      depend_on_referenced_packages : false
+      sort_pub_dependencies : false
     # formatting
       lines_longer_than_80_chars : true
     # doc comments
