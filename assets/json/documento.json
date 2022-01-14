@@ -1,0 +1,16 @@
+{
+    "folio" : "#0004646",
+    "tipo_documento" : "Boleta de Gasto",
+    "fecha" : "2022-08-02",
+    "rut_emisor" : "11.111.111-1",
+    "subtipo" : "Boleta de Gasto",
+    "monto_rendido" : "61.905",
+    "numero_documento" : "66",
+    "concepto_gasto" : "REUNIONES DE TRABAJO Y CLIENTES",
+    "detalle_gasto" : "ALMUERZOS Y CENAS",
+    "descripcion_del_gasto" : "COLACIÓN",
+    "objeto_de_imputacion" : "CENTRO DE COSTOS",
+    "valor_objeto" : "305060003",
+    "importe_asignado" : "61.905",
+    "cuenta" : "0043013012"
+}

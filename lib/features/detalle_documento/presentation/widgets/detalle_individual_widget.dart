@@ -17,15 +17,18 @@ class DetalleIndividual extends StatelessWidget {
       children: [
         Text(
           titulo,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ),
         Text(
           valor,
           style: const TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(
-          height: 16,
+          height: 10,
         )
       ],
     );

@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/detalle_documento/presentation/pages/detalle_documento_page.dart';
+import 'package:kcc_mobile_app/shared/presentation/widgets/appbar_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 import '../../../../core/presentation/widgets/appbar_widget.dart';
 import '../../../../core/presentation/widgets/drawer_widget.dart';
+import '../../../../core/utils/komatsu_colors.dart';
+import '../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../../detalle_documento/presentation/pages/detalle_documento_page.dart';
 
 class RendicionesPendientesPage extends StatelessWidget {
   const RendicionesPendientesPage({Key? key}) : super(key: key);
@@ -20,8 +23,7 @@ class RendicionesPendientesPage extends StatelessWidget {
       )
     };
     final items = List.filled(10, []);
-    RefreshController _refreshController =
-        RefreshController(initialRefresh: false);
+    final RefreshController _refreshController = RefreshController();
 
     return Scaffold(
       appBar: AppBarWidget(),

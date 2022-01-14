@@ -54,6 +54,8 @@ dependencies:
   flutter_dotenv: ^5.0.2
   # Add Pagination and refresh to listview
   pull_to_refresh: ^2.0.0
+  # PDF READER
+  pdf_render: ^1.0.19
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +86,7 @@ flutter:
   assets:
     - .env
     - .env.dev
+    - assets/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

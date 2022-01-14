@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/detalle_documento/presentation/widgets/detalle_individual_widget.dart';
+import '../../../ver_documento/presentation/pages/ver_documentos_page.dart';
+import 'detalle_individual_widget.dart';
 
 class DetalleTipoDocumento extends StatelessWidget {
   const DetalleTipoDocumento({
@@ -33,22 +34,35 @@ class DetalleTipoDocumento extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            DetalleIndividual(
+          children: [
+            const DetalleIndividual(
               titulo: 'Fecha',
               valor: '2022-08-02',
             ),
-            DetalleIndividual(
+            const DetalleIndividual(
               titulo: 'Subtipo',
               valor: 'Boleta de Gasto',
             ),
-            DetalleIndividual(
+            const DetalleIndividual(
               titulo: 'N° de Documento',
               valor: '66',
             ),
-            Placeholder(
-              fallbackHeight: 40,
-              fallbackWidth: 160,
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const VerDocumentoPage();
+                    },
+                  ),
+                );
+              },
+              child: const Placeholder(
+                fallbackHeight: 40,
+                fallbackWidth: 160,
+              ),
             )
           ],
         ),
