@@ -1,44 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/detalle_documento/domain/entities/detalle_documento_entitie.dart';
 
 import 'detalle_individual_widget.dart';
 
 class DetallesConcepto extends StatelessWidget {
-  const DetallesConcepto({
-    Key? key,
-  }) : super(key: key);
-
+  const DetallesConcepto({Key? key, required this.detalleDocumento})
+      : super(key: key);
+  final DetalleDocumento detalleDocumento;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         DetalleIndividual(
           titulo: 'Concepto Gasto',
-          valor: 'REUNIONES DE TRABAJO Y CLIENTES',
+          valor: detalleDocumento.conceptoGasto,
         ),
         DetalleIndividual(
           titulo: 'Detalle Gasto',
-          valor: 'ALMUERZOS Y CENAS',
+          valor: detalleDocumento.detalleGasto,
         ),
         DetalleIndividual(
           titulo: 'Descrición del Gasto',
-          valor: 'COLACIÓN',
+          valor: detalleDocumento.descripcionDelGasto,
         ),
         DetalleIndividual(
           titulo: 'Objeto de imputación',
-          valor: 'CENTRO DE COSTOS',
+          valor: detalleDocumento.objetoDeImputacion,
         ),
         DetalleIndividual(
           titulo: 'Valor objeto imptación',
-          valor: '305060003',
+          valor: detalleDocumento.valorObjeto,
         ),
         DetalleIndividual(
           titulo: 'Importe Asignado',
-          valor: '61.905',
+          valor: detalleDocumento.importeAsignado,
         ),
         DetalleIndividual(
           titulo: 'Cuenta',
-          valor: '0043013012',
+          valor: detalleDocumento.cuenta,
         ),
       ],
     );

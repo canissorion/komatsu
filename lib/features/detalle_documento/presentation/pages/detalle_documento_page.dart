@@ -38,26 +38,29 @@ class DetalleDocumentoPage extends StatelessWidget {
                     );
                   } else if (state is Error) {
                     return Center(
-                      child: Text(state.message),
+                      child: Text(state.errorMessage),
                     );
                   } else if (state is Loading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    print(state);
                     return Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          DetalleTipoDocumento(),
-                          Divider(
+                        children: [
+                          DetalleTipoDocumento(
+                            detalleDocumento: state.detalleDocumento!,
+                          ),
+                          const Divider(
                             height: 40,
                             thickness: 3,
                             color: Colors.white,
                           ),
-                          DetallesConcepto()
+                          DetallesConcepto(
+                            detalleDocumento: state.detalleDocumento!,
+                          )
                         ],
                       ),
                     );

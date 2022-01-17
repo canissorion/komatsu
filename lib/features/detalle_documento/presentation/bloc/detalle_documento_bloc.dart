@@ -20,8 +20,8 @@ class DetalleDocumentoBloc
       final detalleDocumento = await getDetalleDocumento(NoParams());
       print('cargo');
       detalleDocumento!.fold(
-        (l) => emit(Error(message: l.toString())),
-        (r) => emit(Loaded(documento: r)),
+        (l) => emit(Error(errorMessage: l.toString())),
+        (r) => emit(Loaded(detalleDocumento: r)),
       );
     });
   }

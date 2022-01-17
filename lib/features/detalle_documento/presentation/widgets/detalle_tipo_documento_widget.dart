@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/detalle_documento/domain/entities/detalle_documento_entitie.dart';
 import '../../../ver_documento/presentation/pages/ver_documentos_page.dart';
 import 'detalle_individual_widget.dart';
 
 class DetalleTipoDocumento extends StatelessWidget {
-  const DetalleTipoDocumento({
-    Key? key,
-  }) : super(key: key);
+  const DetalleTipoDocumento({Key? key, required this.detalleDocumento})
+      : super(key: key);
 
+  final DetalleDocumento detalleDocumento;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,18 +15,18 @@ class DetalleTipoDocumento extends StatelessWidget {
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             DetalleIndividual(
               titulo: 'Tipo Documento',
-              valor: 'Boleta de Gasto',
+              valor: detalleDocumento.tipoDocumento,
             ),
             DetalleIndividual(
               titulo: 'Rut Emisor',
-              valor: '11.111.111-1',
+              valor: detalleDocumento.rutEmisor,
             ),
             DetalleIndividual(
               titulo: 'Tipo Documento',
-              valor: 'Boleta de Gasto',
+              valor: detalleDocumento.tipoDocumento,
             ),
           ],
         ),
@@ -35,17 +36,17 @@ class DetalleTipoDocumento extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DetalleIndividual(
+            DetalleIndividual(
               titulo: 'Fecha',
-              valor: '2022-08-02',
+              valor: detalleDocumento.fecha.toString(),
             ),
-            const DetalleIndividual(
+            DetalleIndividual(
               titulo: 'Subtipo',
-              valor: 'Boleta de Gasto',
+              valor: detalleDocumento.subtipo,
             ),
-            const DetalleIndividual(
+            DetalleIndividual(
               titulo: 'N° de Documento',
-              valor: '66',
+              valor: detalleDocumento.numeroDocumento,
             ),
             GestureDetector(
               behavior: HitTestBehavior.translucent,

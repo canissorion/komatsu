@@ -1,8 +1,14 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'detalle_documento_bloc.dart';
 
 abstract class DetalleDocumentoState extends Equatable {
+  final DetalleDocumento? detalleDocumento;
+  final String? errorMessage;
+
+  const DetalleDocumentoState({this.detalleDocumento, this.errorMessage});
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [detalleDocumento, errorMessage];
 }
 
 class Empty extends DetalleDocumentoState {}
@@ -10,19 +16,19 @@ class Empty extends DetalleDocumentoState {}
 class Loading extends DetalleDocumentoState {}
 
 class Loaded extends DetalleDocumentoState {
-  final DetalleDocumento documento;
+  final DetalleDocumento detalleDocumento;
 
-  Loaded({required this.documento});
+  const Loaded({required this.detalleDocumento});
 
   @override
-  List<Object> get props => [documento];
+  List<Object> get props => [detalleDocumento];
 }
 
 class Error extends DetalleDocumentoState {
-  final String message;
+  final String errorMessage;
 
-  Error({required this.message});
+  const Error({required this.errorMessage});
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [errorMessage];
 }
