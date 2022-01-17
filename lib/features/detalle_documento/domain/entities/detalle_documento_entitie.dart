@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class DetalleDocumento extends Equatable {
+  final int id;
   final String folio;
   final String tipoDocumento;
   final DateTime fecha;
@@ -17,6 +18,7 @@ class DetalleDocumento extends Equatable {
   final String cuenta;
 
   const DetalleDocumento({
+    required this.id,
     required this.folio,
     required this.tipoDocumento,
     required this.fecha,
@@ -35,6 +37,7 @@ class DetalleDocumento extends Equatable {
 
   @override
   List<Object?> get props => [
+        id,
         folio,
         tipoDocumento,
         fecha,

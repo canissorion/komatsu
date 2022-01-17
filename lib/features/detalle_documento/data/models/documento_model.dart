@@ -15,6 +15,7 @@ String documentoModelToJson(DocumentoModel data) => json.encode(data.toJson());
 
 class DocumentoModel extends DetalleDocumento {
   const DocumentoModel({
+    required int id,
     required String folio,
     required String tipoDocumento,
     required DateTime fecha,
@@ -30,6 +31,7 @@ class DocumentoModel extends DetalleDocumento {
     required String importeAsignado,
     required String cuenta,
   }) : super(
+          id: id,
           folio: folio,
           tipoDocumento: tipoDocumento,
           fecha: fecha,
@@ -47,7 +49,8 @@ class DocumentoModel extends DetalleDocumento {
         );
 
   factory DocumentoModel.fromJson(Map<String, dynamic> json) => DocumentoModel(
-        folio: json["folio"].toString(),
+        id: json["id"] as int,
+        folio: json["folio"] as String,
         tipoDocumento: json["tipo_documento"].toString(),
         fecha: DateTime.parse(json["fecha"].toString()),
         rutEmisor: json["rut_emisor"].toString(),
@@ -64,6 +67,7 @@ class DocumentoModel extends DetalleDocumento {
       );
 
   Map<String, dynamic> toJson() => {
+        "id": id,
         "folio": folio,
         "tipo_documento": tipoDocumento,
         "fecha":

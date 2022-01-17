@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'detalle_individual_widget.dart';
 
 class DetallesConcepto extends StatelessWidget {
