@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/utils/komatsu_colors.dart';
 
 class CabezeraTitulo extends StatelessWidget {
-  const CabezeraTitulo({
-    Key? key,
-  }) : super(key: key);
+  const CabezeraTitulo({Key? key, required this.folio}) : super(key: key);
+
+  final String folio;
 
   @override
   Widget build(BuildContext context) {
@@ -34,32 +35,32 @@ class CabezeraTitulo extends StatelessWidget {
           ),
           const Expanded(child: SizedBox()),
           Column(
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'DETALLE DE DOCUMENTOS',
-                style: TextStyle(
+                style: const TextStyle(
                   color: customBlue,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                'FOLIO #0004646',
-                style: TextStyle(
+                'FOLIO #$folio',
+                style: const TextStyle(
                   color: customBlue,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
+              const Text(
                 'Posición 1',
                 style: TextStyle(
                   color: customBlue,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               )
             ],

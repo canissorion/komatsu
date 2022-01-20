@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/detalle_documento/domain/entities/detalle_documento_entitie.dart';
 
+import '../../domain/entities/detalle_documento_entitie.dart';
 import 'detalle_individual_widget.dart';
 
 class DetallesConcepto extends StatelessWidget {

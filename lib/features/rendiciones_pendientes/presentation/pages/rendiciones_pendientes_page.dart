@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/detalle_documento/presentation/bloc/detalle_documento_bloc.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
+import 'package:kcc_mobile_app/features/rendiciones_pendientes/presentation/widgets/lista_infinita_solicitudes_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../core/utils/komatsu_colors.dart';
+import '../../../../injection_container.dart';
 import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/drawer_widget.dart';
-import '../../../detalle_documento/presentation/pages/detalle_documento_page.dart';
+import '../../../detalle_rendicion/presentation/pages/detalle_rendicion_page.dart';
+import '../bloc/listado_solicitudes_bloc.dart';
+import '../widgets/document_pending_approve_widget_blocbuilder.dart';
+import '../widgets/search_bar_widget.dart';
 
 class RendicionesPendientesPage extends StatelessWidget {
   const RendicionesPendientesPage({Key? key}) : super(key: key);
@@ -23,8 +26,6 @@ class RendicionesPendientesPage extends StatelessWidget {
         child: Text('En Tratamiento'),
       )
     };
-    final items = List.filled(10, []);
-    final RefreshController _refreshController = RefreshController();
 
     return Scaffold(
       appBar: AppBarWidget(),
@@ -32,77 +33,36 @@ class RendicionesPendientesPage extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (BuildContext context) => sl<DetalleDocumentoBloc>(),
+            create: (BuildContext context) => sl<PendingItemsBloc>(),
           )
         ],
-        child: Column(
-          children: <Widget>[
-            const SizedBox(
-              height: 10,
-            ),
-            const Center(
-              child: Text(
-                'Rendiciones pendientes \nde aprobación',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            CupertinoSegmentedControl(
-              children: _tabs,
-              padding: const EdgeInsets.all(15),
-              onValueChanged: (i) {},
-              borderColor: customAccentBlue,
-              selectedColor: customAccentBlue,
-            ),
-            const Placeholder(
-              fallbackHeight: 30,
-            ),
-            SizedBox(
-              height: 460,
-              child: SmartRefresher(
-                enablePullUp: true,
-                footer: CustomFooter(
-                  builder: (BuildContext context, mode) {
-                    Widget body;
-                    body = const Text('Cargar más');
-                    return SizedBox(
-                      height: 55,
-                      child: Center(
-                        child: body,
-                      ),
-                    );
-                  },
-                ),
-                enablePullDown: false,
-                controller: _refreshController,
-                child: ListView.builder(
-                  itemBuilder: (context, i) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) {
-                              return const DetalleDocumentoPage();
-                            },
-                          ),
-                        );
-                      },
-                      child: const Placeholder(
-                        fallbackHeight: 60,
-                      ),
-                    ),
-                  ),
-                  itemCount: items.length,
+              const Center(
+                child: Text(
+                  'Rendiciones pendientes \nde aprobación',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 5,
+              ),
+              CupertinoSegmentedControl(
+                children: _tabs,
+                padding: const EdgeInsets.all(15),
+                onValueChanged: (i) {},
+                borderColor: customAccentBlue,
+                selectedColor: customAccentBlue,
+              ),
+              SearchingBarWidget(),
+              const ListaInfinitaSolicitudesWidget()
+            ],
+          ),
         ),
       ),
     );

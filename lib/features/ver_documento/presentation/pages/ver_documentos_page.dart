@@ -15,7 +15,9 @@ class VerDocumentoPage extends StatelessWidget {
       drawer: const DrawerWidget(),
       body: Column(
         children: [
-          const CabezeraTitulo(),
+          const CabezeraTitulo(
+            folio: "400088",
+          ),
           Expanded(
             child: PdfViewer.openAsset('assets/lorem_ipsum_definicion.pdf'),
           ),

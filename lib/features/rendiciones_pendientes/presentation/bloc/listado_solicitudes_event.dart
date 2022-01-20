@@ -1,8 +1,10 @@
 part of 'listado_solicitudes_bloc.dart';
 
-abstract class ListadoSolicitudesEvent extends Equatable {
-  const ListadoSolicitudesEvent();
-
+abstract class PendingItemsEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class GetPendingItemsEvent extends PendingItemsEvent {}
+
+class LoadMoreItemsEvent extends PendingItemsEvent {}

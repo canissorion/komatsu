@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/detalle_documento/domain/entities/detalle_documento_entitie.dart';
+
 import '../../../ver_documento/presentation/pages/ver_documentos_page.dart';
+import '../../domain/entities/detalle_documento_entitie.dart';
 import 'detalle_individual_widget.dart';
 
 class DetalleTipoDocumento extends StatelessWidget {
