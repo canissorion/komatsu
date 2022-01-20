@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/domain/entities/detalle_rendicion_entitie.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/presentation/widgets/titulo_informacion_widget.dart';
+import '../../domain/entities/detalle_rendicion_entitie.dart';
+import 'titulo_informacion_widget.dart';
 
 class DatosUsuarioRendicionWidget extends StatelessWidget {
   const DatosUsuarioRendicionWidget({

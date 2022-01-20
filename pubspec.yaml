@@ -55,7 +55,7 @@ dependencies:
   # Add Pagination and refresh to listview
   pull_to_refresh: ^2.0.0
   # PDF READER
-  pdf_render: ^1.0.19
+  syncfusion_flutter_pdfviewer: ^19.4.43-beta
 
 dev_dependencies:
   flutter_test:

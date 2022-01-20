@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/domain/entities/detalle_rendicion_entitie.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/domain/repositories/detalle_rendicion_repository.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
+import '../entities/detalle_rendicion_entitie.dart';
+import '../repositories/detalle_rendicion_repository.dart';
 
 class GetDetalleRendicion
     implements UseCase<DetalleRendicionEntitie, NoParams> {

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/domain/entities/detalle_rendicion_entitie.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/domain/usecases/detalle_rendicion_usecase.dart';
+import '../../../../core/usecases/usecase.dart';
+import '../../domain/entities/detalle_rendicion_entitie.dart';
+import '../../domain/usecases/detalle_rendicion_usecase.dart';
 
 part 'detalle_rendicion_event.dart';
 part 'detalle_rendicion_state.dart';

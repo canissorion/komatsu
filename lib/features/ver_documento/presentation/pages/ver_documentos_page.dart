@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pdf_render/pdf_render_widgets.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/cabezera_titulo_widget.dart';
@@ -19,7 +19,9 @@ class VerDocumentoPage extends StatelessWidget {
             folio: "400088",
           ),
           Expanded(
-            child: PdfViewer.openAsset('assets/lorem_ipsum_definicion.pdf'),
+            child: SfPdfViewer.asset(
+              'assets/lorem_ipsum_definicion.pdf',
+            ),
           ),
         ],
       ),

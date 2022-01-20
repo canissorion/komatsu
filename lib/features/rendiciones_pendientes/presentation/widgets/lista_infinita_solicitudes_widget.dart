@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/detalle_rendicion/presentation/pages/detalle_rendicion_page.dart';
-import 'package:kcc_mobile_app/features/rendiciones_pendientes/presentation/bloc/listado_solicitudes_bloc.dart';
-import 'package:kcc_mobile_app/features/rendiciones_pendientes/presentation/widgets/document_pending_approve_widget_blocBuilder.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../../../detalle_rendicion/presentation/pages/detalle_rendicion_page.dart';
+import '../bloc/listado_solicitudes_bloc.dart';
+import 'document_pending_approve_widget_blocbuilder.dart';
 
 class ListaInfinitaSolicitudesWidget extends StatelessWidget {
   const ListaInfinitaSolicitudesWidget({

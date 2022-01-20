@@ -42,13 +42,16 @@ class DetalleDocumentoPage extends StatelessWidget {
                       child: Text(state.errorMessage),
                     );
                   } else if (state is Loading) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      ],
+                    return SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ],
+                      ),
                     );
                   } else {
                     return Padding(

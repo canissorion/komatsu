@@ -18,11 +18,11 @@
     "iva" : "34.392",
     "rentención" : "0",
     "vales" : "0",
-    "saldo_por_pagar" : "277306",
+    "saldo_por_pagar" : "277.306",
     "enviado_por" : "U1001570",
     "nombre_enviador" : "Boris Varela Garay",
     "enviado_a" : "Rodrigo Izurieta Kausel",
     "fecha_envio" : "01/12/2021",
-    "estado" : "EVNIADO A JEFE APROBADOR",
+    "estado" : "ENVIADO A JEFE APROBADOR",
     "comentario_aprobador" : "lorem ipsum"
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
+import '../../../../core/utils/komatsu_colors.dart';
 
 class TituloInformacionWidget extends StatelessWidget {
-  const TituloInformacionWidget(
-      {Key? key, required this.tituloDato, required this.infoDato})
-      : super(key: key);
+  const TituloInformacionWidget({
+    Key? key,
+    required this.tituloDato,
+    required this.infoDato,
+  }) : super(key: key);
 
   final String tituloDato;
   final String infoDato;

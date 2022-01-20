@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/rendiciones_pendientes/presentation/widgets/lista_infinita_solicitudes_widget.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../core/utils/komatsu_colors.dart';
 import '../../../../injection_container.dart';
 import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/drawer_widget.dart';
-import '../../../detalle_rendicion/presentation/pages/detalle_rendicion_page.dart';
 import '../bloc/listado_solicitudes_bloc.dart';
-import '../widgets/document_pending_approve_widget_blocbuilder.dart';
+import '../widgets/lista_infinita_solicitudes_widget.dart';
 import '../widgets/search_bar_widget.dart';
 
 class RendicionesPendientesPage extends StatelessWidget {

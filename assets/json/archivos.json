@@ -1,0 +1,15 @@
+[{
+    "tipo" : 1,
+    "numero_documento" : 66,
+    "monto" : "61905",
+    "nombre_tipo_documento" : "Boleta de Gasto"
+},
+{
+    "tipo" : 2,
+    "fecha" : "2022-08-02",
+    "nombre_tipo_documento" : "Factura Electrónica",
+    "subtipo" : "Factura Afecta",
+    "rut_emisor" : "77.983.880-3",
+    "numero_de_documento" : "99.797.917"
+}
+]

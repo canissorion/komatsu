@@ -41,7 +41,7 @@ class CabezeraTitulo extends StatelessWidget {
               ),
               const Text(
                 'DETALLE DE DOCUMENTOS',
-                style: const TextStyle(
+                style: TextStyle(
                   color: customBlue,
                   fontWeight: FontWeight.bold,
                 ),
