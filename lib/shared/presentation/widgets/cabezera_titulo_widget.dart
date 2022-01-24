@@ -66,9 +66,12 @@ class CabezeraTitulo extends StatelessWidget {
             ],
           ),
           const Expanded(child: SizedBox()),
-          const Text(
-            'Cerrar',
-            style: TextStyle(color: customAccentBlue),
+          GestureDetector(
+            onTap: () {},
+            child: const Text(
+              'Cerrar',
+              style: TextStyle(color: customAccentBlue),
+            ),
           ),
           const SizedBox(
             width: 10,

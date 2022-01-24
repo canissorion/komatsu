@@ -33,33 +33,68 @@ class RendicionesPendientesPage extends StatelessWidget {
             create: (BuildContext context) => sl<PendingItemsBloc>(),
           )
         ],
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              const SizedBox(
-                height: 10,
-              ),
-              const Center(
-                child: Text(
-                  'Rendiciones pendientes \nde aprobación',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        child: BlocBuilder<PendingItemsBloc, PendingItemsState>(
+          builder: (context, state) {
+            if (state is Empty) {
+              BlocProvider.of<PendingItemsBloc>(
+                context,
+                listen: false,
+              ).add(GetPendingItemsEvent());
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.75,
+                child: const Center(
+                  child: Text('No hay Información'),
                 ),
+              );
+            } else if (state is Error) {
+              return Center(
+                child: Text(state.errorMessage),
+              );
+            } else if (state is Loading) {
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ],
+                ),
+              );
+            }
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Center(
+                    child: Text(
+                      'Rendiciones pendientes \nde aprobación',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CupertinoSegmentedControl(
+                    children: _tabs,
+                    padding: const EdgeInsets.all(15),
+                    onValueChanged: (i) {},
+                    borderColor: customAccentBlue,
+                    selectedColor: customAccentBlue,
+                  ),
+                  SearchingBarWidget(
+                    state: state,
+                  ),
+                  const ListaInfinitaSolicitudesWidget()
+                ],
               ),
-              const SizedBox(
-                height: 5,
-              ),
-              CupertinoSegmentedControl(
-                children: _tabs,
-                padding: const EdgeInsets.all(15),
-                onValueChanged: (i) {},
-                borderColor: customAccentBlue,
-                selectedColor: customAccentBlue,
-              ),
-              SearchingBarWidget(),
-              const ListaInfinitaSolicitudesWidget()
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/rendiciones_pendientes/presentation/bloc/listado_solicitudes_bloc.dart';
 import 'bottom_sheet_widget.dart';
 
 class SearchingBarWidget extends StatelessWidget {
+  const SearchingBarWidget({
+    Key? key,
+    required this.state,
+  }) : super(key: key);
+  final PendingItemsState state;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +51,9 @@ class SearchingBarWidget extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.only(right: 5),
-              child: const QuickActionBottomSheet(),
+              child: QuickActionBottomSheet(
+                state: state,
+              ),
             )
           ],
         ),

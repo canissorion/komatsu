@@ -6,3 +6,7 @@ abstract class DetalleRendicionEvent extends Equatable {
 }
 
 class GetDetalleRendicionEvent extends DetalleRendicionEvent {}
+
+class LoadMoreItemsEvent extends DetalleRendicionEvent {}
+
+class MarkEvent extends DetalleRendicionEvent {}

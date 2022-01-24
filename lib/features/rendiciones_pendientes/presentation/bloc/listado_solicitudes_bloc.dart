@@ -23,6 +23,8 @@ class PendingItemsBloc extends Bloc<PendingItemsEvent, PendingItemsState> {
             documentPendingApprove: r,
             items: List.filled(10, 0, growable: true),
             refreshController: RefreshController(),
+            startDate: DateTime.now(),
+            endDate: DateTime.now(),
           ),
         ),
       );
@@ -37,9 +39,41 @@ class PendingItemsBloc extends Bloc<PendingItemsEvent, PendingItemsState> {
           documentPendingApprove: state.documentPendingApprove!,
           items: items,
           refreshController: state.refreshController!,
+          startDate: state.startDate!,
+          endDate: state.endDate!,
         ),
       );
       state.refreshController!.loadComplete();
     });
+
+    on<ChangeDateStartEvent>(
+      (event, emit) async {
+        if (state.documentPendingApprove == null) return;
+        emit(
+          Loaded(
+            documentPendingApprove: state.documentPendingApprove!,
+            refreshController: state.refreshController!,
+            items: state.items!,
+            startDate: event.date,
+            endDate: state.endDate!,
+          ),
+        );
+      },
+    );
+
+    on<ChangeDateEndEvent>(
+      (event, emit) async {
+        if (state.documentPendingApprove == null) return;
+        emit(
+          Loaded(
+            documentPendingApprove: state.documentPendingApprove!,
+            refreshController: state.refreshController!,
+            items: state.items!,
+            startDate: state.startDate!,
+            endDate: event.date,
+          ),
+        );
+      },
+    );
   }
 }

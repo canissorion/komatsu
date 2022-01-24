@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/detalle_documento/presentation/widgets/attachment_button_widget.dart';
 
 import '../../../ver_documento/presentation/pages/ver_documentos_page.dart';
 import '../../domain/entities/detalle_documento_entitie.dart';
@@ -50,7 +51,6 @@ class DetalleTipoDocumento extends StatelessWidget {
               valor: detalleDocumento.numeroDocumento,
             ),
             GestureDetector(
-              behavior: HitTestBehavior.translucent,
               onTap: () {
                 Navigator.push(
                   context,
@@ -61,10 +61,7 @@ class DetalleTipoDocumento extends StatelessWidget {
                   ),
                 );
               },
-              child: const Placeholder(
-                fallbackHeight: 40,
-                fallbackWidth: 160,
-              ),
+              child: const AttachmentButtonWidget(),
             )
           ],
         ),

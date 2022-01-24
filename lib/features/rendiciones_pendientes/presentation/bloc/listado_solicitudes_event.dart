@@ -8,3 +8,21 @@ abstract class PendingItemsEvent extends Equatable {
 class GetPendingItemsEvent extends PendingItemsEvent {}
 
 class LoadMoreItemsEvent extends PendingItemsEvent {}
+
+class ChangeDateStartEvent extends PendingItemsEvent {
+  final DateTime date;
+
+  ChangeDateStartEvent(this.date);
+
+  @override
+  List<Object> get props => [date];
+}
+
+class ChangeDateEndEvent extends PendingItemsEvent {
+  final DateTime date;
+
+  ChangeDateEndEvent(this.date);
+
+  @override
+  List<Object> get props => [date];
+}
