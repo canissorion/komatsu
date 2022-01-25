@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'features/rendiciones_pendientes/presentation/pages/rendiciones_pendientes_page.dart';
+import 'features/pending_expenses/presentation/pages/pending_expense_page.dart';
 
 class App extends StatelessWidget {
   final String flavor;
@@ -20,7 +20,7 @@ class App extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const RendicionesPendientesPage();
+                  return const PendingExpensePage();
                 },
               ),
             );

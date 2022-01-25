@@ -1,21 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-import 'features/detalle_documento/data/datasources/detalle_documento_remote_datasource.dart';
-import 'features/detalle_documento/data/repositories/detalle_documento_repository_impl.dart';
-import 'features/detalle_documento/domain/repositories/detalle_documento_repository.dart';
-import 'features/detalle_documento/domain/usecases/detalle_documento_usecase.dart';
-import 'features/detalle_documento/presentation/bloc/detalle_documento_bloc.dart';
-import 'features/detalle_rendicion/data/datasources/detalle_rendicion_remote_datasource.dart';
-import 'features/detalle_rendicion/data/repositories/detalle_rendicion_repository_impl.dart';
-import 'features/detalle_rendicion/domain/repositories/detalle_rendicion_repository.dart';
-import 'features/detalle_rendicion/domain/usecases/detalle_rendicion_usecase.dart';
-import 'features/detalle_rendicion/presentation/bloc/detalle_rendicion_bloc.dart';
-import 'features/rendiciones_pendientes/data/datasources/pending_items_remote_datasource.dart';
-import 'features/rendiciones_pendientes/data/repositories/pending_items_repository_impl.dart';
-import 'features/rendiciones_pendientes/domain/repositories/pending_items_repository.dart';
-import 'features/rendiciones_pendientes/domain/usecases/pending_items_usecase.dart';
-import 'features/rendiciones_pendientes/presentation/bloc/listado_solicitudes_bloc.dart';
+import 'features/document_detail/data/datasources/document_detail_remote_datasource.dart';
+import 'features/document_detail/data/repositories/document_detail_repository_impl.dart';
+import 'features/document_detail/domain/repositories/document_detail_repository.dart';
+import 'features/document_detail/domain/usecases/document_detail_usecase.dart';
+import 'features/document_detail/presentation/bloc/document_detail_bloc.dart';
+import 'features/expense_detail/data/datasources/expense_detail_remote_datasource.dart';
+import 'features/expense_detail/data/repositories/expense_detail_repository_impl.dart';
+import 'features/expense_detail/domain/repositories/expense_detail_repository.dart';
+import 'features/expense_detail/domain/usecases/expense_detail_usecase.dart';
+import 'features/expense_detail/presentation/bloc/expense_detail_bloc.dart';
+import 'features/pending_expenses/data/datasources/pending_items_remote_datasource.dart';
+import 'features/pending_expenses/data/repositories/pending_items_repository_impl.dart';
+import 'features/pending_expenses/domain/repositories/pending_items_repository.dart';
+import 'features/pending_expenses/domain/usecases/pending_items_usecase.dart';
+import 'features/pending_expenses/presentation/bloc/expense_list_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -23,45 +23,45 @@ Future<void> init() async {
   // Features - Detalle Documento
   // Bloc
   sl.registerFactory(
-    () => DetalleDocumentoBloc(getDetalleDocumento: sl()),
+    () => DocumentDetailBloc(getDocumentDetail: sl()),
   );
 
   sl.registerFactory(
-    () => PendingItemsBloc(getDocumentPendingApprove: sl()),
+    () => PendingExpenseBloc(getPendingDocumentDetail: sl()),
   );
 
   sl.registerFactory(
-    () => DetalleRendicionBloc(getDetalleRendicion: sl()),
+    () => ExpenseDetailBloc(getExpenseDetail: sl()),
   );
   // Use Cases
 
-  sl.registerLazySingleton(() => GetDetalleDocumento(sl()));
-  sl.registerLazySingleton(() => GetDocumentPendingApprove(sl()));
-  sl.registerLazySingleton(() => GetDetalleRendicion(sl()));
+  sl.registerLazySingleton(() => GetDocumentDetail(sl()));
+  sl.registerLazySingleton(() => GetPendingDocumentDetail(sl()));
+  sl.registerLazySingleton(() => GetExpenseDetail(sl()));
 
   // Repository
-  sl.registerLazySingleton<DetalleDocumentoRepository>(
-    () => DetalleDocumentoRepositoryImpl(remoteDataSource: sl()),
+  sl.registerLazySingleton<DocumentDetailRepository>(
+    () => DocumentDetailRepositoryImpl(remoteDataSource: sl()),
   );
-  sl.registerLazySingleton<DocumentPendingApproveRepository>(
-    () => DocumentPendingApproveRepositoryImpl(remoteDataSource: sl()),
+  sl.registerLazySingleton<PendingDocumentDetailRepository>(
+    () => PendingDocumentDetailRepositoryImpl(remoteDataSource: sl()),
   );
-  sl.registerLazySingleton<DetalleRendicionRepository>(
-    () => DetalleRendicionRepositoryImpl(remoteDataSource: sl()),
+  sl.registerLazySingleton<ExpenseDetailRepository>(
+    () => ExpenseDetailRepositoryImpl(remoteDataSource: sl()),
   );
 
   // Data sources
 
-  sl.registerLazySingleton<DetalleDocumentoRemoteDataSource>(
-    () => DetalleDocumentoRemoteDataSourceImpl(client: sl()),
+  sl.registerLazySingleton<DocumentDetailRemoteDataSource>(
+    () => DocumentDetailRemoteDataSourceImpl(client: sl()),
   );
 
-  sl.registerLazySingleton<DocumentPendingApproveRemoteDataSource>(
-    () => DocumentPendingApproveRemoteDataSourceImpl(details: sl()),
+  sl.registerLazySingleton<PendingDocumentDetailRemoteDataSource>(
+    () => PendingDocumentDetailRemoteDataSourceImpl(details: sl()),
   );
 
-  sl.registerLazySingleton<DetalleRendicionRemoteDataSource>(
-    () => DetalleRendicionRemoteDataSourceImpl(client: sl()),
+  sl.registerLazySingleton<ExpenseDetailRemoteDataSource>(
+    () => ExpenseDetailRemoteDataSourceImpl(client: sl()),
   );
 
   // Core

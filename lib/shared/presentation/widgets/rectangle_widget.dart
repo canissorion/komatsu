@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Rectangle extends StatelessWidget {
-  const Rectangle({Key? key, required this.status}) : super(key: key);
+class RectangleWidget extends StatelessWidget {
+  const RectangleWidget({Key? key, required this.status}) : super(key: key);
   final int status;
 
   @override
@@ -33,6 +33,6 @@ class RectangleDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Rectangle(status: status);
+    return RectangleWidget(status: status);
   }
 }
