@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/features/pending_expenses/presentation/widgets/document_pending_approve_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../expense_detail/presentation/pages/expense_detail_page.dart';
@@ -82,7 +83,7 @@ class InfiniteRequestListWidget extends StatelessWidget {
                       );
                     },
                     child: DocumentPendingApprobe(
-                      pendingDocumentDetail: state.pendingDocumentDetail!,
+                      data: state.pendingDocumentDetail!,
                     ),
                   ),
                 ),

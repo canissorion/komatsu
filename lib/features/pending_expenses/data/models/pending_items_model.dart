@@ -3,7 +3,7 @@
 //     final documento = documentoFromJson(jsonString);
 
 // ignore_for_file: prefer_null_aware_operators, prefer_if_null_operators, lines_longer_than_80_chars
-
+/*
 import 'dart:convert';
 
 import '../../domain/entities/pending_document_detail_entitie.dart';
@@ -49,3 +49,4 @@ class PendingItemsModel extends PendingDocumentDetailEntitie {
         "state": state,
       };
 }
+*/

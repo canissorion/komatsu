@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_if_null_operators, unnecessary_null_comparison
 
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/approver_entitie.dart';
+import '../../domain/entities/approver_entitie.dart';
 
 class ApproverModel extends ApproverEntitie {
   const ApproverModel({

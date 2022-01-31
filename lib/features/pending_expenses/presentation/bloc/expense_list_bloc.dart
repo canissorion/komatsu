@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:kcc_mobile_app/features/pending_expenses/domain/entities/pending_expenses_entitie.dart';
+import 'package:kcc_mobile_app/features/pending_expenses/domain/usecases/pending_items_list_usecase.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../core/usecases/usecase.dart';
@@ -12,11 +14,16 @@ part 'expense_list_state.dart';
 class PendingExpenseBloc
     extends Bloc<PendingExpenseEvent, PendingExpenseState> {
   final GetPendingDocumentDetail getPendingDocumentDetail;
-  PendingExpenseBloc({required this.getPendingDocumentDetail})
+  final GetPendingDocumentDetailListUseCase getPendingDocumentListDetail;
+
+  PendingExpenseBloc(
+      {required this.getPendingDocumentDetail,
+      required this.getPendingDocumentListDetail})
       : super(Empty()) {
     on<GetPendingExpenseEvent>((event, emit) async {
       emit(Loading());
       final pendingDocumentDetail = await getPendingDocumentDetail(NoParams());
+      final pendingList = await getPendingDocumentListDetail(NoParams());
       pendingDocumentDetail!.fold(
         (l) => emit(Error(errorMessage: l.toString())),
         (r) => emit(
@@ -26,6 +33,18 @@ class PendingExpenseBloc
             refreshController: RefreshController(),
             startDate: DateTime.now(),
             endDate: DateTime.now(),
+          ),
+        ),
+      );
+      pendingList!.fold(
+        (l) => emit(Error(errorMessage: l.toString())),
+        (r) => emit(
+          Loaded(
+            pendingDocumentDetail: state.pendingDocumentDetail!,
+            items: state.items!,
+            refreshController: state.refreshController!,
+            startDate: state.startDate!,
+            endDate: state.endDate!,
           ),
         ),
       );

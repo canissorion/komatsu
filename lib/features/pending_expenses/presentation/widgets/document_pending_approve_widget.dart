@@ -1,79 +1,28 @@
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
-import '../../domain/entities/pending_document_detail_entitie.dart';
+import '../../../../core/utils/datetime_convert.dart';
 
-class Item extends StatefulWidget {
-  const Item({Key? key, required this.data}) : super(key: key);
-  final PendingDocumentDetailEntitie data;
+import '../../domain/entities/pending_expenses_entitie.dart';
 
-  @override
-  State<Item> createState() => _ItemState();
-}
-
-class Circle extends StatelessWidget {
-  const Circle({Key? key, required this.item}) : super(key: key);
-  final PendingDocumentDetailEntitie item;
+class DocumentPendingApprobe extends StatelessWidget {
+  const DocumentPendingApprobe({Key? key, required this.data})
+      : super(key: key);
+  final PendingExpensesEntitie data;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.only(top: 22),
-        width: 10.0,
-        height: 10.0,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: item.urgency ? Colors.green : Colors.red,
-        ),
-      ),
-    );
+    return DocumentPendingApprove(data: data);
   }
 }
 
-class Rectangle extends StatelessWidget {
-  const Rectangle({Key? key, required this.item}) : super(key: key);
-  final PendingDocumentDetailEntitie item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: item.state ? 50 : 100,
-      height: 20.0,
-      decoration: BoxDecoration(
-        color: item.state ? Colors.green : Colors.orange,
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Center(
-        child: Text(
-          item.state ? "Nuevo" : "En tratamiento",
-          style: const TextStyle(color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
-
-class NotTime extends StatelessWidget {
-  const NotTime({
+class DocumentPendingApprove extends StatelessWidget {
+  const DocumentPendingApprove({
     Key? key,
-    required this.time,
+    required this.data,
   }) : super(key: key);
 
-  final DateTime time;
+  final PendingExpensesEntitie data;
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "${time.day}-${time.month}-${time.year}",
-      style: const TextStyle(
-        fontSize: 14,
-        color: Colors.grey,
-      ),
-    );
-  }
-}
-
-class _ItemState extends State<Item> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -84,7 +33,7 @@ class _ItemState extends State<Item> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Circle(item: widget.data),
+              Circle(item: data),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5),
@@ -94,7 +43,7 @@ class _ItemState extends State<Item> {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                              "Folio ${widget.data.invoice}",
+                              "Folio ${data.document.number}",
                               style: const TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -102,7 +51,13 @@ class _ItemState extends State<Item> {
                               ),
                             ),
                           ),
-                          NotTime(time: widget.data.date),
+                          Text(
+                            dateTimeConverter(data.creationDate),
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
                           const Padding(
                             padding: EdgeInsets.only(left: 5),
                             child: Icon(
@@ -114,13 +69,13 @@ class _ItemState extends State<Item> {
                         ],
                       ),
                       Text(
-                        widget.data.type,
+                        data.document.typeName,
                         style: const TextStyle(
                           fontSize: 15, /*, fontWeight: FontWeight.bold*/
                         ),
                       ),
                       Text(
-                        widget.data.name,
+                        '${data.owner.firstName} ${data.owner.lastName}',
                         style: const TextStyle(fontSize: 15),
                       ),
                       Row(
@@ -129,11 +84,11 @@ class _ItemState extends State<Item> {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 5),
                               child: Text(
-                                (widget.data.urgency) ? "Normal" : "Urgente",
+                                data.priority,
                                 //widget.data.urgency,
                                 style: TextStyle(
                                   fontSize: 15,
-                                  color: (widget.data.urgency)
+                                  color: (data.priority == 'Normal')
                                       ? Colors.green
                                       : Colors.red,
                                   fontWeight: FontWeight.bold,
@@ -143,7 +98,7 @@ class _ItemState extends State<Item> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 5),
-                            child: Rectangle(item: widget.data),
+                            child: Rectangle(item: data),
                           ),
                         ],
                       ),
@@ -160,6 +115,49 @@ class _ItemState extends State<Item> {
           thickness: 2,
         )
       ],
+    );
+  }
+}
+
+class Circle extends StatelessWidget {
+  const Circle({Key? key, required this.item}) : super(key: key);
+  final PendingExpensesEntitie item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.only(top: 22),
+        width: 10.0,
+        height: 10.0,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: item.priority == 'Normal' ? Colors.green : Colors.red,
+        ),
+      ),
+    );
+  }
+}
+
+class Rectangle extends StatelessWidget {
+  const Rectangle({Key? key, required this.item}) : super(key: key);
+  final PendingExpensesEntitie item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: item.generalStaus == 1 ? 50 : 100,
+      height: 20.0,
+      decoration: BoxDecoration(
+        color: item.generalStaus == 1 ? Colors.green : Colors.orange,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Center(
+        child: Text(
+          item.generalStaus == 1 ? "Nuevo" : "En tratamiento",
+          style: const TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }

@@ -3,7 +3,7 @@
 part of 'expense_list_bloc.dart';
 
 abstract class PendingExpenseState extends Equatable {
-  final PendingDocumentDetailEntitie? pendingDocumentDetail;
+  final PendingExpensesEntitie? pendingDocumentDetail;
   final String? errorMessage;
   final List? items;
   final RefreshController? refreshController;
@@ -34,7 +34,7 @@ class Empty extends PendingExpenseState {}
 class Loading extends PendingExpenseState {}
 
 class Loaded extends PendingExpenseState {
-  final PendingDocumentDetailEntitie pendingDocumentDetail;
+  final PendingExpensesEntitie pendingDocumentDetail;
   final List items;
   final RefreshController refreshController;
   final DateTime startDate;
