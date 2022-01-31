@@ -21,7 +21,8 @@ class ResponsibleData extends StatelessWidget {
               width: 200,
               child: InformationTitleWidget(
                 title: 'Responsable',
-                info: expenseDetail.nombreUsuarioRendicion,
+                info:
+                    '${expenseDetail.owner.lastName},${expenseDetail.owner.firstName}',
               ),
             ),
             const Padding(
@@ -31,10 +32,10 @@ class ResponsibleData extends StatelessWidget {
                 style: TextStyle(color: customBlue, fontSize: 16),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 5),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0, top: 5),
               child: RectangleDetails(
-                status: expenseDetail.status,
+                status: 1,
               ),
             ),
             const SizedBox(
@@ -43,7 +44,7 @@ class ResponsibleData extends StatelessWidget {
             ),
             InformationTitleWidget(
               title: 'Proceso',
-              info: expenseDetail.proceso,
+              info: expenseDetail.documentType.name,
             )
           ],
         ),
@@ -59,7 +60,7 @@ class ResponsibleData extends StatelessWidget {
             ),
             InformationTitleWidget(
               title: 'Anexos',
-              info: expenseDetail.anexos.toString(),
+              info: expenseDetail.annexes.toString(),
             )
           ],
         )

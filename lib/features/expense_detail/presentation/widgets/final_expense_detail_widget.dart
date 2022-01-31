@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expense_detail_entitie.dart';
 
@@ -16,7 +18,7 @@ class FinalExpenseDetailWidget extends StatelessWidget {
             height: 100,
           ),
           Text(
-            "Aprobación de gastos ${expenseDetail.nombreUsuarioRendicion}\n N Folio 408080",
+            "Aprobación de gastos ${expenseDetail.owner.firstName} ${expenseDetail.owner.lastName}\n N Folio 408080",
             textAlign: TextAlign.left,
           ),
           const SizedBox(

@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
-import '../models/expense_detail_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:kcc_mobile_app/core/error/exceptions.dart';
+import 'package:kcc_mobile_app/features/expense_detail/data/models/expense_detail_model.dart';
 
 abstract class ExpenseDetailRemoteDataSource {
   Future<ExpenseDetailModel> getExpenseDetail();
@@ -13,10 +17,16 @@ class ExpenseDetailRemoteDataSourceImpl
   ExpenseDetailRemoteDataSourceImpl({required this.client});
   @override
   Future<ExpenseDetailModel> getExpenseDetail() async {
-    late String response;
-    await Future.delayed(const Duration(seconds: 1), () async {
-      response = await rootBundle.loadString("assets/json/detalle.json");
-    });
-    return detalleRendicionFromJson(response);
+    final String url = dotenv.env['server']!;
+    print('url $url');
+    final response = await client.get(
+      '$url/expenses/mobile/documents/0c20ca3d-361e-41fa-93d0-1ed6f0d87694',
+      options: Options(headers: {'authorization': 1}),
+    );
+    if (response.statusCode == 200) {
+      return expenseDetailModelFromJson(json.encode(response.data));
+    } else {
+      throw ServerException();
+    }
   }
 }

@@ -1,4 +1,7 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import 'information_title_widget.dart';
 
@@ -28,32 +31,34 @@ class ApproveFlowWidget extends StatelessWidget {
             children: [
               InformationTitleWidget(
                 title: 'Enviado por',
-                info: expenseDetail.enviadoPor,
+                info: expenseDetail.issuer.id,
               ),
               const SizedBox(
                 width: 40,
               ),
               InformationTitleWidget(
                 title: 'Nombre Enviado por',
-                info: expenseDetail.nombreEnviador,
+                info:
+                    '${expenseDetail.issuer.firstName} ${expenseDetail.issuer.lastName}',
               )
             ],
           ),
           InformationTitleWidget(
             title: 'Enviado a',
-            info: expenseDetail.enviadoA,
+            info:
+                '${expenseDetail.manager.firstName} ${expenseDetail.manager.lastName}',
           ),
           InformationTitleWidget(
             title: 'Fecha',
-            info: expenseDetail.fechaEnvio,
+            info: dateTimeConverter(expenseDetail.creationDate),
           ),
-          InformationTitleWidget(
+          const InformationTitleWidget(
             title: 'Estado',
-            info: expenseDetail.estado,
+            info: 'ENVIADO A JEFE APROBADOR (FALTA)',
           ),
           InformationTitleWidget(
             title: 'Comentario de Aprobador',
-            info: expenseDetail.comentarioAprobador,
+            info: expenseDetail.approver.comments,
           )
         ],
       ),

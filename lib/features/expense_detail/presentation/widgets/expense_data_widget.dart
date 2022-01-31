@@ -29,26 +29,26 @@ class ExpenseDataWidget extends StatelessWidget {
           ),
           InformationTitleWidget(
             title: 'Empresa',
-            info: expenseDetail.empresaRendicion,
+            info: expenseDetail.expenseReportCompany,
           ),
           Row(
             children: [
               InformationTitleWidget(
                 title: 'Oficina de Ventas',
-                info: expenseDetail.oficinaDeVentas,
+                info: expenseDetail.salesOffice,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.13,
               ),
               InformationTitleWidget(
                 title: 'Moneda',
-                info: expenseDetail.moneda,
+                info: expenseDetail.currency.name,
               ),
             ],
           ),
           InformationTitleWidget(
             title: 'Objetivos del Gasto:',
-            info: expenseDetail.objetivoDelGasto,
+            info: expenseDetail.expediture.reason,
           )
         ],
       ),

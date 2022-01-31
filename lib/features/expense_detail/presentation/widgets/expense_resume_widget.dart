@@ -75,31 +75,31 @@ class ExpenseResumeWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '\$ ${expenseDetail.gastos}',
+                    '\$ ${expenseDetail.expediture.amount}',
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    '\$ ${expenseDetail.iva}',
+                    '\$ ${expenseDetail.expediture.taxes}',
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    '\$ ${expenseDetail.rentencin}',
+                    '\$ ${expenseDetail.expediture.retentionAmount}',
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    '\$ ${expenseDetail.vales}',
+                    '\$ ${expenseDetail.expediture.vales}',
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    '\$ ${expenseDetail.saldoPorPagar}',
+                    '\$ ${expenseDetail.expediture.balancePayable}',
                   ),
                 ],
               ),
