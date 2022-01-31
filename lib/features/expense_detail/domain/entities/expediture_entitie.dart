@@ -1,4 +1,6 @@
-class ExpeditureEntitie {
+import 'package:equatable/equatable.dart';
+
+class ExpeditureEntitie extends Equatable {
   const ExpeditureEntitie({
     required this.reason,
     required this.amount,

@@ -1,4 +1,6 @@
-class CostCenterEntitie {
+import 'package:equatable/equatable.dart';
+
+class CostCenterEntitie extends Equatable {
   const CostCenterEntitie({
     required this.code,
     required this.name,

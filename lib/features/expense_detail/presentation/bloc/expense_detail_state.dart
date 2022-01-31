@@ -5,7 +5,7 @@ part of 'expense_detail_bloc.dart';
 abstract class ExpenseDetailState extends Equatable {
   final ExpenseDetailEntitie? expenseDetail;
   final RefreshController? refreshController;
-  final List? items;
+  final SubDocumentResumeListEntitie? items;
   final String? errorMessage;
   final bool? mark;
 
@@ -28,17 +28,18 @@ class Loading extends ExpenseDetailState {}
 class Loaded extends ExpenseDetailState {
   final ExpenseDetailEntitie expenseDetail;
   final RefreshController refreshController;
-  final List items;
+  final SubDocumentResumeListEntitie? items;
   final bool mark;
 
-  const Loaded(
-      {required this.expenseDetail,
-      required this.refreshController,
-      required this.items,
-      required this.mark});
+  const Loaded({
+    required this.expenseDetail,
+    required this.refreshController,
+    this.items,
+    required this.mark,
+  });
 
   @override
-  List<Object> get props => [expenseDetail, refreshController, items, mark];
+  List<Object?> get props => [expenseDetail, refreshController, items, mark];
 }
 
 class Error extends ExpenseDetailState {

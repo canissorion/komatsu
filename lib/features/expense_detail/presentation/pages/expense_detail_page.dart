@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../injection_container.dart';
@@ -62,7 +63,7 @@ class ExpenseDetailPage extends StatelessWidget {
                         state.expenseDetail!;
                     final RefreshController refreshController =
                         state.refreshController!;
-                    final List items = state.items!;
+                    final SubDocumentResumeListEntitie items = state.items!;
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

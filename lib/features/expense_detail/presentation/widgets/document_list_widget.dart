@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 import 'package:kcc_mobile_app/features/document_detail/presentation/pages/document_detail_page.dart';
+import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
 import 'package:kcc_mobile_app/features/expense_detail/presentation/bloc/expense_detail_bloc.dart';
 import 'package:kcc_mobile_app/features/expense_detail/presentation/pages/expense_detail_page.dart';
 import 'package:kcc_mobile_app/features/expense_detail/presentation/widgets/information_title_widget.dart';
@@ -15,7 +16,7 @@ class DocumentListWidget extends StatelessWidget {
   }) : super(key: key);
 
   final RefreshController refreshController;
-  final List items;
+  final SubDocumentResumeListEntitie items;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class DocumentListWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Documentos Ingresados (${items.length})'),
+          Text('Documentos Ingresados (${items.data.length})'),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.67,
             child: SmartRefresher(
@@ -60,77 +61,86 @@ class DocumentListWidget extends StatelessWidget {
               ),
               controller: refreshController,
               child: ListView.builder(
-                itemBuilder: (context, i) => Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const DocumentDetailPage();
-                          },
-                        ),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        const Divider(
-                          thickness: 1,
-                          color: customBlue,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    const InformationTitleWidget(
-                                      title: 'Posición',
-                                      info: '1',
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.1,
-                                    ),
-                                    const InformationTitleWidget(
-                                      title: 'N° de Documento',
-                                      info: '66',
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    const InformationTitleWidget(
-                                      title: 'Monto',
-                                      info: '\$61.905',
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.1,
-                                    ),
-                                    const InformationTitleWidget(
-                                      title: 'Tipo Documento',
-                                      info: 'Boleta de Gasto',
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              color: customBlue,
-                            )
-                          ],
-                        )
-                      ],
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(0),
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const DocumentDetailPage();
+                            },
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          const Divider(
+                            thickness: 1,
+                            color: customBlue,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      InformationTitleWidget(
+                                        title: 'Posición',
+                                        info: (index + 1).toString(),
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.1,
+                                      ),
+                                      InformationTitleWidget(
+                                        title: 'N° de Documento',
+                                        info: items
+                                            .data[index].subDocument.number
+                                            .toString(),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      InformationTitleWidget(
+                                        title: 'Monto',
+                                        info: items
+                                            .data[index].subDocument.amount
+                                            .toString(),
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.1,
+                                      ),
+                                      InformationTitleWidget(
+                                        title: 'Tipo Documento',
+                                        info:
+                                            items.data[index].subDocument.type,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                color: customBlue,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ),
-                itemCount: items.length,
+                  );
+                },
+                itemCount: items.data.length,
               ),
             ),
           ),

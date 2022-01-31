@@ -22,7 +22,7 @@ class ResponsibleData extends StatelessWidget {
               child: InformationTitleWidget(
                 title: 'Responsable',
                 info:
-                    '${expenseDetail.owner.lastName},${expenseDetail.owner.firstName}',
+                    '${expenseDetail.manager.lastName},${expenseDetail.manager.firstName}',
               ),
             ),
             const Padding(
