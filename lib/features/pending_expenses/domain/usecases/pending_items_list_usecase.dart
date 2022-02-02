@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/features/pending_expenses/domain/entities/pending_items_list_entitie.dart';
-import 'package:kcc_mobile_app/features/pending_expenses/domain/repositories/pending_items_list_repository.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
+import '../entities/pending_items_list_entitie.dart';
+import '../repositories/pending_items_list_repository.dart';
 
 class GetPendingDocumentDetailListUseCase
     implements UseCase<PendingExpensesListEntitie, NoParams> {

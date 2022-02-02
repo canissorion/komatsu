@@ -87,7 +87,7 @@ class InfiniteRequestListWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                itemCount: state.items!.length,
+                itemCount: state.items!.data.length,
               ),
             );
           }
