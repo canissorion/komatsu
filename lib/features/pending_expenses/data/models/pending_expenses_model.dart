@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../../domain/entities/pending_expenses_entitie.dart';
-import 'document_model.dart';
+import 'document_pending_expenses_model.dart';
 import 'owner_model.dart';
 
 PendingExpensesModel pendingExpensesModelFromJson(String str) =>

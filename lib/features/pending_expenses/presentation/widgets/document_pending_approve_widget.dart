@@ -146,15 +146,15 @@ class Rectangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: item.generalStaus == 1 ? 50 : 100,
+      width: item.generalStaus == 0 ? 50 : 100,
       height: 20.0,
       decoration: BoxDecoration(
-        color: item.generalStaus == 1 ? Colors.green : Colors.orange,
+        color: item.generalStaus == 0 ? Colors.green : Colors.orange,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Center(
         child: Text(
-          item.generalStaus == 1 ? "Nuevo" : "En tratamiento",
+          item.generalStaus == 0 ? "Nuevo" : "En tratamiento",
           style: const TextStyle(color: Colors.white),
         ),
       ),

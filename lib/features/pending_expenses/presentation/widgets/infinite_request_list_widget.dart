@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/pending_expenses/presentation/widgets/document_pending_approve_widget.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../expense_detail/presentation/pages/expense_detail_page.dart';
 import '../bloc/expense_list_bloc.dart';
-import 'document_pending_approve_widget_blocbuilder.dart';
+import 'document_pending_approve_widget.dart';
 
 class InfiniteRequestListWidget extends StatelessWidget {
   const InfiniteRequestListWidget({
@@ -76,15 +76,13 @@ class InfiniteRequestListWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) {
+                          builder: (context) {
                             return const ExpenseDetailPage();
                           },
                         ),
                       );
                     },
-                    child: DocumentPendingApprobe(
-                      data: state.pendingDocumentDetail!,
-                    ),
+                    child: DocumentPendingApprobe(data: state.items!.data[i]),
                   ),
                 ),
                 itemCount: state.items!.data.length,

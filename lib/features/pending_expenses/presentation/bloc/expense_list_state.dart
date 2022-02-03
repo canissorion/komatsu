@@ -34,14 +34,14 @@ class Empty extends PendingExpenseState {}
 class Loading extends PendingExpenseState {}
 
 class Loaded extends PendingExpenseState {
-  final PendingExpensesEntitie pendingDocumentDetail;
+  //final PendingExpensesEntitie pendingDocumentDetail;
   final PendingExpensesListEntitie? items;
   final RefreshController refreshController;
   final DateTime startDate;
   final DateTime endDate;
 
   const Loaded({
-    required this.pendingDocumentDetail,
+    //required this.pendingDocumentDetail,
     this.items,
     required this.refreshController,
     required this.startDate,
@@ -49,8 +49,7 @@ class Loaded extends PendingExpenseState {
   });
 
   @override
-  List<Object?> get props =>
-      [pendingDocumentDetail, items, refreshController, startDate, endDate];
+  List<Object?> get props => [items, refreshController, startDate, endDate];
 }
 
 class Error extends PendingExpenseState {

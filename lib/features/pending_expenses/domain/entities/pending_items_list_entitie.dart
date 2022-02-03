@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/shared/entitie/pagination_entitie.dart';
+import '../../../../shared/entitie/pagination_entitie.dart';
 
 import 'pending_expenses_entitie.dart';
 

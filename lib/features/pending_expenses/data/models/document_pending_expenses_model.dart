@@ -1,5 +1,3 @@
-import 'package:flutter/scheduler.dart';
-
 import '../../domain/entities/document_pending_expenses_entitie.dart';
 
 class DocumentPendingExpensesModel extends DocumentPendingExpensesEntitie {
@@ -12,10 +10,10 @@ class DocumentPendingExpensesModel extends DocumentPendingExpensesEntitie {
 
   factory DocumentPendingExpensesModel.fromJson(Map<String, dynamic> json) =>
       DocumentPendingExpensesModel(
-        id: json["id"] == null ? '' : json["id"] as String,
-        number: json["number"] == null ? '' : json["number"] as String,
+        id: json["id"] == null ? '' : json["id"].toString(),
+        number: json["number"] == null ? '' : json["number"].toString(),
         typeId: json["typeId"] == null ? 0 : json["typeId"] as int,
-        typeName: json["typeName"] == null ? '' : json["typeName"] as String,
+        typeName: json["typeName"] == null ? '' : json["typeName"].toString(),
       );
 
   Map<String, dynamic> toJson() => {

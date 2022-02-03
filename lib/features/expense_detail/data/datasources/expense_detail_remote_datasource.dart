@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:kcc_mobile_app/core/error/exceptions.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/expense_detail_model.dart';
+import '../../../../core/error/exceptions.dart';
+import '../models/expense_detail_model.dart';
 
 abstract class ExpenseDetailRemoteDataSource {
   Future<ExpenseDetailModel> getExpenseDetail();
