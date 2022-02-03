@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
+import 'package:kcc_mobile_app/features/approvalsHistory/presentation/pages/approvals_page.dart';
+import '../../../approvalsHistory/presentation/widgets/approvals_widget.dart';
+
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../injection_container.dart';
@@ -10,6 +12,7 @@ import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../../../shared/presentation/widgets/header_title_widget.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
+import '../../domain/entities/sub_document_resume_list_entitie.dart';
 import '../bloc/expense_detail_bloc.dart';
 import '../widgets/custom_tabbar_widget.dart';
 import '../widgets/document_list_widget.dart';
@@ -83,7 +86,8 @@ class ExpenseDetailPage extends StatelessWidget {
                                 refreshController: refreshController,
                                 items: items,
                               ),
-                              const SizedBox()
+                              //const SizedBox(),
+                              ApprovalsPage(),
                             ],
                           ),
                         ),

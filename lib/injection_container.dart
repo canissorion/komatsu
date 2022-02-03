@@ -1,7 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kcc_mobile_app/features/approvalsHistory/data/datasources/approvals_remote_datasources.dart';
+import 'package:kcc_mobile_app/features/approvalsHistory/data/repositories/approval_history_repositoy_impl.dart';
+import 'package:kcc_mobile_app/features/approvalsHistory/domain/usecases/approval_history_list_usecase.dart';
+import 'package:kcc_mobile_app/features/approvalsHistory/presentation/bloc/approvals_history_bloc.dart';
 import 'package:kcc_mobile_app/features/expense_detail/data/datasources/expense_detail_remote_datasource.dart';
 
+import 'features/approvalsHistory/domain/repositories/approval_history_repository.dart';
 import 'features/document_detail/data/datasources/document_detail_remote_datasource.dart';
 import 'features/document_detail/data/repositories/document_detail_repository_impl.dart';
 import 'features/document_detail/domain/repositories/document_detail_repository.dart';
@@ -42,12 +47,19 @@ Future<void> init() async {
       getSubdocumentResumeUseCase: sl(),
     ),
   );
+
+  sl.registerFactory(
+    () => ApprovalsHistoryBloc(
+      getApprovalHistoryListUseCase: sl(),
+    ),
+  );
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
   sl.registerLazySingleton(() => GetExpenseDetail(sl()));
   sl.registerLazySingleton(() => GetSubDocumentResumeUseCase(sl()));
   sl.registerLazySingleton(() => GetPendingDocumentDetailListUseCase(sl()));
+  sl.registerLazySingleton(() => GetApprovalHistoryListUseCase(sl()));
 
   // Repository
   sl.registerLazySingleton<DocumentDetailRepository>(
@@ -62,7 +74,9 @@ Future<void> init() async {
   sl.registerLazySingleton<SubDocumentResumeRepository>(
     () => SubDocumentResumeRepositoryImpl(remoteDataSource: sl()),
   );
-
+  sl.registerLazySingleton<ApprovalHistoryRepository>(
+    () => ApprovalHistoryRepositoryImpl(remoteDataSource: sl()),
+  );
   // Data sources
 
   sl.registerLazySingleton<DocumentDetailRemoteDataSource>(
@@ -75,6 +89,10 @@ Future<void> init() async {
 
   sl.registerLazySingleton<ExpenseDetailRemoteDataSource>(
     () => ExpenseDetailRemoteDataSourceImpl(client: sl()),
+  );
+
+  sl.registerLazySingleton<ApprovalsHistoryRemoteDataSource>(
+    () => ApprovalsHistoryRemoteDataSourceImpl(client: sl()),
   );
   // Core
 
