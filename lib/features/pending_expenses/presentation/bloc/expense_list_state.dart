@@ -3,9 +3,9 @@
 part of 'expense_list_bloc.dart';
 
 abstract class PendingExpenseState extends Equatable {
-  final PendingDocumentDetailEntitie? pendingDocumentDetail;
+  final PendingExpensesEntitie? pendingDocumentDetail;
   final String? errorMessage;
-  final List? items;
+  final PendingExpensesListEntitie? items;
   final RefreshController? refreshController;
   final DateTime? startDate;
   final DateTime? endDate;
@@ -34,22 +34,22 @@ class Empty extends PendingExpenseState {}
 class Loading extends PendingExpenseState {}
 
 class Loaded extends PendingExpenseState {
-  final PendingDocumentDetailEntitie pendingDocumentDetail;
-  final List items;
+  //final PendingExpensesEntitie pendingDocumentDetail;
+  final PendingExpensesListEntitie? items;
   final RefreshController refreshController;
   final DateTime startDate;
   final DateTime endDate;
 
-  const Loaded(
-      {required this.pendingDocumentDetail,
-      required this.items,
-      required this.refreshController,
-      required this.startDate,
-      required this.endDate});
+  const Loaded({
+    //required this.pendingDocumentDetail,
+    this.items,
+    required this.refreshController,
+    required this.startDate,
+    required this.endDate,
+  });
 
   @override
-  List<Object> get props =>
-      [pendingDocumentDetail, items, refreshController, startDate, endDate];
+  List<Object?> get props => [items, refreshController, startDate, endDate];
 }
 
 class Error extends PendingExpenseState {

@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+/*import 'package:equatable/equatable.dart';
 
 class PendingDocumentDetailEntitie extends Equatable {
   final String invoice;
@@ -20,3 +20,4 @@ class PendingDocumentDetailEntitie extends Equatable {
   @override
   List<Object?> get props => [invoice, type, name, urgency, state, date];
 }
+*/

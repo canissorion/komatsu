@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_dynamic_calls
 
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expediture_entitie.dart';
+import '../../domain/entities/expediture_entitie.dart';
 
 class ExpeditureModel extends ExpeditureEntitie {
   const ExpeditureModel({
