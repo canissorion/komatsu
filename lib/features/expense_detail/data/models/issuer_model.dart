@@ -1,4 +1,4 @@
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/issuer_entitie.dart';
+import '../../domain/entities/issuer_entitie.dart';
 
 class IssuerModel extends IssuerEntitie {
   const IssuerModel({
@@ -19,11 +19,4 @@ class IssuerModel extends IssuerEntitie {
         lastName: json["lastName"] == null ? '' : json["lastName"] as String,
         rut: json["rut"] == null ? '' : json["rut"] as String,
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "firstName": firstName == null ? null : firstName,
-        "lastName": lastName == null ? null : lastName,
-        "rut": rut == null ? null : rut,
-      };
 }

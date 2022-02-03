@@ -1,4 +1,4 @@
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/document_type_entitie.dart';
+import '../../domain/entities/document_type_entitie.dart';
 
 class DocumentTypeModel extends DocumentTypeEntitie {
   const DocumentTypeModel({
@@ -11,9 +11,4 @@ class DocumentTypeModel extends DocumentTypeEntitie {
         id: json["id"] as int,
         name: json["name"] == null ? '' : json["name"] as String,
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "name": name == null ? null : name,
-      };
 }

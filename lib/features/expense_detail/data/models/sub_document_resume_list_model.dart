@@ -1,14 +1,11 @@
-// To parse this JSON data, do
-//
-//     final subDocumentResumeListModel = subDocumentResumeListModelFromJson(jsonString);
 
 import 'dart:convert';
 
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/attachment_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
-import 'package:kcc_mobile_app/shared/data/model/pagination_model.dart';
+import '../../../../shared/data/model/pagination_model.dart';
+import '../../domain/entities/attachment_entitie.dart';
+import '../../domain/entities/sub_document_entitie.dart';
+import '../../domain/entities/sub_document_resume_entitie.dart';
+import '../../domain/entities/sub_document_resume_list_entitie.dart';
 
 SubDocumentResumeListModel subDocumentResumeListModelFromJson(String str) =>
     SubDocumentResumeListModel.fromJson(

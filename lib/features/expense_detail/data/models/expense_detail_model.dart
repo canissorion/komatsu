@@ -4,13 +4,13 @@
 
 import 'dart:convert';
 
-import 'package:kcc_mobile_app/features/expense_detail/data/models/approver_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/cost_center_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/currency_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/document_type_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/expediture_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/data/models/issuer_model.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expense_detail_entitie.dart';
+import '../../domain/entities/expense_detail_entitie.dart';
+import 'approver_model.dart';
+import 'cost_center_model.dart';
+import 'currency_model.dart';
+import 'document_type_model.dart';
+import 'expediture_model.dart';
+import 'issuer_model.dart';
 
 ExpenseDetailModel expenseDetailModelFromJson(String str) =>
     ExpenseDetailModel.fromJson(json.decode(str) as Map<String, dynamic>);
@@ -62,12 +62,14 @@ class ExpenseDetailModel extends ExpenseDetailEntitie {
             : json["documentNumber"] as String,
         owner: IssuerModel.fromJson(json["owner"] as Map<String, dynamic>),
         ownersCompany: CostCenterModel.fromJson(
-            json["ownersCompany"] as Map<String, dynamic>),
+          json["ownersCompany"] as Map<String, dynamic>,
+        ),
         expenseReportCompany: json["expenseReportCompany"] == null
             ? ''
             : json["expenseReportCompany"] as String,
         costCenter: CostCenterModel.fromJson(
-            json["costCenter"] as Map<String, dynamic>),
+          json["costCenter"] as Map<String, dynamic>,
+        ),
         creationDate:
             json["creationDate"] == null ? 0 : json["creationDate"] as int,
         salesOffice:

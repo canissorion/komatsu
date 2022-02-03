@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import '../datasources/expense_detail_remote_datasource.dart';
+
+import '../../../../core/error/exceptions.dart';
+import '../../../../core/error/failures.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import '../../domain/repositories/expense_detail_repository.dart';
-import '../../../../core/error/exceptions.dart';
-
-import '../../../../core/error/failures.dart';
+import '../datasources/expense_detail_remote_datasource.dart';
 
 class ExpenseDetailRepositoryImpl implements ExpenseDetailRepository {
   final ExpenseDetailRemoteDataSource remoteDataSource;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/document_detail/presentation/widgets/attachment_button_widget.dart';
-import 'package:kcc_mobile_app/features/view_document/presentation/pages/view_document_page.dart';
 
+import '../../../view_document/presentation/pages/view_document_page.dart';
 import '../../domain/entities/document_detail_entitie.dart';
+import 'attachment_button_widget.dart';
 import 'individual_detail_widget.dart';
 
 class DocumentTypeDetailWidget extends StatelessWidget {

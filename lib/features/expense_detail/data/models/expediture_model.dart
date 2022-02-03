@@ -33,13 +33,4 @@ class ExpeditureModel extends ExpeditureEntitie {
             ? 0
             : json["balancePayable"].toDouble() as double,
       );
-
-  Map<String, dynamic> toJson() => {
-        "reason": reason == null ? null : reason,
-        "amount": amount == null ? null : amount,
-        "taxes": taxes == null ? null : taxes,
-        "retentionAmount": retentionAmount == null ? null : retentionAmount,
-        "vales": vales == null ? null : vales,
-        "balancePayable": balancePayable == null ? null : balancePayable,
-      };
 }

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_entitie.dart';
-import 'package:kcc_mobile_app/shared/domain/entitie/pagination_entitie.dart';
+import 'sub_document_resume_entitie.dart';
+import '../../../../shared/domain/entitie/pagination_entitie.dart';
 
 class SubDocumentResumeListEntitie extends Equatable {
   const SubDocumentResumeListEntitie({

@@ -1,4 +1,4 @@
-import 'package:kcc_mobile_app/shared/domain/entitie/pagination_entitie.dart';
+import '../../domain/entitie/pagination_entitie.dart';
 
 class PaginationModel extends PaginationEntitie {
   const PaginationModel({

@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/usecases/sub_document_resume_usecase.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 import '../../../../core/usecases/usecase.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
+import '../../domain/entities/sub_document_resume_list_entitie.dart';
 import '../../domain/usecases/expense_detail_usecase.dart';
+import '../../domain/usecases/sub_document_resume_usecase.dart';
 
 part 'expense_detail_event.dart';
 part 'expense_detail_state.dart';

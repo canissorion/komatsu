@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
+import '../../../../core/utils/datetime_convert.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import 'information_title_widget.dart';
 

@@ -1,5 +1,4 @@
-
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/costcenter_entitie.dart';
+import '../../domain/entities/costcenter_entitie.dart';
 
 class CostCenterModel extends CostCenterEntitie {
   const CostCenterModel({
@@ -15,9 +14,4 @@ class CostCenterModel extends CostCenterEntitie {
         code: json["code"] as int,
         name: json["name"] == null ? '' : json["name"] as String,
       );
-
-  Map<String, dynamic> toJson() => {
-        "code": code == null ? null : code,
-        "name": name == null ? null : name,
-      };
 }

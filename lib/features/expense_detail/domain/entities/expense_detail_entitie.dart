@@ -5,13 +5,13 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/approver_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/costcenter_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/currency_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/document_type_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expediture_entitie.dart';
+import 'approver_entitie.dart';
+import 'costcenter_entitie.dart';
+import 'currency_entitie.dart';
+import 'document_type_entitie.dart';
+import 'expediture_entitie.dart';
 
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/issuer_entitie.dart';
+import 'issuer_entitie.dart';
 
 class ExpenseDetailEntitie extends Equatable {
   const ExpenseDetailEntitie({

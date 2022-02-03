@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expense_detail_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/presentation/widgets/information_title_widget.dart';
+import '../../domain/entities/expense_detail_entitie.dart';
+import 'information_title_widget.dart';
 import '../../../../core/utils/komatsu_colors.dart';
 
 import '../../../../shared/presentation/widgets/rectangle_widget.dart';

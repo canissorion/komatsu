@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/sub_document_resume_list_entitie.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/repositories/sub_document_resume_repository.dart';
+import '../entities/sub_document_resume_list_entitie.dart';
+import '../repositories/sub_document_resume_repository.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
