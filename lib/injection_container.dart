@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kcc_mobile_app/features/expense_detail/data/datasources/expense_detail_remote_datasource.dart';
 
 import 'features/document_detail/data/datasources/document_detail_remote_datasource.dart';
 import 'features/document_detail/data/repositories/document_detail_repository_impl.dart';
@@ -31,7 +32,6 @@ Future<void> init() async {
 
   sl.registerFactory(
     () => PendingExpenseBloc(
-      //getPendingDocumentDetail: sl(),
       getPendingDocumentListDetail: sl(),
     ),
   );
@@ -45,7 +45,6 @@ Future<void> init() async {
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
-  //sl.registerLazySingleton(() => GetPendingDocumentDetail(sl()));
   sl.registerLazySingleton(() => GetExpenseDetail(sl()));
   sl.registerLazySingleton(() => GetSubDocumentResumeUseCase(sl()));
   sl.registerLazySingleton(() => GetPendingDocumentDetailListUseCase(sl()));
@@ -54,9 +53,6 @@ Future<void> init() async {
   sl.registerLazySingleton<DocumentDetailRepository>(
     () => DocumentDetailRepositoryImpl(remoteDataSource: sl()),
   );
-  /*sl.registerLazySingleton<PendingDocumentDetailRepository>(
-    () => PendingDocumentDetailRepositoryImpl(remoteDataSource: sl()),
-  );*/
   sl.registerLazySingleton<ExpenseDetailRepository>(
     () => ExpenseDetailRepositoryImpl(remoteDataSource: sl()),
   );
@@ -77,6 +73,9 @@ Future<void> init() async {
     () => PendingDocumentDetailRemoteDataSourceImpl(client: sl()),
   );
 
+  sl.registerLazySingleton<ExpenseDetailRemoteDataSource>(
+    () => ExpenseDetailRemoteDataSourceImpl(client: sl()),
+  );
   // Core
 
   // External

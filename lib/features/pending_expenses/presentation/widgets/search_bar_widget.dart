@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../bloc/expense_list_bloc.dart';
+import 'package:kcc_mobile_app/features/pending_expenses/presentation/bloc/expense_list_bloc.dart';
 import 'bottom_sheet_widget.dart';
 
 class SearchingBarWidget extends StatelessWidget {
