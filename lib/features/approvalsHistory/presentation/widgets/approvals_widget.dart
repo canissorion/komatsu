@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/approvalsHistory/domain/entities/approvals_approval_history_entitie.dart';
-import 'package:kcc_mobile_app/features/approvalsHistory/domain/entities/approver_entitie.dart';
-import 'package:kcc_mobile_app/features/pending_expenses/presentation/widgets/document_pending_approve_widget.dart';
 import 'package:timelines/timelines.dart';
 
+import '../../../../core/utils/datetime_convert.dart';
+import '../../../../core/utils/komatsu_colors.dart';
 import '../../domain/entities/approval_data_entitie.dart';
+import '../../domain/entities/approvals_approval_history_entitie.dart';
+import '../../domain/entities/approver_entitie.dart';
 
 const kTileHeight = 50.0;
 
@@ -101,16 +100,15 @@ class _InnerTimeline extends StatelessWidget {
           connectorTheme: TimelineTheme.of(context).connectorTheme.copyWith(
                 thickness: 1.0,
               ),
-          indicatorTheme: TimelineTheme.of(context).indicatorTheme.copyWith(
-                size: 10.0,
-                position: 0.5,
-              ),
+          indicatorTheme: TimelineTheme.of(context)
+              .indicatorTheme
+              .copyWith(size: 10.0, position: 0.5, color: customBlue),
         ),
         builder: TimelineTileBuilder(
           indicatorBuilder: (_, index) =>
               !isEdgeIndex(index) ? Indicator.outlined(borderWidth: 1.0) : null,
-          startConnectorBuilder: (_, index) => Connector.solidLine(),
-          endConnectorBuilder: (_, index) => Connector.solidLine(),
+          //startConnectorBuilder: (_, index) => Connector.solidLine(),
+          //endConnectorBuilder: (_, index) => Connector.solidLine(),
           contentsBuilder: (_, index) {
             if (isEdgeIndex(index)) {
               return null;
