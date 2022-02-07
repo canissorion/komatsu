@@ -162,7 +162,7 @@ class _DeliveryProcesses extends StatelessWidget {
               if (processes[index].isCompleted) return null;
 
               return Padding(
-                padding: EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,

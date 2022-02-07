@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/approvalsHistory/presentation/pages/approvals_page.dart';
-import '../../../approvalsHistory/presentation/widgets/approvals_widget.dart';
+import 'package:kcc_mobile_app/features/approvals_history/presentation/pages/approvals_page.dart';
+import 'package:kcc_mobile_app/features/new_expenses/presentation/widgets/expense_form.dart';
 
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -87,7 +87,8 @@ class ExpenseDetailPage extends StatelessWidget {
                                 items: items,
                               ),
                               //const SizedBox(),
-                              ApprovalsPage(),
+                              //const ApprovalsPage(),
+                              ExpensesForm(),
                             ],
                           ),
                         ),

@@ -50,10 +50,11 @@ class ApprovalsPage extends StatelessWidget {
                 } else {
                   final ApprovalsHistoryListEntitie items = state.items!;
                   return SizedBox(
-                      height: 550,
-                      child: ApprovalsHistory(
-                        data: items.data,
-                      ));
+                    height: 550,
+                    child: ApprovalsHistory(
+                      data: items.data,
+                    ),
+                  );
                 }
               },
             )
