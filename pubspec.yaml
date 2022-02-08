@@ -58,7 +58,10 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^19.4.43-beta
   # DATE SELECTOR
   bottom_picker: ^1.5.0
+  # DateFormater
   intl: ^0.17.0
+  #Progress Indicator Widget
+  step_progress_indicator: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

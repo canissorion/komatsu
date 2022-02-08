@@ -1,4 +1,7 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
+
 import '../../../../core/utils/datetime_convert.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import 'information_title_widget.dart';

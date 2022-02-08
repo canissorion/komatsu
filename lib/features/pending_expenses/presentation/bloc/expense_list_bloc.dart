@@ -12,34 +12,19 @@ part 'expense_list_state.dart';
 
 class PendingExpenseBloc
     extends Bloc<PendingExpenseEvent, PendingExpenseState> {
-  //final GetPendingDocumentDetail getPendingDocumentDetail;
   final GetPendingDocumentDetailListUseCase getPendingDocumentListDetail;
 
   PendingExpenseBloc({
-    //required this.getPendingDocumentDetail,
     required this.getPendingDocumentListDetail,
   }) : super(Empty()) {
     on<GetPendingExpenseEvent>((event, emit) async {
       emit(Loading());
-      //final pendingDocumentDetail = await getPendingDocumentDetail(NoParams());
+
       final items = await getPendingDocumentListDetail(NoParams());
-      /*pendingDocumentDetail!.fold(
-        (l) => emit(Error(errorMessage: l.toString())),
-        (r) => emit(
-          Loaded(
-            pendingDocumentDetail: r,
-            //items: List.filled(10, 0, growable: true),
-            refreshController: RefreshController(),
-            startDate: DateTime.now(),
-            endDate: DateTime.now(),
-          ),
-        ),
-      );*/
       items!.fold(
         (l) => emit(Error(errorMessage: l.toString())),
         (r) => emit(
           Loaded(
-            //pendingDocumentDetail: state.pendingDocumentDetail!,
             items: r,
             refreshController: RefreshController(),
             startDate: DateTime.now(),
@@ -51,11 +36,9 @@ class PendingExpenseBloc
 
     on<LoadMoreItemsEvent>((event, emit) async {
       if (state.pendingDocumentDetail == null) return;
-      //final items = [...state.items!, 0];
 
       emit(
         Loaded(
-          //pendingDocumentDetail: state.pendingDocumentDetail!,
           items: state.items,
           refreshController: state.refreshController!,
           startDate: state.startDate!,
@@ -70,7 +53,6 @@ class PendingExpenseBloc
         if (state.pendingDocumentDetail == null) return;
         emit(
           Loaded(
-            //pendingDocumentDetail: state.pendingDocumentDetail!,
             refreshController: state.refreshController!,
             items: state.items,
             startDate: event.date,

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'sub_document_resume_entitie.dart';
+
 import '../../../../shared/domain/entitie/pagination_entitie.dart';
+import 'sub_document_resume_entitie.dart';
 
 class SubDocumentResumeListEntitie extends Equatable {
   const SubDocumentResumeListEntitie({

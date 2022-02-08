@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../../../core/error/exceptions.dart';
-import '../models/pending_expenses_model.dart';
 import '../models/pending_items_list_model.dart';
 
 abstract class PendingDocumentDetailRemoteDataSource {

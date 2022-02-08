@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 import 'document_pending_expenses_entitie.dart';
 import 'owner_entitie.dart';
 

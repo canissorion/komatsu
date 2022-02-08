@@ -1,7 +1,7 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expense_detail/domain/entities/expense_detail_entitie.dart';
+import '../../domain/entities/expense_detail_entitie.dart';
 
 class FinalExpenseDetailWidget extends StatelessWidget {
   const FinalExpenseDetailWidget({Key? key, required this.expenseDetail})

@@ -1,9 +1,11 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/komatsu_colors.dart';
+import '../../../../shared/presentation/widgets/rectangle_widget.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import 'information_title_widget.dart';
-import '../../../../core/utils/komatsu_colors.dart';
-
-import '../../../../shared/presentation/widgets/rectangle_widget.dart';
 
 class ResponsibleData extends StatelessWidget {
   const ResponsibleData({Key? key, required this.expenseDetail})

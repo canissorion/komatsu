@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 import '../../../../core/utils/komatsu_colors.dart';
 import '../../../document_detail/presentation/pages/document_detail_page.dart';
 import '../../domain/entities/sub_document_resume_list_entitie.dart';
 import '../bloc/expense_detail_bloc.dart';
-import '../pages/expense_detail_page.dart';
 import 'information_title_widget.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class DocumentListWidget extends StatelessWidget {
   const DocumentListWidget({
@@ -63,7 +63,7 @@ class DocumentListWidget extends StatelessWidget {
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(1),
                     child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: () {

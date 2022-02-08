@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../document_detail/presentation/pages/document_detail_page.dart';
+
 import '../../domain/entities/expense_detail_entitie.dart';
-import 'task_closure_widget.dart';
-import 'expense_data_widget.dart';
-import 'user_data_expense_widget.dart';
 import 'approve_flow_widget.dart';
-import 'responsible_data_widget.dart';
+import 'expense_data_widget.dart';
 import 'expense_resume_widget.dart';
+import 'responsible_data_widget.dart';
+import 'task_closure_widget.dart';
+import 'user_data_expense_widget.dart';
 
 class ExpenseDetailWidget extends StatelessWidget {
   const ExpenseDetailWidget({

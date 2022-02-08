@@ -14,10 +14,10 @@ part 'expense_detail_state.dart';
 class ExpenseDetailBloc extends Bloc<ExpenseDetailEvent, ExpenseDetailState> {
   final GetExpenseDetail getExpenseDetail;
   final GetSubDocumentResumeUseCase getSubdocumentResumeUseCase;
-  ExpenseDetailBloc(
-      {required this.getExpenseDetail,
-      required this.getSubdocumentResumeUseCase})
-      : super(Empty()) {
+  ExpenseDetailBloc({
+    required this.getExpenseDetail,
+    required this.getSubdocumentResumeUseCase,
+  }) : super(Empty()) {
     on<GetExpenseDetailEvent>((event, emit) async {
       emit(Loading());
       final expenseDetail = await getExpenseDetail(NoParams());
@@ -51,7 +51,7 @@ class ExpenseDetailBloc extends Bloc<ExpenseDetailEvent, ExpenseDetailState> {
       emit(
         Loaded(
           expenseDetail: state.expenseDetail!,
-          items: state.items!,
+          items: state.items,
           refreshController: state.refreshController!,
           mark: state.mark!,
         ),
@@ -61,12 +61,14 @@ class ExpenseDetailBloc extends Bloc<ExpenseDetailEvent, ExpenseDetailState> {
 
     on<MarkEvent>((event, emit) async {
       if (state.expenseDetail == null) return;
-      emit(Loaded(
-        expenseDetail: state.expenseDetail!,
-        items: state.items!,
-        refreshController: state.refreshController!,
-        mark: !state.mark!,
-      ));
+      emit(
+        Loaded(
+          expenseDetail: state.expenseDetail!,
+          items: state.items,
+          refreshController: state.refreshController!,
+          mark: !state.mark!,
+        ),
+      );
     });
   }
 }

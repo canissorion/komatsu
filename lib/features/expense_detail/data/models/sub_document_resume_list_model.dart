@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_dynamic_calls
 
 import 'dart:convert';
 
@@ -23,11 +24,13 @@ class SubDocumentResumeListModel extends SubDocumentResumeListEntitie {
         pagination: PaginationModel.fromJson(
           json["pagination"] as Map<String, dynamic>,
         ),
-        data: List<SubDocumentResumeModel>.from(json["data"].map(
-          (x) => SubDocumentResumeModel.fromJson(
-            x as Map<String, dynamic>,
-          ),
-        ) as Iterable<dynamic>),
+        data: List<SubDocumentResumeModel>.from(
+          json["data"].map(
+            (x) => SubDocumentResumeModel.fromJson(
+              x as Map<String, dynamic>,
+            ),
+          ) as Iterable<dynamic>,
+        ),
       );
 }
 
