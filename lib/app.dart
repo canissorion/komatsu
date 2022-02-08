@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'features/pending_expenses/presentation/pages/pending_expense_page.dart';
+import 'features/Flujo_fondos/pending_funds/presentation/pages/pending_funds_page.dart';
+import 'features/Flujo_rendiciones/pending_expenses/presentation/pages/pending_expense_page.dart';
 
 class App extends StatelessWidget {
   final String flavor;
@@ -14,18 +15,39 @@ class App extends StatelessWidget {
         title: Text('$flavor Komatsu'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const PendingExpensePage();
-                },
-              ),
-            );
-          },
-          child: const Text('rendiciones'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PendingFundsPage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Fondos'),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PendingExpensePage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('rendiciones'),
+            ),
+          ],
         ),
       ),
     );

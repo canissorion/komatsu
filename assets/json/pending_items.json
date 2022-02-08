@@ -1,8 +1,9 @@
 {
-  "invoice": "#4000086",
-  "type": "Aprobación rendicion de gastos",
-  "date": "2022-08-02",
-  "name": "Leanne Graham",
-  "urgency": false,
-  "state": true
+  "number": "#4000086",
+  "typeName": "Aprobación rendicion de Fondos",
+  "creationDate": 1659454924000,
+  "firstName": "Moises",
+  "lastName": "Bravo",
+  "priority": "Normal",
+  "generalStatus": 0
 }
