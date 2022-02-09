@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
+import 'package:kcc_mobile_app/shared/presentation/widgets/information_title_widget.dart';
 import 'package:kcc_mobile_app/shared/presentation/widgets/rectangle_widget.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
-import 'information_title_widget.dart';
 
 class ResponsibleData extends StatelessWidget {
   const ResponsibleData({Key? key, required this.expenseDetail})

@@ -1,6 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kcc_mobile_app/features/Flujo_fondos/approvals_history_funds/data/repositories/approval_history_funds_repositoy_impl.dart';
 
+import 'features/Flujo_fondos/approvals_history_funds/data/datasources/approvals_funds_remote_datasources.dart';
+import 'features/Flujo_fondos/approvals_history_funds/domain/repositories/approval_history_funds_repository.dart';
+import 'features/Flujo_fondos/approvals_history_funds/domain/usecases/approval_history_funds_usecase.dart';
+import 'features/Flujo_fondos/approvals_history_funds/presentation/bloc/approvals_funds_bloc.dart';
+import 'features/Flujo_fondos/expense_solicitude/data/datasources/expense_solicitude_remote_datasource.dart';
+import 'features/Flujo_fondos/expense_solicitude/data/repositories/expense_solicitude_repository_impl.dart';
+import 'features/Flujo_fondos/expense_solicitude/domain/repositories/expense_solicitude_repository.dart';
+import 'features/Flujo_fondos/expense_solicitude/domain/usecase/expense_solicitude_usecase.dart';
+import 'features/Flujo_fondos/expense_solicitude/presentation/bloc/expense_solicitude_bloc.dart';
 import 'features/Flujo_fondos/pending_funds/data/datasources/pending_funds_remote_datasource.dart';
 import 'features/Flujo_fondos/pending_funds/data/repositories/pending_funds_repository_impl.dart';
 import 'features/Flujo_fondos/pending_funds/domain/repositories/pending_funds_repository.dart';
@@ -61,6 +71,12 @@ Future<void> init() async {
   sl.registerFactory(
     () => PendingFundsBloc(getPendingfundsDetail: sl()),
   );
+  sl.registerFactory(
+    () => ExpenseSolicitudeBloc(getExpenseSolicitude: sl()),
+  );
+  sl.registerFactory(
+    () => ApprovalsFundsBloc(getApprovalHistoryFundsUseCase: sl()),
+  );
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
@@ -70,6 +86,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetApprovalHistoryListUseCase(sl()));
   //--------------------------Fondos----------------------------------
   sl.registerLazySingleton(() => GetPendingFundsDetailListUseCase(sl()));
+  sl.registerLazySingleton(() => GetExpenseSolicitudeUseCase(sl()));
+  sl.registerLazySingleton(() => GetApprovalsHistoryFundsUseCase(sl()));
 
   // Repository
   sl.registerLazySingleton<DocumentDetailRepository>(
@@ -91,6 +109,12 @@ Future<void> init() async {
   sl.registerLazySingleton<PendingFundsDetailRepository>(
     () => PendingFundsDetailRepositoryImpl(remoteDataSource: sl()),
   );
+  sl.registerLazySingleton<ExpenseSolicitudeRepository>(
+    () => ExpenseSolicitudeRepositoryImpl(remoteDataSource: sl()),
+  );
+  sl.registerLazySingleton<ApprovalsHistoryFundsRepository>(
+    () => ApprovalsHistoryFundsRepositoryImpl(remoteDataSource: sl()),
+  );
   // Data sources
 
   sl.registerLazySingleton<DocumentDetailRemoteDataSource>(
@@ -111,6 +135,12 @@ Future<void> init() async {
   //--------------------------Fondos----------------------------------
   sl.registerLazySingleton<PendingFundsDetailRemoteDataSource>(
     () => PendingFundsDetailRemoteDataSourceImpl(client: sl()),
+  );
+  sl.registerLazySingleton<ExpenseSolicitudeRemoteDataSource>(
+    () => ExpenseSolicitudeRemoteDataSourceImpl(client: sl()),
+  );
+  sl.registerLazySingleton<ApprovalsHistoryFundsRemoteDataSource>(
+    () => ApprovalsHistoryFundsRemoteDataSourceImpl(client: sl()),
   );
   // Core
 

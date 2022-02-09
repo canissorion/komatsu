@@ -16,6 +16,7 @@ class ViewDocumentPage extends StatelessWidget {
         children: [
           const HeaderTitleWidget(
             invoiceNumber: "400088",
+            position: true,
           ),
           Expanded(
             child: SfPdfViewer.asset(

@@ -131,7 +131,7 @@ class Circle extends StatelessWidget {
         height: 10.0,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: item.priority == 'Normal' ? Colors.green : Colors.red,
+          color: item.generalStatus == 0 ? Colors.green : Colors.transparent,
         ),
       ),
     );

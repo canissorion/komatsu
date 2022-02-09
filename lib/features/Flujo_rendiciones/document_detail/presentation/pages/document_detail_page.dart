@@ -26,6 +26,7 @@ class DocumentDetailPage extends StatelessWidget {
             children: [
               const HeaderTitleWidget(
                 invoiceNumber: "4000088",
+                position: true,
               ),
               BlocBuilder<DocumentDetailBloc, DocumentDetailState>(
                 builder: (context, state) {

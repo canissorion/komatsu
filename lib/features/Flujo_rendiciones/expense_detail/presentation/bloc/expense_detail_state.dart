@@ -9,12 +9,13 @@ abstract class ExpenseDetailState extends Equatable {
   final String? errorMessage;
   final bool? mark;
 
-  const ExpenseDetailState(
-      {this.expenseDetail,
-      this.refreshController,
-      this.items,
-      this.errorMessage,
-      this.mark});
+  const ExpenseDetailState({
+    this.expenseDetail,
+    this.refreshController,
+    this.items,
+    this.errorMessage,
+    this.mark,
+  });
 
   @override
   List<Object?> get props =>

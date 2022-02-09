@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
+import 'package:kcc_mobile_app/shared/presentation/widgets/information_title_widget.dart';
 
 import '../../../document_detail/presentation/pages/document_detail_page.dart';
 import '../../domain/entities/sub_document_resume_list_entitie.dart';
 import '../bloc/expense_detail_bloc.dart';
 import '../pages/expense_detail_page.dart';
-import 'information_title_widget.dart';
+
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class DocumentListWidget extends StatelessWidget {

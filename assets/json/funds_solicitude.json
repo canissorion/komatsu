@@ -1,0 +1,35 @@
+{
+    "authorizer": {
+      "id": "U1007015",
+      "firstName": "Rodrigo",
+      "lastName": "Izurieta Kausel"
+    },
+    "documentType": {
+      "id": 1,
+      "name": "Solicitud de fondos"
+    },
+    "documentNumber": "4000086",
+    "ownersCompany": {
+      "code": "KCC",
+      "name": "Komatsu Cummins Chile Ltda."
+    },
+    "costCenter": {
+      "code": 30560003,
+      "name": "Fn_Tesorería"
+    },
+    "creationDate": 1659454924000,
+    "currency": {
+      "code": "CLP",
+      "amount": 888888888
+    },
+    "objective": {
+      "advance": "lorem ipsum",
+      "estimateTime": 1659454924000
+    },
+    "creator": {
+      "id": "U1007015",
+      "firstName": "Antonio",
+      "lastName": "Hernandez Rey",
+      "rut": "15.821.165-3"
+    }
+  }
