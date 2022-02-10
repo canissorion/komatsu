@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'features/Flujo_fondos/pending_funds/presentation/pages/pending_funds_page.dart';
-import 'features/Flujo_rendiciones/pending_expenses/presentation/pages/pending_expense_page.dart';
+import 'features/funds_flow/pending_funds/presentation/pages/pending_funds_page.dart';
+import 'features/expenses_flow/pending_expenses/presentation/pages/pending_expense_page.dart';
 
 class App extends StatelessWidget {
   final String flavor;
