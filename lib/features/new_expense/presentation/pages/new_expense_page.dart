@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/new_expense/presentation/widgets/expense_resume_close_widget.dart';
 
 import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/drawer_widget.dart';
@@ -13,7 +14,7 @@ class NewExpensePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBarWidget(),
         drawer: const DrawerWidget(),
@@ -30,7 +31,8 @@ class NewExpensePage extends StatelessWidget {
                 child: const TabBarView(
                   children: [
                     NewExpenseFormWidget(),
-                    DocumentSelectedListPage()
+                    DocumentSelectedListPage(),
+                    ExpenseResumeCloseWidget()
                   ],
                 ),
               ),

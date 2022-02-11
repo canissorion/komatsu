@@ -80,8 +80,8 @@ Future<void> init() async {
   // External
   final BaseOptions options = BaseOptions(
     receiveDataWhenStatusError: true,
-    connectTimeout: 10 * 1000, // 60 seconds
-    receiveTimeout: 10 * 1000 // 60 seconds
+    connectTimeout: 10 * 1000, // 10 seconds
+    receiveTimeout: 10 * 1000 // 10 seconds
     ,
   );
   sl.registerLazySingleton(() => Dio(options));

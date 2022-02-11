@@ -7,7 +7,6 @@ import '../../../../core/error/exceptions.dart';
 import '../models/pending_items_list_model.dart';
 
 abstract class PendingDocumentDetailRemoteDataSource {
-  //Future<PendingExpensesModel> getPendingApprove();
   Future<PendingExpensesListModel> getPendingDocumentListDetail();
 }
 
