@@ -1,0 +1,21 @@
+{
+    "documentType": {
+      "id": 1,
+      "name": "Solicitud de fondos"
+    },
+    "company": {
+      "code": "KCC",
+      "name": "Komatsu Cummins Chile Ltda."
+    },
+    "costCenter": {
+      "code": 30560003,
+      "name": "Fn_Tesorería"
+    },
+    "date": 1659454924000,
+    "user": {
+      "id": "U1007015",
+      "firstName": "Antonio",
+      "lastName": "Hernandez Rey",
+      "rut": "15.821.165-3"
+    }
+  }

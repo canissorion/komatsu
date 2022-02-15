@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:kcc_mobile_app/features/funds_flow/approvals_history_funds/data/repositories/approval_history_funds_repositoy_impl.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
 import 'features/expenses_flow/approvals_history/data/repositories/approval_history_repositoy_impl.dart';
@@ -26,6 +25,7 @@ import 'features/expenses_flow/pending_expenses/domain/repositories/pending_item
 import 'features/expenses_flow/pending_expenses/domain/usecases/pending_items_list_usecase.dart';
 import 'features/expenses_flow/pending_expenses/presentation/bloc/expense_list_bloc.dart';
 import 'features/funds_flow/approvals_history_funds/data/datasources/approvals_funds_remote_datasources.dart';
+import 'features/funds_flow/approvals_history_funds/data/repositories/approval_history_funds_repositoy_impl.dart';
 import 'features/funds_flow/approvals_history_funds/domain/repositories/approval_history_funds_repository.dart';
 import 'features/funds_flow/approvals_history_funds/domain/usecases/approval_history_funds_usecase.dart';
 import 'features/funds_flow/approvals_history_funds/presentation/bloc/approvals_funds_bloc.dart';
@@ -67,6 +67,7 @@ Future<void> init() async {
       getApprovalHistoryListUseCase: sl(),
     ),
   );
+
   //--------------------------Fondos----------------------------------
   sl.registerFactory(
     () => PendingFundsBloc(getPendingfundsDetail: sl()),
