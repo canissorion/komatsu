@@ -10,6 +10,5 @@ class ApprovalFlowEntitie extends Equatable {
   final int date;
 
   @override
-  // TODO: implement props
   List<Object?> get props => [id, date];
 }

@@ -10,7 +10,6 @@ class CreatorModel extends CreatorEntitie {
 
   factory CreatorModel.fromJson(Map<String, dynamic> json) => CreatorModel(
         id: json["id"].toString(),
-        // ignore: prefer_if_null_operators
         rut: json["rut"].toString(),
         firstName: json["firstName"].toString(),
         lastName: json["lastName"].toString(),

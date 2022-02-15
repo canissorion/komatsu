@@ -3,7 +3,6 @@
 part of 'funds_list_bloc.dart';
 
 abstract class PendingFundsState extends Equatable {
-  //final PendingFundssEntitie? pendingDocumentDetail;
   final String? errorMessage;
   final PendingFundsDetailEntitie? items;
   final RefreshController? refreshController;
@@ -11,7 +10,6 @@ abstract class PendingFundsState extends Equatable {
   final DateTime? endDate;
 
   const PendingFundsState({
-    //this.pendingDocumentDetail,
     this.errorMessage,
     this.items,
     this.refreshController,
@@ -34,7 +32,6 @@ class Loaded extends PendingFundsState {
   final DateTime endDate;
 
   const Loaded({
-    //this.items,
     required this.refreshController,
     required this.startDate,
     required this.endDate,

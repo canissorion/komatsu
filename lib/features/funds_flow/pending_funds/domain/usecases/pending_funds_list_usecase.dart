@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/core/error/failures.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
-import 'package:kcc_mobile_app/features/funds_flow/pending_funds/domain/entities/pending_funds_entitie.dart';
+import '../../../../../core/error/failures.dart';
+import '../../../../../core/usecases/usecase.dart';
+import '../entities/pending_funds_entitie.dart';
 
 import '../repositories/pending_funds_repository.dart';
 

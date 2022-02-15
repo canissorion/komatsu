@@ -2,8 +2,7 @@ import 'package:bottom_picker/bottom_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
 import '../bloc/funds_list_bloc.dart';
 

@@ -4,7 +4,7 @@ class ObjectiveEntitie extends Equatable {
   final String advance;
   final int estimateTime;
 
-  ObjectiveEntitie({
+  const ObjectiveEntitie({
     required this.advance,
     required this.estimateTime,
   });

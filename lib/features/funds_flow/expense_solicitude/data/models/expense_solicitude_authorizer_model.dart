@@ -10,7 +10,6 @@ class AuthorizerModel extends AuthorizerEntitie {
   factory AuthorizerModel.fromJson(Map<String, dynamic> json) =>
       AuthorizerModel(
         id: json["id"].toString(),
-        // ignore: prefer_if_null_operators
         firstName: json["firstName"].toString(),
         lastName: json["lastName"].toString(),
       );

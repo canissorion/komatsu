@@ -12,6 +12,5 @@ class ApprovalsHistoryFundsEntitie extends Equatable {
   final List<ApprovalElementEntitie> approvals;
 
   @override
-  // TODO: implement props
   List<Object?> get props => [documentTypeId, approvals];
 }

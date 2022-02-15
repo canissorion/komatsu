@@ -18,6 +18,5 @@ class ApprovalElementEntitie extends Equatable {
   final int receivedDate;
 
   @override
-  // TODO: implement props
   List<Object?> get props => [approval, approver, statusInTheFlow, sendTo];
 }

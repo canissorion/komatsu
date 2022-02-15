@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/widgets/currency_widget.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/widgets/objective_widget.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/widgets/task_closure_funds_widget.dart';
 
 import '../../domain/entities/expense_solicitude_entitie.dart';
 import 'authorizer_widget.dart';
 import 'company_widget.dart';
 import 'creator_widget.dart';
+import 'currency_widget.dart';
+import 'objective_widget.dart';
+import 'task_closure_funds_widget.dart';
 
 class ExpenseSolicitudeDetailWidget extends StatelessWidget {
   const ExpenseSolicitudeDetailWidget(
