@@ -10,6 +10,5 @@ class CurrencyEntitie extends Equatable {
   final int amount;
 
   @override
-  // TODO: implement props
   List<Object?> get props => [code, amount];
 }

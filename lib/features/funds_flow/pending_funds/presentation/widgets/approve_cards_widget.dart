@@ -1,7 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
-import 'package:kcc_mobile_app/features/funds_flow/pending_funds/domain/entities/pending_funds_entitie.dart';
+import '../../../../../core/utils/datetime_convert.dart';
+import '../../domain/entities/pending_funds_entitie.dart';
 
 class ApprobeCards extends StatelessWidget {
   const ApprobeCards({Key? key, required this.data}) : super(key: key);
@@ -79,22 +79,6 @@ class DocumentPendingApprove extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           const Spacer(),
-                          /*Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: Text(
-                                "hola",
-                                //widget.data.urgency,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: (data.)
-                                      ? Colors.green
-                                      : Colors.red,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),*/
                           Padding(
                             padding: const EdgeInsets.only(left: 5),
                             child: Rectangle(item: data),

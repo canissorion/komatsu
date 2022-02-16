@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/pages/final_expense_solicitude_page.dart';
+
 import '../../../../../core/utils/komatsu_colors.dart';
 import '../bloc/expense_solicitude_bloc.dart';
+import '../pages/final_expense_solicitude_page.dart';
 
 class TaskClosureFundsWidget extends StatelessWidget {
   const TaskClosureFundsWidget({
@@ -60,6 +60,8 @@ class TaskClosureFundsWidget extends StatelessWidget {
           height: 20,
         ),
         Row(
+          //crossAxisAlignment: CrossAxisAlignment.start,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Transform.scale(
               scale: 1.3,
@@ -78,21 +80,19 @@ class TaskClosureFundsWidget extends StatelessWidget {
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    "Declaro conocer la pólitica de Rendiciones\nde Gastos y Viajes",
-                    style: TextStyle(color: customBlue, fontSize: 15),
-                  ),
+                const Text(
+                  "Declaro conocer la pólitica de Rendiciones de Gastos y Viajes",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
                 ),
                 InkWell(
                   child: const Text(
-                    "Ver política, manuales y procedimientos",
+                    "Ver política de manuales y procedimientos",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      //fontWeight: FontWeight.bold,
                       color: customBlue,
-                      fontSize: 15,
+                      fontSize: 12,
                     ),
                   ),
                   onTap: () {
@@ -108,70 +108,64 @@ class TaskClosureFundsWidget extends StatelessWidget {
             )
           ],
         ),
-        Container(
-          margin: const EdgeInsets.only(top: 15, bottom: 15, left: 30),
-          child: Row(
-            children: [
-              const SizedBox(
-                //height: 30,
-                width: 45,
-              ),
-              SizedBox(
-                width: 100,
-                height: 35,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    primary: Colors.green,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 100,
+              height: 35,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) {
-                          return const FinalExpenseSolicitudePage(option: true);
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text('Aprobar'),
+                  primary: Colors.green,
                 ),
-              ),
-              const SizedBox(
-                height: 60,
-                width: 30,
-              ),
-              SizedBox(
-                width: 100,
-                height: 35,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) {
+                        return const FinalExpenseSolicitudePage(option: true);
+                      },
                     ),
-                    primary: Colors.red,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) {
-                          return const FinalExpenseSolicitudePage(
-                            option: false,
-                          );
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text('Rechazar'),
-                ),
+                  );
+                },
+                child: const Text('Aprobar'),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 60,
+              width: 30,
+            ),
+            SizedBox(
+              width: 100,
+              height: 35,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  primary: Colors.red,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) {
+                        return const FinalExpenseSolicitudePage(
+                          option: false,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: const Text('Rechazar'),
+              ),
+            ),
+          ],
         )
       ],
     );

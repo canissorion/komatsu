@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/bloc/expense_solicitude_bloc.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/widgets/final_expense_solicitude_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/appbar_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/drawer_widget.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/header_title_widget.dart';
+
+import '../../../../../injection_container.dart';
+import '../../../../../shared/presentation/widgets/appbar_widget.dart';
+import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../../../../shared/presentation/widgets/header_title_widget.dart';
+import '../bloc/expense_solicitude_bloc.dart';
+import '../widgets/final_expense_solicitude_widget.dart';
 
 class FinalExpenseSolicitudePage extends StatelessWidget {
   const FinalExpenseSolicitudePage({Key? key, required this.option})

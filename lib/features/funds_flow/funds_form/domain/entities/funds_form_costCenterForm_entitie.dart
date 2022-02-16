@@ -1,14 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-class OwnersCompanyEntitie extends Equatable {
-  final String code;
-  final String name;
-
-  const OwnersCompanyEntitie({
+class CostCenterFormEntitie extends Equatable {
+  const CostCenterFormEntitie({
     required this.code,
     required this.name,
   });
 
+  final int code;
+  final String name;
+
   @override
+  // TODO: implement props
   List<Object?> get props => [code, name];
 }

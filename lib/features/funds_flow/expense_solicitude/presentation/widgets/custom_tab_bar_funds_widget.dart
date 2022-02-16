@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
 class CustomTabBarFundsWidget extends StatelessWidget {
   const CustomTabBarFundsWidget({

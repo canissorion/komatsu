@@ -8,7 +8,9 @@ class SearchingBarWidget extends StatelessWidget {
     Key? key,
     required this.state,
   }) : super(key: key);
+
   final PendingFundsState state;
+
   @override
   Widget build(BuildContext context) {
     return Container(

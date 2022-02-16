@@ -10,11 +10,9 @@ part 'funds_list_event.dart';
 part 'funds_list_state.dart';
 
 class PendingFundsBloc extends Bloc<PendingFundsEvent, PendingFundsState> {
-  //final GetPendingDocumentDetail getPendingDocumentDetail;
   final GetPendingFundsDetailListUseCase getPendingfundsDetail;
 
   PendingFundsBloc({
-    //required this.getPendingDocumentDetail,
     required this.getPendingfundsDetail,
   }) : super(Empty()) {
     on<GetPendingFundsEvent>((event, emit) async {
@@ -25,7 +23,6 @@ class PendingFundsBloc extends Bloc<PendingFundsEvent, PendingFundsState> {
         (l) => emit(Error(errorMessage: l.toString())),
         (r) => emit(
           Loaded(
-            //pendingDocumentDetail: state.pendingDocumentDetail!,
             items: r,
             refreshController: RefreshController(),
             startDate: DateTime.now(),
@@ -36,8 +33,6 @@ class PendingFundsBloc extends Bloc<PendingFundsEvent, PendingFundsState> {
     });
 
     on<LoadMoreItemsEvent>((event, emit) async {
-      //if (state.pendingDocumentDetail == null) return;
-
       emit(
         Loaded(
           items: state.items,
@@ -51,7 +46,6 @@ class PendingFundsBloc extends Bloc<PendingFundsEvent, PendingFundsState> {
 
     on<ChangeDateStartEvent>(
       (event, emit) async {
-        //if (state.pendingDocumentDetail == null) return;
         emit(
           Loaded(
             refreshController: state.refreshController!,
@@ -65,7 +59,6 @@ class PendingFundsBloc extends Bloc<PendingFundsEvent, PendingFundsState> {
 
     on<ChangeDateEndEvent>(
       (event, emit) async {
-        //if (state.pendingDocumentDetail == null) return;
         emit(
           Loaded(
             refreshController: state.refreshController!,

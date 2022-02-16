@@ -1,7 +1,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/information_title_widget.dart';
 import 'package:timelines/timelines.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';

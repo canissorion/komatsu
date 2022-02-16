@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/funds_flow/expense_solicitude/presentation/pages/expense_solicitude_page.dart';
-import 'package:kcc_mobile_app/features/funds_flow/pending_funds/presentation/widgets/approve_cards_widget.dart';
-
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../../expense_solicitude/presentation/pages/expense_solicitude_page.dart';
 import '../bloc/funds_list_bloc.dart';
+import 'approve_cards_widget.dart';
 
 class InfiniteRequestListWidget extends StatelessWidget {
   const InfiniteRequestListWidget({
