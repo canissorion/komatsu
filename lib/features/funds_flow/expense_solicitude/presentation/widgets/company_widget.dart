@@ -20,16 +20,9 @@ class CompanyWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              InformationTitleWidget(
-                title: 'Empresa:',
-                info: expenseSolicitude.ownersCompany.name,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.08,
-              ),
-            ],
+          InformationTitleWidget(
+            title: 'Empresa:',
+            info: expenseSolicitude.ownersCompany.name,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,11 +32,14 @@ class CompanyWidget extends StatelessWidget {
                 info: expenseSolicitude.costCenter.name,
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.23,
+                width: MediaQuery.of(context).size.width * 0.08,
               ),
-              InformationTitleWidget(
-                title: 'Código empresa',
-                info: expenseSolicitude.ownersCompany.code,
+              SizedBox(
+                width: 150,
+                child: InformationTitleWidget(
+                  title: 'Código empresa',
+                  info: expenseSolicitude.ownersCompany.code,
+                ),
               ),
             ],
           ),

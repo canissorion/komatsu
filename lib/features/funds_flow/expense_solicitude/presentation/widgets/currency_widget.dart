@@ -20,20 +20,27 @@ class CurrencyWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10.0, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InformationTitleWidget(
                 title: 'Moneda:',
                 info: expenseSolicitude.currency.code,
               ),
-              SizedBox(
+              /*SizedBox(
                 width: MediaQuery.of(context).size.width * 0.34,
+              ),*/
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.08,
               ),
-              InformationTitleWidget(
-                title: 'Monto:',
-                info: "\$${numberFormat(expenseSolicitude.currency.amount)}",
+              SizedBox(
+                width: 150,
+                child: InformationTitleWidget(
+                  title: 'Monto:',
+                  info: "\$${numberFormat(expenseSolicitude.currency.amount)}",
+                ),
               ),
             ],
           ),

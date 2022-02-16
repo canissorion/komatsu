@@ -21,6 +21,7 @@ class CreatorWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InformationTitleWidget(
                 title: 'Nombre:',
@@ -28,11 +29,11 @@ class CreatorWidget extends StatelessWidget {
                     '${expenseSolicitude.creator.firstName}, ${expenseSolicitude.creator.lastName}',
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.08,
-              ),
-              InformationTitleWidget(
-                title: 'RUT:',
-                info: expenseSolicitude.creator.rut,
+                width: 150,
+                child: InformationTitleWidget(
+                  title: 'RUT:',
+                  info: expenseSolicitude.creator.rut,
+                ),
               ),
             ],
           ),

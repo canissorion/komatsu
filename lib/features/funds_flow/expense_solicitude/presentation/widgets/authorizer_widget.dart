@@ -15,50 +15,53 @@ class AuthorizerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        SizedBox(
+          //width: 300,
+          child: InformationTitleWidget(
+            title: 'Autorizador',
+            info:
+                '${expenseSolicitude.authorizer.lastName}, ${expenseSolicitude.authorizer.firstName}',
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              //width: 300,
-              child: InformationTitleWidget(
-                title: 'Autorizador',
-                info:
-                    '${expenseSolicitude.authorizer.lastName}, ${expenseSolicitude.authorizer.firstName}',
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 10.0,
+                top: 10,
+                bottom: 5,
+                right: 30,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "Estado",
+                    style: TextStyle(color: customBlue),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 2.0),
+                    child: RectangleDetails(
+                      status: 1,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 10.0, top: 10, bottom: 5, right: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Estado",
-                        style: TextStyle(color: customBlue),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 2.0),
-                        child: RectangleDetails(
-                          status: 1,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.23,
-                ),
-                InformationTitleWidget(
-                  title: 'Fecha',
-                  info: dateTimeConverter(expenseSolicitude.creationDate),
-                )
-              ],
-            ),
+            /*SizedBox(
+              width: MediaQuery.of(context).size.width * 0.08,
+            ),*/
+            SizedBox(
+              width: 142,
+              child: InformationTitleWidget(
+                title: 'Fecha',
+                info: dateTimeConverter(expenseSolicitude.creationDate),
+              ),
+            )
           ],
         ),
       ],
