@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 import '../../../../core/utils/komatsu_colors.dart';
 
 class FormStepWidget extends StatelessWidget {
-  const FormStepWidget({Key? key, required this.pagePosition})
-      : super(key: key);
-
-  final int pagePosition;
+  const FormStepWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,39 +27,14 @@ class FormStepWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            if (pagePosition > 1)
-              GestureDetector(
-                onTap: () {
-                  if (pagePosition > 1) {
-                    BlocProvider.of<StepWizardBloc>(
-                      context,
-                      listen: false,
-                    ).add(const ChangePreviousPageStepEvent());
-                    DefaultTabController.of(context)!
-                        .animateTo(pagePosition - 2);
-                  }
-                },
-                child: Row(
-                  children: const [
-                    Icon(Icons.arrow_back_ios, color: customAccentBlue),
-                    Text(
-                      'Atras',
-                      style: TextStyle(color: customAccentBlue),
-                    ),
-                  ],
-                ),
-              ),
-            const SizedBox(
-              width: 20,
-            ),
             Center(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.46,
-                child: StepProgressIndicator(
-                  size: 6,
+                child: const StepProgressIndicator(
+                  size: 12,
                   roundedEdges: Radius.circular(10),
-                  totalSteps: 3,
-                  currentStep: pagePosition,
+                  totalSteps: 10,
+                  currentStep: 1,
                   selectedColor: customBlue,
                 ),
               ),
@@ -74,13 +44,7 @@ class FormStepWidget extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                if (pagePosition < 3) {
-                  DefaultTabController.of(context)!.animateTo(pagePosition);
-                  BlocProvider.of<StepWizardBloc>(
-                    context,
-                    listen: false,
-                  ).add(const ChangeNextPageStepEvent());
-                }
+                DefaultTabController.of(context)!.animateTo(1);
               },
               child: Row(
                 children: const [

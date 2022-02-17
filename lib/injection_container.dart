@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:kcc_mobile_app/features/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
 import 'features/expenses_flow/approvals_history/data/repositories/approval_history_repositoy_impl.dart';
@@ -46,24 +45,9 @@ import 'features/funds_flow/pending_funds/domain/repositories/pending_funds_repo
 import 'features/funds_flow/pending_funds/domain/usecases/pending_funds_list_usecase.dart';
 import 'features/funds_flow/pending_funds/presentation/bloc/funds_list_bloc.dart';
 
-import 'features/document_detail/data/datasources/document_detail_remote_datasource.dart';
-import 'features/document_detail/data/repositories/document_detail_repository_impl.dart';
-import 'features/document_detail/domain/repositories/document_detail_repository.dart';
-import 'features/document_detail/domain/usecases/document_detail_usecase.dart';
-import 'features/document_detail/presentation/bloc/document_detail_bloc.dart';
+
 import 'features/expense_detail/data/datasources/expense_detail_remote_datasource.dart';
-import 'features/expense_detail/data/repositories/expense_detail_repository_impl.dart';
-import 'features/expense_detail/data/repositories/sub_document_resume_repository_impl.dart';
-import 'features/expense_detail/domain/repositories/expense_detail_repository.dart';
-import 'features/expense_detail/domain/repositories/sub_document_resume_repository.dart';
-import 'features/expense_detail/domain/usecases/expense_detail_usecase.dart';
-import 'features/expense_detail/domain/usecases/sub_document_resume_usecase.dart';
-import 'features/expense_detail/presentation/bloc/expense_detail_bloc.dart';
-import 'features/pending_expenses/data/datasources/pending_items_remote_datasource.dart';
-import 'features/pending_expenses/data/repositories/pending_items_list_repository_impl.dart';
-import 'features/pending_expenses/domain/repositories/pending_items_list_repository.dart';
-import 'features/pending_expenses/domain/usecases/pending_items_list_usecase.dart';
-import 'features/pending_expenses/presentation/bloc/expense_list_bloc.dart';
+
 
 final sl = GetIt.instance;
 
@@ -86,6 +70,7 @@ Future<void> init() async {
       getSubdocumentResumeUseCase: sl(),
     ),
   );
+<<<<<<< HEAD
 
   sl.registerFactory(
     () => ApprovalsHistoryBloc(
@@ -109,6 +94,8 @@ Future<void> init() async {
   );
 
   sl.registerFactory(() => StepWizardBloc());
+=======
+>>>>>>> parent of 7439fe3 (ADD: order release)
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
