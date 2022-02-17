@@ -70,32 +70,6 @@ Future<void> init() async {
       getSubdocumentResumeUseCase: sl(),
     ),
   );
-<<<<<<< HEAD
-
-  sl.registerFactory(
-    () => ApprovalsHistoryBloc(
-      getApprovalHistoryListUseCase: sl(),
-    ),
-  );
-
-  //--------------------------Fondos----------------------------------
-  sl.registerFactory(
-    () => PendingFundsBloc(getPendingfundsDetail: sl()),
-  );
-  sl.registerFactory(
-    () => ExpenseSolicitudeBloc(getExpenseSolicitude: sl()),
-  );
-  sl.registerFactory(
-    () => ApprovalsFundsBloc(getApprovalHistoryFundsUseCase: sl()),
-  );
-
-  sl.registerFactory(
-    () => FundsFormBloc(getFundsForm: sl()),
-  );
-
-  sl.registerFactory(() => StepWizardBloc());
-=======
->>>>>>> parent of 7439fe3 (ADD: order release)
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
