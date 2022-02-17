@@ -46,55 +46,6 @@ class App extends StatelessWidget {
               child: const Text('nueva rendicion'),
             ),
           ],
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const FundsFormPage();
-                    },
-                  ),
-                );
-              },
-              child: const Text('Formulario fondos'),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const PendingFundsPage();
-                    },
-                  ),
-                );
-              },
-              child: const Text('Fondos'),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const PendingExpensePage();
-                    },
-                  ),
-                );
-              },
-              child: const Text('rendiciones'),
-            ),
-          ],
         ),
       ),
     );
