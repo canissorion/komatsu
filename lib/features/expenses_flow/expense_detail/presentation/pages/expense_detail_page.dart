@@ -72,7 +72,6 @@ class ExpenseDetailPage extends StatelessWidget {
                       children: [
                         const HeaderTitleWidget(
                           invoiceNumber: "4000088",
-                          position: false,
                         ),
                         const CustomTabBarWidget(),
                         SizedBox(

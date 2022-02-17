@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import '../../../../shared/data/model/pagination_model.dart';
+import 'package:kcc_mobile_app/shared/data/model/pagination_model.dart';
+
 import '../../domain/entities/pending_items_list_entitie.dart';
 import 'pending_expenses_model.dart';
 

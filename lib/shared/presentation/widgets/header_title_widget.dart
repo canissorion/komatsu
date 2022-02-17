@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/komatsu_colors.dart';
 
 class HeaderTitleWidget extends StatelessWidget {
-  // ignore: lines_longer_than_80_chars
-  const HeaderTitleWidget(
-      {Key? key, required this.invoiceNumber, required this.position})
+  const HeaderTitleWidget({Key? key, required this.invoiceNumber})
       : super(key: key);
 
   final String invoiceNumber;
-  final bool position;
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +54,13 @@ class HeaderTitleWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              if (position)
-                const Text(
-                  'Posición 1',
-                  style: TextStyle(
-                    color: customBlue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              else
-                Container(),
+              const Text(
+                'Posición 1',
+                style: TextStyle(
+                  color: customBlue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(
                 height: 10,
               )

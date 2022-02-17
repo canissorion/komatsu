@@ -11,7 +11,6 @@ import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../domain/entities/funds_form_entitie.dart';
 import '../bloc/funds_form_bloc.dart';
 import '../widgets/funds_form_details_widget.dart';
-import '../widgets/funds_form_header_widget.dart';
 
 class FundsFormPage extends StatelessWidget {
   const FundsFormPage({Key? key}) : super(key: key);
@@ -68,7 +67,6 @@ class FundsFormPage extends StatelessWidget {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const FundsFormHeaderTitleWidget(),
                         const SizedBox(
                           height: 20,
                         ),

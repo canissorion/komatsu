@@ -54,7 +54,6 @@ class FinalExpenseDetailPage extends StatelessWidget {
                     children: [
                       const HeaderTitleWidget(
                         invoiceNumber: "4000088",
-                        position: false,
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.756,

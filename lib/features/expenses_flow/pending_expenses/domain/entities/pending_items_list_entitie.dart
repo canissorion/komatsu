@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:kcc_mobile_app/shared/data/model/pagination_model.dart';
+import 'package:kcc_mobile_app/shared/entitie/pagination_entitie.dart';
 
-import '../../../../shared/domain/entitie/pagination_entitie.dart';
 import 'pending_expenses_entitie.dart';
 
 class PendingExpensesListEntitie extends Equatable {
@@ -9,7 +10,7 @@ class PendingExpensesListEntitie extends Equatable {
     required this.data,
   });
 
-  final PaginationEntitie pagination;
+  final PaginationModel pagination;
   final List<PendingExpensesEntitie> data;
   @override
   List<Object?> get props => [pagination, data];
