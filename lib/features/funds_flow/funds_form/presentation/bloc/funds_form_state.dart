@@ -26,8 +26,11 @@ class Loaded extends FundsFormState {
   final FundsFormEntitie fundsForm;
   final bool mark;
   final DateTime? date;
-  const Loaded(
-      {required this.fundsForm, required this.mark, required this.date});
+  const Loaded({
+    required this.fundsForm,
+    required this.mark,
+    required this.date,
+  });
 
   @override
   List<Object?> get props => [fundsForm, mark];

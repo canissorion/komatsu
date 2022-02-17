@@ -48,7 +48,7 @@ class FundsFormBloc extends Bloc<FundsFormEvent, FundsFormState> {
         emit(
           Loaded(
             fundsForm: state.fundsForm!,
-            mark: !state.mark!,
+            mark: state.mark!,
             date: event.date,
           ),
         );
