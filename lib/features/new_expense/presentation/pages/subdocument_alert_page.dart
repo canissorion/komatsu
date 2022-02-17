@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/new_expense/presentation/pages/subdocument_selector_list.dart';
 import '../../../../core/utils/komatsu_colors.dart';
 import '../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../shared/presentation/widgets/drawer_widget.dart';
@@ -77,16 +76,7 @@ de Notas de credito
                             width: 10,
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const SubDocumentSelectorListPage();
-                                  },
-                                ),
-                              );
-                            },
+                            onPressed: () {},
                             child: const Text('OK'),
                           )
                         ],

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TitleAndSelectorWidget extends StatelessWidget {
-  const TitleAndSelectorWidget(
-      {Key? key, required this.title, required this.items, this.titleColor})
-      : super(key: key);
+  const TitleAndSelectorWidget({
+    Key? key,
+    required this.title,
+    required this.items,
+  }) : super(key: key);
 
   final String title;
   final List<String> items;
-  final Color? titleColor;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,15 +19,10 @@ class TitleAndSelectorWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            color: titleColor ?? Colors.grey[800],
+            color: Colors.grey[800],
           ),
         ),
         SizedBox(
-          height: 4,
-        ),
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(5)),
           height: MediaQuery.of(context).size.height * 0.05,
           child: InputDecorator(
             decoration: InputDecoration(

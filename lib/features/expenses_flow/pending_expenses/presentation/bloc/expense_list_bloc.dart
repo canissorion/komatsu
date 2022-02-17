@@ -70,6 +70,7 @@ class PendingExpenseBloc
         if (state.pendingDocumentDetail == null) return;
         emit(
           Loaded(
+            //pendingDocumentDetail: state.pendingDocumentDetail!,
             refreshController: state.refreshController!,
             items: state.items,
             startDate: state.startDate!,
