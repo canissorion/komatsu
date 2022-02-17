@@ -65,6 +65,7 @@ class ExpenseSolicitudePage extends StatelessWidget {
                         children: [
                           HeaderTitleWidget(
                             invoiceNumber: expenseSolicitude.documentNumber,
+                            position: false,
                           ),
                           const CustomTabBarFundsWidget(),
                           SizedBox(

@@ -27,7 +27,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  currency_text_input_formatter: ^2.1.5
   flutter:
     sdk: flutter
 
@@ -64,6 +63,7 @@ dependencies:
   #Progress Indicator Widget
   step_progress_indicator: ^1.0.2
   timelines: ^0.1.0
+  currency_text_input_formatter: ^2.1.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

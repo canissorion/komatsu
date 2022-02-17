@@ -55,6 +55,7 @@ class FinalExpenseSolicitudePage extends StatelessWidget {
                     children: [
                       HeaderTitleWidget(
                         invoiceNumber: state.expenseSolicitude!.documentNumber,
+                        position: false,
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.756,

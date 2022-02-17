@@ -16,6 +16,7 @@ class FundsFormTaskClosureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const maxLines = 5;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -139,16 +140,18 @@ class FundsFormTaskClosureWidget extends StatelessWidget {
                   ),
                   primary: Colors.green,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) {
-                        return const RequestGeneratedPage();
+                onPressed: !checked
+                    ? null
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) {
+                              return const RequestGeneratedPage();
+                            },
+                          ),
+                        );
                       },
-                    ),
-                  );
-                },
                 child: const Text('Enviar'),
               ),
             ),

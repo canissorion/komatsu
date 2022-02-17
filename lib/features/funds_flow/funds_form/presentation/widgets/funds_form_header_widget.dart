@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
-import '../../../core/utils/komatsu_colors.dart';
-
-class HeaderTitleWidget extends StatelessWidget {
+class FundsFormHeaderTitleWidget extends StatelessWidget {
   // ignore: lines_longer_than_80_chars
-  const HeaderTitleWidget(
-      {Key? key, required this.invoiceNumber, this.position})
-      : super(key: key);
-
-  final String invoiceNumber;
-  final bool? position;
+  const FundsFormHeaderTitleWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
             width: 10,
@@ -39,35 +34,21 @@ class HeaderTitleWidget extends StatelessWidget {
           ),
           const Expanded(child: SizedBox()),
           Column(
-            children: [
-              const SizedBox(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(
                 height: 10,
               ),
-              const Text(
-                'DETALLE DE DOCUMENTOS',
-                style: TextStyle(
-                  color: customBlue,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               Text(
-                'FOLIO #$invoiceNumber',
-                style: const TextStyle(
-                  color: customBlue,
+                'Formulario de solicitud \nde Fondos',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
+                  fontSize: 15,
                 ),
               ),
-              if (position != null && position!)
-                const Text(
-                  'Posición 1',
-                  style: TextStyle(
-                    color: customBlue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              else
-                Container(),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               )
             ],

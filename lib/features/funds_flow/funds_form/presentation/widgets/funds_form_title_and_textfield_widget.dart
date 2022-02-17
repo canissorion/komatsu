@@ -1,3 +1,4 @@
+import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 
 class TitleAndTextfieldWidget extends StatelessWidget {
@@ -30,7 +31,7 @@ class TitleAndTextfieldWidget extends StatelessWidget {
           ),
           height: MediaQuery.of(context).size.height * 0.05,
           child: TextField(
-            inputFormatters: [],
+            inputFormatters: [CurrencyTextInputFormatter()],
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               hintText: "\$88888888",
