@@ -1,5 +1,5 @@
 {
-    "documentType": {
+    "document": {
       "id": 1,
       "name": "Solicitud de fondos"
     },
@@ -7,7 +7,7 @@
       "code": "KCC",
       "name": "Komatsu Cummins Chile Ltda."
     },
-    "costCenter": {
+    "costCenterForm": {
       "code": 30560003,
       "name": "Fn_Tesorería"
     },

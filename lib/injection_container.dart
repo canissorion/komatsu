@@ -34,6 +34,11 @@ import 'features/funds_flow/expense_solicitude/data/repositories/expense_solicit
 import 'features/funds_flow/expense_solicitude/domain/repositories/expense_solicitude_repository.dart';
 import 'features/funds_flow/expense_solicitude/domain/usecase/expense_solicitude_usecase.dart';
 import 'features/funds_flow/expense_solicitude/presentation/bloc/expense_solicitude_bloc.dart';
+import 'features/funds_flow/funds_form/data/datasources/funds_form_remote_datasources.dart';
+import 'features/funds_flow/funds_form/data/repositories/funds_form_repository_impl.dart';
+import 'features/funds_flow/funds_form/domain/repositories/funds_form_repository.dart';
+import 'features/funds_flow/funds_form/domain/usecases/funds_form_usecase.dart';
+import 'features/funds_flow/funds_form/presentation/bloc/funds_form_bloc.dart';
 import 'features/funds_flow/pending_funds/data/datasources/pending_funds_remote_datasource.dart';
 import 'features/funds_flow/pending_funds/data/repositories/pending_funds_repository_impl.dart';
 import 'features/funds_flow/pending_funds/domain/repositories/pending_funds_repository.dart';
@@ -78,6 +83,10 @@ Future<void> init() async {
   sl.registerFactory(
     () => ApprovalsFundsBloc(getApprovalHistoryFundsUseCase: sl()),
   );
+
+  sl.registerFactory(
+    () => FundsFormBloc(getFundsForm: sl()),
+  );
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
@@ -89,6 +98,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetPendingFundsDetailListUseCase(sl()));
   sl.registerLazySingleton(() => GetExpenseSolicitudeUseCase(sl()));
   sl.registerLazySingleton(() => GetApprovalsHistoryFundsUseCase(sl()));
+  sl.registerLazySingleton(() => GetFundsFormUseCase(sl()));
 
   // Repository
   sl.registerLazySingleton<DocumentDetailRepository>(
@@ -116,6 +126,10 @@ Future<void> init() async {
   sl.registerLazySingleton<ApprovalsHistoryFundsRepository>(
     () => ApprovalsHistoryFundsRepositoryImpl(remoteDataSource: sl()),
   );
+
+  sl.registerLazySingleton<FundsFormRepository>(
+    () => FundsFormRepositoryImpl(remoteDataSource: sl()),
+  );
   // Data sources
 
   sl.registerLazySingleton<DocumentDetailRemoteDataSource>(
@@ -142,6 +156,10 @@ Future<void> init() async {
   );
   sl.registerLazySingleton<ApprovalsHistoryFundsRemoteDataSource>(
     () => ApprovalsHistoryFundsRemoteDataSourceImpl(client: sl()),
+  );
+
+  sl.registerLazySingleton<FundsFormRemoteDataSource>(
+    () => FundsFormRemoteDataSourceImpl(client: sl()),
   );
   // Core
 

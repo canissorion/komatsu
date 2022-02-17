@@ -29,7 +29,8 @@ class FundsFormModel extends FundsFormEntitie {
             DocumentModel.fromJson(json["document"] as Map<String, dynamic>),
         company: CompanyModel.fromJson(json["company"] as Map<String, dynamic>),
         costCenterForm: CostCenterFormModel.fromJson(
-            json["costCenterForm"] as Map<String, dynamic>),
+          json["costCenterForm"] as Map<String, dynamic>,
+        ),
         date: json["date"] == null ? 0 : json["date"] as int,
         user: UserModel.fromJson(json["user"] as Map<String, dynamic>),
       );
