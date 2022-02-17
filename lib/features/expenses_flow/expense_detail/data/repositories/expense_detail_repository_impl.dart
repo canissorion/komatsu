@@ -1,0 +1,25 @@
+import 'package:dartz/dartz.dart';
+import 'package:kcc_mobile_app/core/error/exceptions.dart';
+import 'package:kcc_mobile_app/core/error/failures.dart';
+
+import '../../domain/entities/expense_detail_entitie.dart';
+import '../../domain/repositories/expense_detail_repository.dart';
+import '../datasources/expense_detail_remote_datasource.dart';
+
+class ExpenseDetailRepositoryImpl implements ExpenseDetailRepository {
+  final ExpenseDetailRemoteDataSource remoteDataSource;
+
+  ExpenseDetailRepositoryImpl({
+    required this.remoteDataSource,
+  });
+
+  @override
+  Future<Either<Failure, ExpenseDetailEntitie>>? getExpenseDetail() async {
+    try {
+      final expenseDetail = await remoteDataSource.getExpenseDetail();
+      return Right(expenseDetail);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
+}

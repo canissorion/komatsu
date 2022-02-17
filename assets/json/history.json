@@ -1,0 +1,25 @@
+{
+    "documentTypeId": 1,
+    "approvals": [
+      {
+        "approval": {
+          "id": 1,
+          "date": 1659454924000
+        },
+        "approver": {
+          "id": "U1007015",
+          "firstName": "Cristian",
+          "lastName": "Aldunce Hernandez",
+          "comments": "Supera el monto autorizado.",
+          "action": "rechazado"
+        },
+        "statusInTheFlow": "DEVUELTO",
+        "sendTo": {
+            "id": "U1003215",
+            "firstName": "Rodrigo",
+          "lastName": "Izurieta Kausel"
+        },
+        "receivedDate" : 1644516878000
+      }
+    ]
+}
