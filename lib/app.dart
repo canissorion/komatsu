@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/order_release/presentation/pages/order_release_page.dart';
 import 'features/new_expense/presentation/pages/new_expense_page.dart';
 
 import 'features/pending_expenses/presentation/pages/pending_expense_page.dart';
@@ -42,6 +43,19 @@ class App extends StatelessWidget {
                 );
               },
               child: const Text('nueva rendicion'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const OrderReleasePage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Liberar Ordenes de Compra'),
             ),
           ],
         ),

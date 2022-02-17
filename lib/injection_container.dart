@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kcc_mobile_app/features/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
 
 import 'features/document_detail/data/datasources/document_detail_remote_datasource.dart';
 import 'features/document_detail/data/repositories/document_detail_repository_impl.dart';
@@ -41,6 +42,8 @@ Future<void> init() async {
       getSubdocumentResumeUseCase: sl(),
     ),
   );
+
+  sl.registerFactory(() => StepWizardBloc());
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
