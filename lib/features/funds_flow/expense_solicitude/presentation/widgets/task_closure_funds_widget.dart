@@ -122,16 +122,19 @@ class TaskClosureFundsWidget extends StatelessWidget {
                   ),
                   primary: Colors.green,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) {
-                        return const FinalExpenseSolicitudePage(option: true);
+                onPressed: !checked
+                    ? null
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) {
+                              return const FinalExpenseSolicitudePage(
+                                  option: true);
+                            },
+                          ),
+                        );
                       },
-                    ),
-                  );
-                },
                 child: const Text('Aprobar'),
               ),
             ),
@@ -150,18 +153,20 @@ class TaskClosureFundsWidget extends StatelessWidget {
                   ),
                   primary: Colors.red,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) {
-                        return const FinalExpenseSolicitudePage(
-                          option: false,
+                onPressed: !checked
+                    ? null
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) {
+                              return const FinalExpenseSolicitudePage(
+                                option: false,
+                              );
+                            },
+                          ),
                         );
                       },
-                    ),
-                  );
-                },
                 child: const Text('Rechazar'),
               ),
             ),
