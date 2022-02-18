@@ -45,6 +45,7 @@ class TaskClosureWidget extends StatelessWidget {
               const SizedBox(
                 height: 24.0 * maxLines,
                 child: TextField(
+                  keyboardType: TextInputType.text,
                   maxLines: maxLines,
                   //autofocus: true,
                   textCapitalization: TextCapitalization.sentences,
@@ -135,16 +136,18 @@ class TaskClosureWidget extends StatelessWidget {
                     ),
                     primary: Colors.green,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) {
-                          return const FinalExpenseDetailPage();
+                  onPressed: !checked
+                      ? null
+                      : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return const FinalExpenseDetailPage();
+                              },
+                            ),
+                          );
                         },
-                      ),
-                    );
-                  },
                   child: const Text('Aprobar'),
                 ),
               ),
@@ -163,7 +166,7 @@ class TaskClosureWidget extends StatelessWidget {
                     ),
                     primary: Colors.red,
                   ),
-                  onPressed: () {},
+                  onPressed: !checked ? null : () {},
                   child: const Text('Rechazar'),
                 ),
               ),

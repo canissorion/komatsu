@@ -182,20 +182,20 @@ class _DeliveryProcesses extends StatelessWidget {
               if (processes[index].isCompleted) {
                 return const DotIndicator(
                   color: customBlue,
-                  /*child: Icon(
-                    Icons.check,
+                  child: Icon(
+                    Icons.timer,
                     color: Colors.white,
                     size: 12.0,
-                  ),*/
+                  ),
                 );
               } else {
                 return const DotIndicator(
                   color: customBlue,
-                  /*child: Icon(
-                    Icons.check,
+                  child: Icon(
+                    Icons.priority_high,
                     color: Colors.white,
                     size: 12.0,
-                  ),*/
+                  ),
                 );
               }
             },

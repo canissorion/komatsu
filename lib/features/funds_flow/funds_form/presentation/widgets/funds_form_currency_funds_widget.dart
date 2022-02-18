@@ -1,14 +1,12 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/funds_flow/funds_form/presentation/widgets/funds_form_title_and_date_widget.dart';
-import 'package:kcc_mobile_app/features/funds_flow/funds_form/presentation/widgets/funds_form_title_and_selector_widget.dart';
-import 'package:kcc_mobile_app/features/funds_flow/funds_form/presentation/widgets/funds_form_title_and_textfield_widget.dart';
 
-import '../../../../../core/utils/datetime_convert.dart';
-import '../../../../../shared/presentation/widgets/information_title_widget.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 import '../../domain/entities/funds_form_entitie.dart';
+import 'funds_form_title_and_date_widget.dart';
+import 'funds_form_title_and_selector_widget.dart';
+import 'funds_form_title_and_textfield_widget.dart';
 
 class CurrencyFundsWidget extends StatelessWidget {
   const CurrencyFundsWidget({Key? key, required this.fundsForm})
@@ -25,7 +23,6 @@ class CurrencyFundsWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3,

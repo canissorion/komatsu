@@ -33,7 +33,7 @@ class Loaded extends FundsFormState {
   });
 
   @override
-  List<Object?> get props => [fundsForm, mark];
+  List<Object?> get props => [fundsForm, mark, date];
 }
 
 class Error extends FundsFormState {

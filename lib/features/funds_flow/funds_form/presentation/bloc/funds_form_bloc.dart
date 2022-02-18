@@ -16,11 +16,13 @@ class FundsFormBloc extends Bloc<FundsFormEvent, FundsFormState> {
       final fundsForm = await getFundsForm(NoParams());
       fundsForm!.fold(
         (l) => emit(Error(errorMessage: l.toString())),
-        (r) => emit(Loaded(
-          fundsForm: r,
-          mark: false,
-          date: DateTime.now(),
-        )),
+        (r) => emit(
+          Loaded(
+            fundsForm: r,
+            mark: false,
+            date: DateTime.now(),
+          ),
+        ),
       );
     });
 
@@ -30,7 +32,7 @@ class FundsFormBloc extends Bloc<FundsFormEvent, FundsFormState> {
         Loaded(
           fundsForm: state.fundsForm!,
           mark: state.mark!,
-          date: state.date!,
+          date: state.date,
         ),
       );
     });
@@ -39,7 +41,10 @@ class FundsFormBloc extends Bloc<FundsFormEvent, FundsFormState> {
       if (state.fundsForm == null) return;
       emit(
         Loaded(
-            fundsForm: state.fundsForm!, mark: !state.mark!, date: state.date!),
+          fundsForm: state.fundsForm!,
+          mark: !state.mark!,
+          date: state.date!,
+        ),
       );
     });
     on<ChangeDateStartEvent>(
