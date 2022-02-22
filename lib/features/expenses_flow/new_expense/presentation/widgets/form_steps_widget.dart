@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+
+import '../../../../../core/utils/komatsu_colors.dart';
+import '../bloc/step_wizard_bloc/step_wizard_bloc.dart';
 
 class FormStepWidget extends StatelessWidget {
   const FormStepWidget({Key? key, required this.pagePosition})

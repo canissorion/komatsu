@@ -21,7 +21,7 @@ class TitleAndSelectorWidget extends StatelessWidget {
             color: titleColor ?? Colors.grey[800],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
         Container(

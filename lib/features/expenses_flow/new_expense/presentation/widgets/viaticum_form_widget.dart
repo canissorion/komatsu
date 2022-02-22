@@ -1,61 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/date_selector_widget.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/description_field_widget.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/form_field_widget.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/title_and_selector_widget.dart';
+import '../../domain/entities/new_expense_entitie.dart';
+import 'date_selector_widget.dart';
+import 'description_field_widget.dart';
+import 'form_field_widget.dart';
+import 'title_and_selector_widget.dart';
 
 class ViaticumFormWidget extends StatelessWidget {
-  const ViaticumFormWidget({
-    Key? key,
-  }) : super(key: key);
-
+  const ViaticumFormWidget({Key? key, required this.newExpense})
+      : super(key: key);
+  final NewExpenseEntitie newExpense;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        DateSelectorWidget(),
-        SizedBox(
+      children: [
+        const DateSelectorWidget(),
+        const SizedBox(
           height: 15,
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Numero de documento',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Tipo de Viatico',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Descripcion del viatico',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Valor total',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Objeto de Imputacion',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'CECO',
         ),
-        FormFieldWidget(
+        const FormFieldWidget(
           title: 'Cuenta',
         ),
         TitleAndSelectorWidget(
           title: 'Concepto del Gasto',
           titleColor: Colors.white,
-          items: ['REUNIONES DE TRABAJO Y CLIENTES'],
+          items: [newExpense.ticketForm.expenseConcept],
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         TitleAndSelectorWidget(
           title: 'Detalle Gasto',
           titleColor: Colors.white,
-          items: ['ALMUERZOS Y CENAS'],
+          items: [newExpense.ticketForm.expenseDetail],
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
-        DescriptionFieldWidget(
+        const DescriptionFieldWidget(
           title: 'Descripcion del Gasto',
           textLines: 5,
         ),

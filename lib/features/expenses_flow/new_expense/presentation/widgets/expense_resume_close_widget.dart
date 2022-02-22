@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
+import 'package:kcc_mobile_app/core/utils/number_format.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
 
 class ExpenseResumeCloseWidget extends StatelessWidget {
   const ExpenseResumeCloseWidget({
     Key? key,
+    required this.newExpense,
   }) : super(key: key);
 
+  final NewExpenseEntitie newExpense;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -73,31 +77,31 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '\$ 242.914',
+                      numberFormat(newExpense.expenseResume.expense),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '\$ 34.392',
+                      numberFormat(newExpense.expenseResume.iva),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '\$ 0',
+                      numberFormat(newExpense.expenseResume.retention),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '\$ 0',
+                      numberFormat(newExpense.expenseResume.vouchers),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '\$ 277.306',
+                      numberFormat(newExpense.expenseResume.workerBalance),
                     ),
                   ],
                 ),
@@ -107,7 +111,7 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             thickness: 3,
           ),
           Container(

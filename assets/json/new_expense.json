@@ -1,0 +1,24 @@
+{
+    "invoiceNumber": 3700000002,
+    "currency":{
+        "currencyCode":"CLP",
+        "currencyAmount": 88888
+    },
+    "company":{
+        "companyName": "komatsu Cummings Chile lltda",
+        "companyID": 3001,
+        "companyoffice":"Defaultt"  
+    },
+    "ticketForm":{
+        "expenseConcept": "Reuniones de trabajo y clientes",
+        "expenseDetail": "Almuerzos y cenas"
+    },
+    "expenseResume":{
+        "expense": 242914,
+        "IVA": 34300,
+        "retention":100,
+        "vouchers":200,
+        "workerBalance":277307
+    }
+
+}

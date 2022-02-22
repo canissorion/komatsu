@@ -29,6 +29,7 @@ class DescriptionFieldWidget extends StatelessWidget {
           child: TextField(
             minLines: textLines ?? 1,
             maxLines: null,
+            keyboardType: TextInputType.text,
           ),
         ),
         const SizedBox(

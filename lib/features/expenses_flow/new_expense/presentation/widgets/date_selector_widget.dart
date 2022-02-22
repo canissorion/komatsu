@@ -10,13 +10,14 @@ class DateSelectorWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showDatePicker(
-            context: context,
-            initialDate: DateTime(2010),
-            firstDate: DateTime(2010),
-            lastDate: DateTime(2025),
-            helpText: "SELECCIONAR FECHA",
-            cancelText: "CANCELAR",
-            confirmText: "GUARDAR");
+          context: context,
+          initialDate: DateTime(2010),
+          firstDate: DateTime(2010),
+          lastDate: DateTime(2025),
+          helpText: "SELECCIONAR FECHA",
+          cancelText: "CANCELAR",
+          confirmText: "GUARDAR",
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

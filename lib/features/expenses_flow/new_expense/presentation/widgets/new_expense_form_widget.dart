@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/pages/expenses_list_selector_page.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/title_and_selector_widget.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import '../pages/expenses_list_selector_page.dart';
+import 'title_and_selector_widget.dart';
 
 class NewExpenseFormWidget extends StatelessWidget {
   const NewExpenseFormWidget({
     Key? key,
+    required this.newExpense,
   }) : super(key: key);
-
+  final NewExpenseEntitie newExpense;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,23 +18,23 @@ class NewExpenseFormWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TitleAndSelectorWidget(
+              TitleAndSelectorWidget(
                 title: 'Empresa Rendición',
-                items: ['Komatsu Cummings Chile Ltda'],
+                items: [newExpense.company.companyName],
               ),
               const SizedBox(
                 height: 10,
               ),
-              const TitleAndSelectorWidget(
+              TitleAndSelectorWidget(
                 title: 'Oficina de Ventas:',
-                items: ['Default'],
+                items: [newExpense.company.companyoffice],
               ),
               const SizedBox(
                 height: 10,
               ),
-              const TitleAndSelectorWidget(
+              TitleAndSelectorWidget(
                 title: 'Moneda',
-                items: ['CLP'],
+                items: [newExpense.currency.currencyCode],
               ),
               const SizedBox(
                 height: 10,
