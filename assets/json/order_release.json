@@ -1,0 +1,52 @@
+{
+    "resumeCard": {
+        "id": "0c20ca3d-361e-41fa-93d0-1ed6f0d87694",
+        "number": "4000088",
+        "typeId": 1,
+        "typeName": "Liberación de OC"
+        
+      },
+    "creationDate": 1659454924000,
+    "liberation":{
+        "liberationDate":1659454924000,
+        "sendTo": "X",
+        "liberationStatus": "A"
+    },
+    "liberator":{
+        "liberatorID": "U10020088",
+        "liberatorFirstName": "Alejandra Elizabeth",
+        "liberatorLastName": "Fuentes Villegas",
+        "mail":"alejandrafuentes@kcl.cl"
+    },
+    "priority": "Convenio/Contrato",
+    "applicant":{
+    "applicantID": "U98123123",
+    "applicantFirstName": "Daniela Alejandra",
+    "applicantLastName": "Farfan Godoy"
+    },
+    "needNumber": 0,
+    "purchasingOrg": 3001,
+    "record": {
+        "recordDate": 1659454924000,
+        "orderNumber": 4506275811,
+        "urgency": "Normal Nacional",
+        "grpOrder": 109
+    },
+    "stategyCode":2000000915,
+    "answer": "lorem ipsum dolom sit amet",
+    "currency":{
+        "totalAmount": 249455,
+        "code": "CLP"
+    }, 
+    "provider":{
+        "providerName":"ACEPTA.COM S.A",
+        "providerID": 89471289472,
+       "type-provider": "Proveedor"
+    },
+    "generalStatus": 0,
+    "center":{
+        "centerID": 3089,
+        "centerName": "Santiago KCC"
+    }
+
+}

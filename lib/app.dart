@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'features/expenses_flow/new_expense/presentation/pages/new_expense_page.dart';
 import 'features/expenses_flow/pending_expenses/presentation/pages/pending_expense_page.dart';
 import 'features/funds_flow/funds_form/presentation/pages/funds_form_page.dart';
 import 'features/funds_flow/pending_funds/presentation/pages/pending_funds_page.dart';
-import 'features/new_expense/presentation/pages/new_expense_page.dart';
-import 'features/order_release/presentation/pages/order_release_page.dart';
+import 'features/order_release_flow/order_release/presentation/pages/order_release_page.dart';
 
 class App extends StatelessWidget {
   final String flavor;

@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/data/repositories/new_expense_repository_impl.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/repositories/new_expense_repository.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
 import 'features/expenses_flow/approvals_history/data/repositories/approval_history_repositoy_impl.dart';
@@ -19,6 +23,8 @@ import 'features/expenses_flow/expense_detail/domain/repositories/sub_document_r
 import 'features/expenses_flow/expense_detail/domain/usecases/expense_detail_usecase.dart';
 import 'features/expenses_flow/expense_detail/domain/usecases/sub_document_resume_usecase.dart';
 import 'features/expenses_flow/expense_detail/presentation/bloc/expense_detail_bloc.dart';
+import 'features/expenses_flow/new_expense/data/datasources/new_expense_remote_datasource.dart';
+import 'features/expenses_flow/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
 import 'features/expenses_flow/pending_expenses/data/datasources/pending_items_remote_datasource.dart';
 import 'features/expenses_flow/pending_expenses/data/repositories/pending_items_list_repository_impl.dart';
 import 'features/expenses_flow/pending_expenses/domain/repositories/pending_items_list_repository.dart';
@@ -44,7 +50,11 @@ import 'features/funds_flow/pending_funds/data/repositories/pending_funds_reposi
 import 'features/funds_flow/pending_funds/domain/repositories/pending_funds_repository.dart';
 import 'features/funds_flow/pending_funds/domain/usecases/pending_funds_list_usecase.dart';
 import 'features/funds_flow/pending_funds/presentation/bloc/funds_list_bloc.dart';
-import 'features/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
+import 'features/order_release_flow/order_release/data/datasources/order_release_remote_datasource.dart';
+import 'features/order_release_flow/order_release/data/repositories/order_release_impl.dart';
+import 'features/order_release_flow/order_release/domain/repositories/order_release_repository.dart';
+import 'features/order_release_flow/order_release/domain/usecases/order_release_usecase.dart';
+import 'features/order_release_flow/order_release/presentation/bloc/order_release_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -76,6 +86,12 @@ Future<void> init() async {
 
   sl.registerFactory(() => StepWizardBloc());
 
+  sl.registerFactory(
+    () => NewExpenseBloc(
+      getNewExpense: sl(),
+    ),
+  );
+
   //--------------------------Fondos----------------------------------
   sl.registerFactory(
     () => PendingFundsBloc(getPendingfundsDetail: sl()),
@@ -90,6 +106,11 @@ Future<void> init() async {
   sl.registerFactory(
     () => FundsFormBloc(getFundsForm: sl()),
   );
+
+  //--------------------------Liberacion de OC----------------------------------
+  sl.registerFactory(
+    () => OrderReleaseBloc(getOrderRelease: sl()),
+  );
   // Use Cases
 
   sl.registerLazySingleton(() => GetDocumentDetail(sl()));
@@ -97,11 +118,15 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetSubDocumentResumeUseCase(sl()));
   sl.registerLazySingleton(() => GetPendingDocumentDetailListUseCase(sl()));
   sl.registerLazySingleton(() => GetApprovalHistoryListUseCase(sl()));
+  sl.registerLazySingleton(() => GetNewExpenseUseCase(sl()));
   //--------------------------Fondos----------------------------------
   sl.registerLazySingleton(() => GetPendingFundsDetailListUseCase(sl()));
   sl.registerLazySingleton(() => GetExpenseSolicitudeUseCase(sl()));
   sl.registerLazySingleton(() => GetApprovalsHistoryFundsUseCase(sl()));
   sl.registerLazySingleton(() => GetFundsFormUseCase(sl()));
+  //--------------------------Liberacion de OC-------------------------
+  sl.registerLazySingleton(() => GetOrderReleaseUseCase(sl()));
+
   // Repository
   sl.registerLazySingleton<DocumentDetailRepository>(
     () => DocumentDetailRepositoryImpl(remoteDataSource: sl()),
@@ -118,7 +143,9 @@ Future<void> init() async {
   sl.registerLazySingleton<ApprovalHistoryRepository>(
     () => ApprovalHistoryRepositoryImpl(remoteDataSource: sl()),
   );
-
+  sl.registerLazySingleton<NewExpenseRepository>(
+    () => NewExpenseRepositoryImpl(remoteDataSource: sl()),
+  );
   //--------------------------Fondos----------------------------------
   sl.registerLazySingleton<PendingFundsDetailRepository>(
     () => PendingFundsDetailRepositoryImpl(remoteDataSource: sl()),
@@ -132,6 +159,11 @@ Future<void> init() async {
   sl.registerLazySingleton<FundsFormRepository>(
     () => FundsFormRepositoryImpl(remoteDataSource: sl()),
   );
+  //--------------------------Liberacion de OC-------------------------
+  sl.registerLazySingleton<OrderReleaseRepository>(
+    () => OrderReleaseRepositoryImpl(remoteDataSource: sl()),
+  );
+
   // Data sources
 
   sl.registerLazySingleton<DocumentDetailRemoteDataSource>(
@@ -148,6 +180,9 @@ Future<void> init() async {
   sl.registerLazySingleton<ApprovalsHistoryRemoteDataSource>(
     () => ApprovalsHistoryRemoteDataSourceImpl(client: sl()),
   );
+  sl.registerLazySingleton<NewExpenseRemoteDataSource>(
+    () => NewExpenseRemoteDataSourceImpl(client: sl()),
+  );
   //--------------------------Fondos----------------------------------
   sl.registerLazySingleton<PendingFundsDetailRemoteDataSource>(
     () => PendingFundsDetailRemoteDataSourceImpl(client: sl()),
@@ -162,6 +197,12 @@ Future<void> init() async {
   sl.registerLazySingleton<FundsFormRemoteDataSource>(
     () => FundsFormRemoteDataSourceImpl(client: sl()),
   );
+
+  //--------------------------Liberacion de OC-------------------------
+  sl.registerLazySingleton<OrderReleaseRemoteDataSource>(
+    () => OrderReleaseRemoteDataSourceImpl(client: sl()),
+  );
+
   // Core
 
   // External
