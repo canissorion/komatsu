@@ -77,11 +77,12 @@ class ExpenseSolicitudePage extends StatelessWidget {
                                   expenseSolicitude: expenseSolicitude,
                                   mark: state.mark!,
                                 ),
-                                const SizedBox(
+                                //TODO: Change history widget
+                                /*const SizedBox(
                                   height: 500,
                                   child: HistoryWidget(),
-                                )
-                                //const ApprovalsHistoryFundsPage()
+                                )*/
+                                const ApprovalsHistoryFundsPage()
                               ],
                             ),
                           ),

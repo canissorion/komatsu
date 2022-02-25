@@ -2,15 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/approvals_history/presentation/pages/approvals_page.dart';
-
-import 'package:kcc_mobile_app/shared/presentation/widgets/appbar_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/drawer_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/header_title_widget.dart';
-
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'package:kcc_mobile_app/injection_container.dart';
+import '../../../../../injection_container.dart';
+import '../../../../../shared/presentation/widgets/appbar_widget.dart';
+import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../../../../shared/presentation/widgets/header_title_widget.dart';
+import '../../../approvals_history/presentation/pages/approvals_page.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 import '../../domain/entities/sub_document_resume_list_entitie.dart';
 import '../bloc/expense_detail_bloc.dart';

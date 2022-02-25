@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
 
-class CustomTabBarWidget extends StatelessWidget {
-  const CustomTabBarWidget({
+class CustomTabBarNewExpenseWidget extends StatelessWidget {
+  const CustomTabBarNewExpenseWidget({
     Key? key,
   }) : super(key: key);
 

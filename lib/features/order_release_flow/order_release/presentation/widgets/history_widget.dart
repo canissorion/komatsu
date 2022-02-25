@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_entitie.dart';
 import 'package:timelines/timelines.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
-import '../../domain/entities/approval_data_entitie.dart';
-import '../../domain/entities/approver_entitie.dart';
 
 const kTileHeight = 50.0;
 
-class ApprovalsHistory extends StatelessWidget {
-  const ApprovalsHistory({Key? key, required this.data}) : super(key: key);
-  final ApprovalDataEntitie data;
+class HistoryLiberatorWidget extends StatelessWidget {
+  const HistoryLiberatorWidget({Key? key, required this.orderRelease})
+      : super(key: key);
+  final OrderReleaseEntitie orderRelease;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: data.approvals.length,
+      itemCount: 5,
       itemBuilder: (context, index) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class ApprovalsHistory extends StatelessWidget {
                       height: 13,
                     ),
                     Text(
-                      dateTimeConverter(data.approvals[index].approval.date),
+                      dateTimeConverter(orderRelease.liberation.liberationDate),
                     ),
                     const SizedBox(
                       height: 10,
@@ -39,19 +39,20 @@ class ApprovalsHistory extends StatelessWidget {
                       width: 80,
                       height: 30.0,
                       decoration: BoxDecoration(
-                        color:
-                            data.approvals[index].approver.action == 'devuelto'
-                                ? Colors.red
-                                : Colors.green,
+                        color: orderRelease.liberation.liberationStatus == 'R'
+                            ? customRed500
+                            : customGreen500,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Center(
                         child: Text(
-                          data.approvals[index].approver.action == 'devuelto'
+                          orderRelease.liberation.liberationStatus == 'R'
                               ? "Rechazado"
                               : "Aprobado",
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 13),
+                            color: Colors.white,
+                            fontSize: 13,
+                          ),
                         ),
                       ),
                     ),
@@ -71,7 +72,7 @@ class ApprovalsHistory extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Estado:',
+                          'Enviado:',
                           style: TextStyle(
                             color: customBlue,
                             fontWeight: FontWeight.bold,
@@ -80,27 +81,12 @@ class ApprovalsHistory extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(data.approvals[index].statusInTheFlow),
-                        const Divider(
-                          thickness: 2,
-                          endIndent: 100,
-                        ),
-                        const Text(
-                          'Comentario:',
-                          style: TextStyle(
-                            color: customBlue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(data.approvals[index].approver.comments),
+                        Text(orderRelease.liberation.sendTo),
                         const Divider(
                           thickness: 2,
                           color: customBlue50,
                         ),
-                        _OnTimeBar(user: data.approvals[index].approver),
+                        _OnTimeBar(user: orderRelease),
                       ],
                     ),
                   ),
@@ -130,7 +116,7 @@ class ApprovalsHistory extends StatelessWidget {
 class _OnTimeBar extends StatelessWidget {
   const _OnTimeBar({Key? key, required this.user}) : super(key: key);
 
-  final ApproverHistoryEntitie user;
+  final OrderReleaseEntitie user;
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +125,7 @@ class _OnTimeBar extends StatelessWidget {
         CircleAvatar(
           radius: 15,
           backgroundColor: customBlue,
-          child: Text(user.firstName.characters.first),
+          child: Text(user.liberator.liberatorFirstName.characters.first),
         ),
         const SizedBox(
           width: 10,
@@ -149,16 +135,21 @@ class _OnTimeBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: const [
+              children: [
                 Text(
-                  'Responsable',
+                  user.liberator.liberatorId,
                   textAlign: TextAlign.end,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
             Text(
-              '${user.firstName} ${user.lastName}',
+              user.liberator.liberatorFirstName,
+              textAlign: TextAlign.end,
+              style: const TextStyle(fontSize: 12),
+            ),
+            Text(
+              user.liberator.mail,
               textAlign: TextAlign.end,
               style: const TextStyle(fontSize: 12),
             ),
