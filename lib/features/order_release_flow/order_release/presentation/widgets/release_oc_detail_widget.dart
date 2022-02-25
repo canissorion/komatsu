@@ -116,7 +116,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  width: 55,
+                  width: 44,
                 ),
                 Column(
                   children: [
@@ -155,7 +155,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  width: 25,
+                  width: 15,
                 ),
                 Column(
                   children: [
