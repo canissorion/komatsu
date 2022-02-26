@@ -89,18 +89,24 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                       SizedBox(),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Folio')),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Empresa')),
                                       ),
                                       SizedBox(),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Monto')),
                                       ),
                                     ],
@@ -117,7 +123,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
                                           child: Text(
-                                            "LALA",
+                                            "37000000002",
                                           ),
                                         ),
                                       ),
@@ -125,14 +131,14 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text("LALA"),
+                                          child: Text("3001"),
                                         ),
                                       ),
                                       TableCell(
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text("LALA"),
+                                          child: Text("CLP"),
                                         ),
                                       ),
                                       TableCell(
@@ -141,7 +147,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         child: Center(
                                           child: Text(
                                             numberFormat(
-                                              32,
+                                              888888,
                                             ),
                                           ),
                                         ),

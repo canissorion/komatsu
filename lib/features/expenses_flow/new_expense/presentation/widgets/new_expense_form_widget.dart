@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
+import '../../domain/entities/new_expense_entitie.dart';
 
 import '../pages/expenses_list_selector_page.dart';
 import 'title_and_selector_widget.dart';
@@ -11,6 +12,8 @@ class NewExpenseFormWidget extends StatelessWidget {
   }) : super(key: key);
   final NewExpenseEntitie newExpense;
   final List<String> listCompany = [];
+  final List<String> listOffice = [];
+  final List<String> listCurrency = [];
 
   @override
   Widget build(
@@ -19,11 +22,6 @@ class NewExpenseFormWidget extends StatelessWidget {
     return ListView.builder(
       itemCount: 1,
       itemBuilder: (context, index) {
-        for (var i = 0; i < 10; i++) {
-          listCompany.add(
-            newExpense.data[8].domainParameterValues[i].descriptionShort,
-          );
-        }
         return Column(
           children: [
             SizedBox(
@@ -31,28 +29,29 @@ class NewExpenseFormWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TitleAndSelectorWidget(
+                  ObtainData(
+                    codes: "EMPRESA",
+                    newExpenseData: newExpense,
+                    list: listCompany,
                     title: 'Empresa Rendición',
-                    items: newExpense.data[8].idDomainParameter == 9
-                        ? listCompany
-                        : [''],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  TitleAndSelectorWidget(
-                    title: 'Oficina de Ventas:',
-                    items: newExpense.data[8].idDomainParameter == 9
-                        ? [newExpense.data[8].domainParameterValues.toString()]
-                        : [''],
+                  ObtainData(
+                    codes: "OFICINA_VENTA",
+                    newExpenseData: newExpense,
+                    list: listOffice,
+                    title: 'Oficina de Ventas',
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  TitleAndSelectorWidget(
-                      title: 'Moneda', items: ["hola", "xd"]),
-                  const SizedBox(
-                    height: 10,
+                  ObtainData(
+                    codes: "MONEDA",
+                    newExpenseData: newExpense,
+                    list: listCurrency,
+                    title: 'Moneda',
                   ),
                   Text(
                     'Objetivo del Gasto',
@@ -65,7 +64,7 @@ class NewExpenseFormWidget extends StatelessWidget {
                   Container(
                     decoration: const BoxDecoration(color: Colors.white),
                     child: const TextField(
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.multiline,
                       maxLines: null,
                       minLines: 3,
                       decoration: InputDecoration(
