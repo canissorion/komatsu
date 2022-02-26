@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../domain/entities/new_expense_entitie.dart';
+
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
@@ -27,7 +28,9 @@ class TicketFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Concepto del Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseConcept],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,
@@ -35,7 +38,9 @@ class TicketFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Detalle Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseConcept],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,

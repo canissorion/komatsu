@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/core/utils/number_format.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/number_format.dart';
+import '../../domain/entities/new_expense_entitie.dart';
 
 class ExpenseResumeCloseWidget extends StatelessWidget {
   const ExpenseResumeCloseWidget({
@@ -77,31 +77,31 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      numberFormat(newExpense.expenseResume.expense),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.iva),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.retention),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.vouchers),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.workerBalance),
+                      numberFormat(32),
                     ),
                   ],
                 ),

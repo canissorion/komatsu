@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import '../../domain/entities/new_expense_entitie.dart';
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
@@ -35,7 +35,9 @@ class HonoraryTicketFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Concepto del Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseConcept],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,
@@ -43,7 +45,9 @@ class HonoraryTicketFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Detalle Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseDetail],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,

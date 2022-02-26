@@ -43,7 +43,9 @@ class KilometerFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Concepto del Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseConcept],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,
@@ -51,7 +53,9 @@ class KilometerFormWidget extends StatelessWidget {
         TitleAndSelectorWidget(
           title: 'Detalle Gasto',
           titleColor: Colors.white,
-          items: [newExpense.ticketForm.expenseDetail],
+          items: newExpense.data[8].idDomainParameter == 9
+              ? [newExpense.data[8].domainParameterValues.toString()]
+              : [''],
         ),
         const SizedBox(
           height: 15,

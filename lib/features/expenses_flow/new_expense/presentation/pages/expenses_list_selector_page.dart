@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/core/utils/number_format.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
-import '../bloc/new_expense_bloc.dart';
+
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/number_format.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../domain/entities/new_expense_entitie.dart';
+import '../bloc/new_expense_bloc.dart';
 
 class ExpenseListSelectorPage extends StatelessWidget {
   const ExpenseListSelectorPage({Key? key}) : super(key: key);
@@ -116,7 +117,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
                                           child: Text(
-                                            newExpense.invoiceNumber.toString(),
+                                            "LALA",
                                           ),
                                         ),
                                       ),
@@ -124,18 +125,14 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text(
-                                            newExpense.company.companyId
-                                                .toString(),
-                                          ),
+                                          child: Text("LALA"),
                                         ),
                                       ),
                                       TableCell(
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text(
-                                              newExpense.currency.currencyCode),
+                                          child: Text("LALA"),
                                         ),
                                       ),
                                       TableCell(
@@ -144,8 +141,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         child: Center(
                                           child: Text(
                                             numberFormat(
-                                              newExpense
-                                                  .currency.currencyAmount,
+                                              32,
                                             ),
                                           ),
                                         ),

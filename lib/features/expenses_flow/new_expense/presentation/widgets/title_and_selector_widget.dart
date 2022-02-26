@@ -1,13 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class TitleAndSelectorWidget extends StatelessWidget {
-  const TitleAndSelectorWidget(
-      {Key? key, required this.title, required this.items, this.titleColor})
-      : super(key: key);
+  const TitleAndSelectorWidget({
+    Key? key,
+    required this.title,
+    required this.items,
+    this.titleColor,
+    this.value,
+  }) : super(key: key);
 
   final String title;
   final List<String> items;
   final Color? titleColor;
+  final String? value;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,9 +48,9 @@ class TitleAndSelectorWidget extends StatelessWidget {
                 itemHeight: 50,
                 isDense: true,
                 items: items.map((e) {
-                  return DropdownMenuItem<String>(child: Text(e));
+                  return DropdownMenuItem<String>(value: e, child: Text(e));
                 }).toList(),
-                onChanged: (value) {},
+                onChanged: (_) {},
               ),
             ),
           ),

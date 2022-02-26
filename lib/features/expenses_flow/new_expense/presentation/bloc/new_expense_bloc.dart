@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
 
 import '../../../../../core/usecases/usecase.dart';
-import '../../domain/entities/new_expense_entitie.dart';
-import '../../domain/usecases/new_expense_usecase.dart';
 
 part 'new_expense_event.dart';
 part 'new_expense_state.dart';
