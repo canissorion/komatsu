@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/features/login_flow/features/login/presentation/pages/login_page.dart';
 
 import 'features/expenses_flow/new_expense/presentation/pages/new_expense_page.dart';
 import 'features/expenses_flow/pending_expenses/presentation/pages/pending_expense_page.dart';
@@ -20,6 +21,22 @@ class App extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginPage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Login'),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

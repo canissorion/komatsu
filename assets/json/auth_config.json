@@ -1,0 +1,15 @@
+{
+    "client_id" : "8dc52a5c-4af1-4e1a-b06a-429233d8d57c",
+    "authorization_user_agent" : "DEFAULT",
+    "account_mode": "SINGLE",
+    "redirect_uri" : "msauth://com.kcc_rhpam.komatsu/r5f6Vq64kDFIM0S1d9KUEHj8ESg%3D",
+    "authorities" : [
+      {
+        "type": "AAD",
+        "audience": {
+         "type": "AzureADMultipleOrgs",
+         "tenant_id": "organizations"
+        }
+      }
+    ]
+}

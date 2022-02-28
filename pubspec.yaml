@@ -64,6 +64,9 @@ dependencies:
   step_progress_indicator: ^1.0.2
   timelines: ^0.1.0
   currency_text_input_formatter: ^2.1.5
+  msal_mobile:
+    path: packages\msal_mobile-null-safety
+      
 dev_dependencies:
   flutter_test:
     sdk: flutter
