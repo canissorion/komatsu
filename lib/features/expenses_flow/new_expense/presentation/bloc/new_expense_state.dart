@@ -14,7 +14,7 @@ abstract class NewExpenseState extends Equatable {
   });
 
   @override
-  List<Object?> get props => [errorMessage, newExpense, mark];
+  List<Object?> get props => [errorMessage, newExpense, mark, selectField];
 }
 
 class EmptyNewExpenses extends NewExpenseState {}

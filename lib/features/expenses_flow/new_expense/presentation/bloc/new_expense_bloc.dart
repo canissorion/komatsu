@@ -25,9 +25,10 @@ class NewExpenseBloc extends Bloc<NewExpenseEvent, NewExpenseState> {
       if (state.newExpense == null) return;
       emit(
         LoadedNewExpenses(
-            newExpense: state.newExpense!,
-            mark: state.mark!,
-            selectField: state.selectField),
+          newExpense: state.newExpense!,
+          mark: state.mark!,
+          selectField: state.selectField,
+        ),
       );
     });
     on<MarkEvent>((event, emit) async {
@@ -36,7 +37,7 @@ class NewExpenseBloc extends Bloc<NewExpenseEvent, NewExpenseState> {
         LoadedNewExpenses(
           newExpense: state.newExpense!,
           mark: !state.mark!,
-          selectField: state.selectField!,
+          selectField: state.selectField,
         ),
       );
     });
@@ -46,7 +47,7 @@ class NewExpenseBloc extends Bloc<NewExpenseEvent, NewExpenseState> {
         LoadedNewExpenses(
           newExpense: state.newExpense!,
           mark: state.mark!,
-          selectField: state.selectField,
+          selectField: event.selectField,
         ),
       );
     });

@@ -17,7 +17,10 @@ class FormFieldWidget extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 15),
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+          ),
         ),
         const SizedBox(
           height: 4,
@@ -29,7 +32,12 @@ class FormFieldWidget extends StatelessWidget {
           ),
           height: 35,
           width: MediaQuery.of(context).size.width * 0.85,
+          alignment: Alignment.center,
           child: TextField(
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(bottom: 10, left: 10),
+            ),
             minLines: textLines ?? 1,
             maxLines: null,
             keyboardType: keyboard,
