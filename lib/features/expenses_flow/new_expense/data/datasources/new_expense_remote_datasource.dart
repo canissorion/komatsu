@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import '../../../../../core/error/exceptions.dart';
 import '../models/new_expense_model.dart';
 
 abstract class NewExpenseRemoteDataSource {
@@ -8,13 +12,20 @@ abstract class NewExpenseRemoteDataSource {
 
 class NewExpenseRemoteDataSourceImpl implements NewExpenseRemoteDataSource {
   late final Dio client;
+  final String url = dotenv.env['serverNewExpenses']!;
 
   NewExpenseRemoteDataSourceImpl({required this.client});
 
   @override
   Future<NewExpenseModel> getNewExpense() async {
-    final String response =
-        await rootBundle.loadString("assets/json/new_expense.json");
-    return newExpenseFromJson(response);
+    final response = await client.get(
+      '$url/v1/domain-parameters',
+      options: Options(headers: {'authorization': 1}),
+    );
+    if (response.statusCode == 200) {
+      return newExpenseFromJson(json.encode(response.data));
+    } else {
+      throw ServerException();
+    }
   }
 }

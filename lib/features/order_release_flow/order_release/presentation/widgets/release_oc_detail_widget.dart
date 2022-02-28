@@ -192,7 +192,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 33,
                 ),
                 ReleasebuttonWidget(

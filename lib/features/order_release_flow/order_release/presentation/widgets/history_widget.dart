@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_entitie.dart';
 import 'package:timelines/timelines.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../domain/entitites/order_release_entitie.dart';
 
 const kTileHeight = 50.0;
 

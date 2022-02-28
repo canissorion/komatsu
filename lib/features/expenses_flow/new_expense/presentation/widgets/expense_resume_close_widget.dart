@@ -1,17 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/core/utils/number_format.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/number_format.dart';
+import '../../domain/entities/new_expense_entitie.dart';
 
 class ExpenseResumeCloseWidget extends StatelessWidget {
-  const ExpenseResumeCloseWidget({
+  ExpenseResumeCloseWidget({
     Key? key,
     required this.newExpense,
   }) : super(key: key);
 
   final NewExpenseEntitie newExpense;
+  late final String IVA;
+  late final String RET;
+
   @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < newExpense.data.length; i++) {
+      if (newExpense.data[i].code == "IMPUESTO") {
+        for (var j = 0;
+            j < newExpense.data[i].domainParameterValues.length;
+            j++) {
+          if (newExpense.data[i].domainParameterValues[j].code == "IVA") {
+            IVA = newExpense.data[i].domainParameterValues[j].value;
+          } else if (newExpense.data[i].domainParameterValues[j].code ==
+              "RET") {
+            RET = newExpense.data[i].domainParameterValues[j].value;
+          }
+        }
+      }
+    }
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Column(
@@ -77,31 +94,31 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      numberFormat(newExpense.expenseResume.expense),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.iva),
+                      IVA,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.retention),
+                      RET,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.vouchers),
+                      numberFormat(32),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(newExpense.expenseResume.workerBalance),
+                      numberFormat(32),
                     ),
                   ],
                 ),

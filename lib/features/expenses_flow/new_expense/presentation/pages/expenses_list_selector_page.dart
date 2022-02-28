@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/core/utils/number_format.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
-import '../bloc/new_expense_bloc.dart';
+
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/number_format.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../domain/entities/new_expense_entitie.dart';
+import '../bloc/new_expense_bloc.dart';
 
 class ExpenseListSelectorPage extends StatelessWidget {
   const ExpenseListSelectorPage({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
           children: [
             BlocBuilder<NewExpenseBloc, NewExpenseState>(
               builder: (context, state) {
-                if (state is Emptyy) {
+                if (state is EmptyNewExpenses) {
                   BlocProvider.of<NewExpenseBloc>(
                     context,
                     listen: false,
@@ -37,11 +38,11 @@ class ExpenseListSelectorPage extends StatelessWidget {
                       child: Text('No hay Información'),
                     ),
                   );
-                } else if (state is Errorr) {
+                } else if (state is ErrorNewExpenses) {
                   return Center(
                     child: Text(state.errorMessage),
                   );
-                } else if (state is Loadingg) {
+                } else if (state is LoadingNewExpenses) {
                   return SizedBox(
                     height: MediaQuery.of(context).size.height * 0.8,
                     child: Column(
@@ -88,18 +89,24 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                       SizedBox(),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Folio')),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Empresa')),
                                       ),
                                       SizedBox(),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            top: 8.0, bottom: 8),
+                                          top: 8.0,
+                                          bottom: 8,
+                                        ),
                                         child: Center(child: Text('Monto')),
                                       ),
                                     ],
@@ -116,7 +123,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
                                           child: Text(
-                                            newExpense.invoiceNumber.toString(),
+                                            "37000000002",
                                           ),
                                         ),
                                       ),
@@ -124,18 +131,14 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text(
-                                            newExpense.company.companyId
-                                                .toString(),
-                                          ),
+                                          child: Text("3001"),
                                         ),
                                       ),
                                       TableCell(
                                         verticalAlignment:
                                             TableCellVerticalAlignment.middle,
                                         child: Center(
-                                          child: Text(
-                                              newExpense.currency.currencyCode),
+                                          child: Text("CLP"),
                                         ),
                                       ),
                                       TableCell(
@@ -144,8 +147,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
                                         child: Center(
                                           child: Text(
                                             numberFormat(
-                                              newExpense
-                                                  .currency.currencyAmount,
+                                              888888,
                                             ),
                                           ),
                                         ),

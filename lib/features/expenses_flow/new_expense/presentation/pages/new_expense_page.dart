@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
 
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
-import '../../domain/entities/new_expense_entitie.dart';
 import '../bloc/new_expense_bloc.dart';
 import '../bloc/step_wizard_bloc/step_wizard_bloc.dart';
 import '../widgets/expense_resume_close_widget.dart';
@@ -54,7 +54,7 @@ class NewExpensePage extends StatelessWidget {
                 ),
                 BlocBuilder<NewExpenseBloc, NewExpenseState>(
                   builder: (context, state) {
-                    if (state is Emptyy) {
+                    if (state is EmptyNewExpenses) {
                       BlocProvider.of<NewExpenseBloc>(
                         context,
                         listen: false,
@@ -65,11 +65,11 @@ class NewExpensePage extends StatelessWidget {
                           child: Text('No hay Información'),
                         ),
                       );
-                    } else if (state is Errorr) {
+                    } else if (state is ErrorNewExpenses) {
                       return Center(
                         child: Text(state.errorMessage),
                       );
-                    } else if (state is Loadingg) {
+                    } else if (state is LoadingNewExpenses) {
                       return SizedBox(
                         height: MediaQuery.of(context).size.height * 0.8,
                         child: Column(
@@ -83,6 +83,7 @@ class NewExpensePage extends StatelessWidget {
                       );
                     } else {
                       final NewExpenseEntitie newExpense = state.newExpense!;
+
                       return Column(
                         children: [
                           const SizedBox(
@@ -95,6 +96,7 @@ class NewExpensePage extends StatelessWidget {
                               children: [
                                 NewExpenseFormWidget(
                                   newExpense: newExpense,
+                                  value: state.selectField!,
                                 ),
                                 const DocumentSelectedListPage(),
                                 ExpenseResumeCloseWidget(
