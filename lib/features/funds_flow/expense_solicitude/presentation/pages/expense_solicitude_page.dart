@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/shared/presentation/widgets/history_widget.dart';
 
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
@@ -76,6 +77,11 @@ class ExpenseSolicitudePage extends StatelessWidget {
                                   expenseSolicitude: expenseSolicitude,
                                   mark: state.mark!,
                                 ),
+                                //TODO: Change history widget
+                                /*const SizedBox(
+                                  height: 500,
+                                  child: HistoryWidget(),
+                                )*/
                                 const ApprovalsHistoryFundsPage()
                               ],
                             ),

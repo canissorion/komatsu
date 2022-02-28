@@ -63,7 +63,6 @@ class _OrderTitle extends StatelessWidget {
     return Row(
       children: [
         Column(
-          //mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(

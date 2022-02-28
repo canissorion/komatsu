@@ -4,6 +4,7 @@ import 'features/expenses_flow/new_expense/presentation/pages/new_expense_page.d
 import 'features/expenses_flow/pending_expenses/presentation/pages/pending_expense_page.dart';
 import 'features/funds_flow/funds_form/presentation/pages/funds_form_page.dart';
 import 'features/funds_flow/pending_funds/presentation/pages/pending_funds_page.dart';
+import 'features/login_flow/login/presentation/pages/login_page.dart';
 import 'features/order_release_flow/order_release/presentation/pages/order_release_page.dart';
 
 class App extends StatelessWidget {
@@ -20,6 +21,22 @@ class App extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginPage();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Login'),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

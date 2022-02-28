@@ -4,31 +4,42 @@ abstract class NewExpenseState extends Equatable {
   final String? errorMessage;
   final NewExpenseEntitie? newExpense;
   final bool? mark;
+  final String? selectField;
 
-  const NewExpenseState({this.newExpense, this.errorMessage, this.mark});
+  const NewExpenseState({
+    this.newExpense,
+    this.errorMessage,
+    this.mark,
+    this.selectField,
+  });
 
   @override
   List<Object?> get props => [errorMessage, newExpense, mark];
 }
 
-class Emptyy extends NewExpenseState {}
+class EmptyNewExpenses extends NewExpenseState {}
 
-class Loadingg extends NewExpenseState {}
+class LoadingNewExpenses extends NewExpenseState {}
 
-class Loadeed extends NewExpenseState {
+class LoadedNewExpenses extends NewExpenseState {
   final NewExpenseEntitie newExpense;
   final bool mark;
+  final String? selectField;
 
-  const Loadeed({required this.newExpense, required this.mark});
+  const LoadedNewExpenses({
+    required this.newExpense,
+    required this.mark,
+    required this.selectField,
+  });
 
   @override
-  List<Object?> get props => [newExpense, mark];
+  List<Object?> get props => [newExpense, mark, selectField];
 }
 
-class Errorr extends NewExpenseState {
+class ErrorNewExpenses extends NewExpenseState {
   final String errorMessage;
 
-  const Errorr({required this.errorMessage});
+  const ErrorNewExpenses({required this.errorMessage});
 
   @override
   List<Object> get props => [errorMessage];

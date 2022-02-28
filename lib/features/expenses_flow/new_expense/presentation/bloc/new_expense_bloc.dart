@@ -10,29 +10,43 @@ part 'new_expense_state.dart';
 
 class NewExpenseBloc extends Bloc<NewExpenseEvent, NewExpenseState> {
   final GetNewExpenseUseCase getNewExpense;
-  NewExpenseBloc({required this.getNewExpense}) : super(Emptyy()) {
+  NewExpenseBloc({required this.getNewExpense}) : super(EmptyNewExpenses()) {
     on<NewExpenseEvent>((event, emit) async {
-      emit(Loadingg());
+      emit(LoadingNewExpenses());
       final newExpense = await getNewExpense(NoParams());
       newExpense!.fold(
-        (l) => emit(Errorr(errorMessage: l.toString())),
+        (l) => emit(ErrorNewExpenses(errorMessage: l.toString())),
         (r) => emit(
-          Loadeed(newExpense: r, mark: false),
+          LoadedNewExpenses(newExpense: r, mark: false, selectField: ''),
         ),
       );
     });
     on<LoadMoreItemsEvent>((event, emit) async {
       if (state.newExpense == null) return;
       emit(
-        Loadeed(newExpense: state.newExpense!, mark: state.mark!),
+        LoadedNewExpenses(
+            newExpense: state.newExpense!,
+            mark: state.mark!,
+            selectField: state.selectField),
       );
     });
     on<MarkEvent>((event, emit) async {
       if (state.newExpense == null) return;
       emit(
-        Loadeed(
+        LoadedNewExpenses(
           newExpense: state.newExpense!,
           mark: !state.mark!,
+          selectField: state.selectField!,
+        ),
+      );
+    });
+    on<ChangeSelectFieldData>((event, emit) async {
+      if (state.newExpense == null) return;
+      emit(
+        LoadedNewExpenses(
+          newExpense: state.newExpense!,
+          mark: state.mark!,
+          selectField: state.selectField,
         ),
       );
     });

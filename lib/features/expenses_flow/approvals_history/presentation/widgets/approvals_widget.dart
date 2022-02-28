@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 import 'package:timelines/timelines.dart';
 
+import '../../../../../core/utils/datetime_convert.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 import '../../domain/entities/approval_data_entitie.dart';
-import '../../domain/entities/approvals_approval_history_entitie.dart';
 import '../../domain/entities/approver_entitie.dart';
 
 const kTileHeight = 50.0;
@@ -27,13 +26,13 @@ class ApprovalsHistory extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 13,
                     ),
                     Text(
                       dateTimeConverter(data.approvals[index].approval.date),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Container(
@@ -41,14 +40,14 @@ class ApprovalsHistory extends StatelessWidget {
                       height: 30.0,
                       decoration: BoxDecoration(
                         color:
-                            data.approvals[index].approver.action == 'rechazado'
+                            data.approvals[index].approver.action == 'devuelto'
                                 ? Colors.red
                                 : Colors.green,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Center(
                         child: Text(
-                          data.approvals[index].approver.action == 'rechazado'
+                          data.approvals[index].approver.action == 'devuelto'
                               ? "Rechazado"
                               : "Aprobado",
                           style: const TextStyle(
@@ -60,8 +59,8 @@ class ApprovalsHistory extends StatelessWidget {
                 ),
               ),
               contents: Container(
-                padding:
-                    EdgeInsets.only(top: 20.0, bottom: 20, right: 10, left: 10),
+                padding: const EdgeInsets.only(
+                    top: 20.0, bottom: 20, right: 10, left: 10),
                 child: Card(
                   elevation: 5,
                   child: Padding(
@@ -101,7 +100,7 @@ class ApprovalsHistory extends StatelessWidget {
                           thickness: 2,
                           color: customBlue50,
                         ),
-                        _OnTimeBar(driver: data.approvals[index].approver),
+                        _OnTimeBar(user: data.approvals[index].approver),
                       ],
                     ),
                   ),
@@ -129,9 +128,9 @@ class ApprovalsHistory extends StatelessWidget {
 }
 
 class _OnTimeBar extends StatelessWidget {
-  const _OnTimeBar({Key? key, required this.driver}) : super(key: key);
+  const _OnTimeBar({Key? key, required this.user}) : super(key: key);
 
-  final ApproverHistoryEntitie driver;
+  final ApproverHistoryEntitie user;
 
   @override
   Widget build(BuildContext context) {
@@ -140,9 +139,9 @@ class _OnTimeBar extends StatelessWidget {
         CircleAvatar(
           radius: 15,
           backgroundColor: customBlue,
-          child: Text(driver.firstName.characters.first),
+          child: Text(user.firstName.characters.first),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Column(
@@ -159,7 +158,7 @@ class _OnTimeBar extends StatelessWidget {
               ],
             ),
             Text(
-              '${driver.firstName} ${driver.lastName}',
+              '${user.firstName} ${user.lastName}',
               textAlign: TextAlign.end,
               style: const TextStyle(fontSize: 12),
             ),
