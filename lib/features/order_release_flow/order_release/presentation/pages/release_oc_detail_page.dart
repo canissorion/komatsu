@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/history_widget.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/release_oc_attachment_widget.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/release_oc_button_widget.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/release_oc_detail_widget.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/release_oc_liberations_widget.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/presentation/widgets/tab_bar_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/history_widget.dart';
 
-import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
-import '../../../../../core/utils/number_format.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
+import '../widgets/history_widget.dart';
+import '../widgets/release_oc_attachment_widget.dart';
+import '../widgets/release_oc_detail_widget.dart';
 import '../widgets/release_oc_header_widget.dart';
-import '../widgets/title_data_widget.dart';
-import 'mass_approve_page.dart';
-import 'mass_reject_page.dart';
+import '../widgets/tab_bar_widget.dart';
 
 class ReleaseOcDetailPage extends StatelessWidget {
   const ReleaseOcDetailPage({Key? key}) : super(key: key);
@@ -122,12 +114,12 @@ class TitleDataBlueWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: customBlue, fontSize: 16),
         ),
         Text(
           data,
           style: const TextStyle(
-            color: Colors.white,
+            color: customBlue,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),

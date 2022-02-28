@@ -11,86 +11,92 @@ class ReleaseAttachmentWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.2,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: customBlue,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          TitleDataBlueWidget(
-                            title: 'Cod Interno',
-                            data: 'EXT47000000151066',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'Nombre documento',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                          Text(
-                            'S00026_20220127144818.686_X',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+          child: Card(
+            elevation: 5,
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                //color: customBlue,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            TitleDataBlueWidget(
+                              title: 'Cod Interno',
+                              data: 'EXT47000000151066',
                             ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Column(
-                            children: const [
-                              Icon(
-                                Icons.download,
-                                color: Colors.white,
-                                size: 35,
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              'Nombre documento',
+                              style: TextStyle(
+                                color: customBlue,
+                                fontSize: 16,
                               ),
-                              Text(
-                                'Descarga',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
+                            ),
+                            Text(
+                              'S00026_20220127144818.686_X',
+                              style: TextStyle(
+                                color: customBlue,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: const [
+                                Icon(
+                                  Icons.download,
+                                  color: customBlue,
+                                  size: 35,
                                 ),
-                              ),
-                              Icon(
-                                Icons.public,
-                                color: Colors.white,
-                                size: 35,
-                              ),
-                              Text(
-                                'URL',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
+                                Text(
+                                  'Descarga',
+                                  style: TextStyle(
+                                    color: customBlue,
+                                    fontSize: 13,
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  const Divider(
-                    thickness: 2,
-                    color: Colors.white,
-                    endIndent: 100,
-                  )
-                ],
+                                Icon(
+                                  Icons.public,
+                                  color: customBlue,
+                                  size: 35,
+                                ),
+                                Text(
+                                  'URL',
+                                  style: TextStyle(
+                                    color: customBlue,
+                                    fontSize: 13,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    const Divider(
+                      thickness: 2,
+                      color: customBlue,
+                      endIndent: 100,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

@@ -211,7 +211,7 @@ class ReleaseDetailWidget extends StatelessWidget {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: customGreen500,
+                    primary: Colors.green,
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -233,7 +233,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: customRed500,
+                    primary: Colors.red,
                   ),
                   onPressed: () {
                     Navigator.push(
