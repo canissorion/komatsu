@@ -14,6 +14,7 @@ class HonoraryTicketFormWidget extends StatelessWidget {
   final NewExpenseEntitie newExpense;
   final List<String> listConcept = [];
   final List<String> listDetail = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,15 +26,19 @@ class HonoraryTicketFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Numero de documento',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Monto Pagado',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Retencion',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Total Boleta',
+          keyboard: TextInputType.number,
         ),
         ObtainData(
           codes: "CONCEPTO_GASTOS",

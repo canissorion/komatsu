@@ -11,6 +11,7 @@ class CreditNoteFormWidget extends StatelessWidget {
   final NewExpenseEntitie newExpense;
   final List<String> listConcept = [];
   final List<String> listDetail = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,12 +23,15 @@ class CreditNoteFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Numero de credito',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'RUT',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Total',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Base Excenta',
@@ -37,6 +41,7 @@ class CreditNoteFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'IVA',
+          keyboard: TextInputType.number,
         ),
         ObtainData(
           codes: "CONCEPTO_GASTOS",

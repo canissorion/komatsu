@@ -27,7 +27,7 @@ class ExpenseListSelectorPage extends StatelessWidget {
           children: [
             BlocBuilder<NewExpenseBloc, NewExpenseState>(
               builder: (context, state) {
-                if (state is Emptyy) {
+                if (state is EmptyNewExpenses) {
                   BlocProvider.of<NewExpenseBloc>(
                     context,
                     listen: false,
@@ -38,11 +38,11 @@ class ExpenseListSelectorPage extends StatelessWidget {
                       child: Text('No hay Información'),
                     ),
                   );
-                } else if (state is Errorr) {
+                } else if (state is ErrorNewExpenses) {
                   return Center(
                     child: Text(state.errorMessage),
                   );
-                } else if (state is Loadingg) {
+                } else if (state is LoadingNewExpenses) {
                   return SizedBox(
                     height: MediaQuery.of(context).size.height * 0.8,
                     child: Column(

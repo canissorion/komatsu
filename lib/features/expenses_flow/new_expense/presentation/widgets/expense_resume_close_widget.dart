@@ -4,14 +4,31 @@ import '../../../../../core/utils/number_format.dart';
 import '../../domain/entities/new_expense_entitie.dart';
 
 class ExpenseResumeCloseWidget extends StatelessWidget {
-  const ExpenseResumeCloseWidget({
+  ExpenseResumeCloseWidget({
     Key? key,
     required this.newExpense,
   }) : super(key: key);
 
   final NewExpenseEntitie newExpense;
+  late final String IVA;
+  late final String RET;
+
   @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < newExpense.data.length; i++) {
+      if (newExpense.data[i].code == "IMPUESTO") {
+        for (var j = 0;
+            j < newExpense.data[i].domainParameterValues.length;
+            j++) {
+          if (newExpense.data[i].domainParameterValues[j].code == "IVA") {
+            IVA = newExpense.data[i].domainParameterValues[j].value;
+          } else if (newExpense.data[i].domainParameterValues[j].code ==
+              "RET") {
+            RET = newExpense.data[i].domainParameterValues[j].value;
+          }
+        }
+      }
+    }
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Column(
@@ -83,13 +100,13 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      numberFormat(32),
+                      IVA,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      numberFormat(32),
+                      RET,
                     ),
                     const SizedBox(
                       height: 10,

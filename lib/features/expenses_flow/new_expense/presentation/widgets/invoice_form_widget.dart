@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
 import 'date_selector_widget.dart';
@@ -7,13 +8,11 @@ import 'form_field_widget.dart';
 import 'title_and_selector_widget.dart';
 
 class InvoiceFormWidget extends StatelessWidget {
-  InvoiceFormWidget({
-    Key? key,
-    required this.newExpense,
-  }) : super(key: key);
+  InvoiceFormWidget({Key? key, required this.newExpense}) : super(key: key);
   final NewExpenseEntitie newExpense;
   final List<String> listConcept = [];
   final List<String> listDetail = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,12 +24,15 @@ class InvoiceFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Numero de Factura',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Rut Emisor',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Valor total Factura',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Base Excenta',
@@ -40,6 +42,7 @@ class InvoiceFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'IVA',
+          keyboard: TextInputType.number,
         ),
         ObtainData(
           codes: "CONCEPTO_GASTOS",

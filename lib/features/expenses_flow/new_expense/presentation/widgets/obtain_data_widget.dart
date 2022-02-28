@@ -30,6 +30,7 @@ class ObtainData extends StatelessWidget {
         }
       }
     }
+
     return TitleAndSelectorWidget(
       title: title,
       items: list,

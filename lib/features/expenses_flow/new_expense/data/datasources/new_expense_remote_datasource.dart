@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:kcc_mobile_app/core/error/exceptions.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/data/models/new_expense_model.dart';
+import '../../../../../core/error/exceptions.dart';
+import '../models/new_expense_model.dart';
 
 abstract class NewExpenseRemoteDataSource {
   Future<NewExpenseModel> getNewExpense();

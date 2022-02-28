@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+// ignore: prefer_relative_imports
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
 
 import '../pages/expenses_list_selector_page.dart';
-import 'title_and_selector_widget.dart';
 
 class NewExpenseFormWidget extends StatelessWidget {
   NewExpenseFormWidget({
     Key? key,
     required this.newExpense,
+    required this.value,
   }) : super(key: key);
   final NewExpenseEntitie newExpense;
   final List<String> listCompany = [];
   final List<String> listOffice = [];
   final List<String> listCurrency = [];
+  final String value;
 
   @override
   Widget build(
@@ -25,7 +27,7 @@ class NewExpenseFormWidget extends StatelessWidget {
         return Column(
           children: [
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.85,
+              width: MediaQuery.of(context).size.width * 0.90,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -52,6 +54,9 @@ class NewExpenseFormWidget extends StatelessWidget {
                     newExpenseData: newExpense,
                     list: listCurrency,
                     title: 'Moneda',
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Text(
                     'Objetivo del Gasto',

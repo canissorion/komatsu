@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import '../models/expense_solicitude_model.dart';
 
 abstract class ExpenseSolicitudeRemoteDataSource {
-  //Future<PendingExpensesModel> getPendingApprove();
   Future<ExpenseSolicitudeModel> getExpenseSolicitude();
 }
 

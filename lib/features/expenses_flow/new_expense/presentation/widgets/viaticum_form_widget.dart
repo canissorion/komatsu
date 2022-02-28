@@ -7,10 +7,14 @@ import 'form_field_widget.dart';
 import 'title_and_selector_widget.dart';
 
 class ViaticumFormWidget extends StatelessWidget {
-  ViaticumFormWidget({Key? key, required this.newExpense}) : super(key: key);
+  ViaticumFormWidget({
+    Key? key,
+    required this.newExpense,
+  }) : super(key: key);
   final NewExpenseEntitie newExpense;
   final List<String> listConcept = [];
   final List<String> listDetail = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,6 +26,7 @@ class ViaticumFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Numero de documento',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Tipo de Viatico',
@@ -31,6 +36,7 @@ class ViaticumFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Valor total',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Objeto de Imputacion',

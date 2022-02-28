@@ -11,6 +11,7 @@ class TicketFormWidget extends StatelessWidget {
   final NewExpenseEntitie newExpense;
   final List<String> listConcept = [];
   final List<String> listDetail = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,9 +23,11 @@ class TicketFormWidget extends StatelessWidget {
         ),
         const FormFieldWidget(
           title: 'Numero de documento',
+          keyboard: TextInputType.number,
         ),
         const FormFieldWidget(
           title: 'Valor total de la boleta',
+          keyboard: TextInputType.number,
         ),
         ObtainData(
           codes: "CONCEPTO_GASTOS",

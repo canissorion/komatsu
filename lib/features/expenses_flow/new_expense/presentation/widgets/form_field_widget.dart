@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class FormFieldWidget extends StatelessWidget {
-  const FormFieldWidget({Key? key, required this.title, this.textLines})
+  const FormFieldWidget(
+      {Key? key, required this.title, this.textLines, this.keyboard})
       : super(key: key);
 
   final String title;
   final int? textLines;
+  final TextInputType? keyboard;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class FormFieldWidget extends StatelessWidget {
           child: TextField(
             minLines: textLines ?? 1,
             maxLines: null,
-            keyboardType: TextInputType.text,
+            keyboardType: keyboard,
           ),
         ),
         const SizedBox(
