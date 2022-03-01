@@ -9,13 +9,11 @@ class NewExpenseFormWidget extends StatelessWidget {
   NewExpenseFormWidget({
     Key? key,
     required this.newExpense,
-    required this.value,
   }) : super(key: key);
   final NewExpenseEntitie newExpense;
   final List<String> listCompany = [];
   final List<String> listOffice = [];
   final List<String> listCurrency = [];
-  final String value;
 
   @override
   Widget build(

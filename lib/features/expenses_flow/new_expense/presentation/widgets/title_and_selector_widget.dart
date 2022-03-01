@@ -14,7 +14,6 @@ class TitleAndSelectorWidget extends StatelessWidget {
   final String title;
   final List<String> items;
   final Color? titleColor;
-  final String value = '';
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,14 @@ class TitleAndSelectorWidget extends StatelessWidget {
                     child: Text(e),
                   );
                 }).toList(),
-                onChanged: (_) {},
+                onChanged: (String? newValue) {
+                  BlocProvider.of<NewExpenseBloc>(
+                    context,
+                    listen: false,
+                  ).add(
+                    ChangeSelectFieldData(newValue!),
+                  );
+                },
                 scrollbarAlwaysShow: true,
                 dropdownDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
