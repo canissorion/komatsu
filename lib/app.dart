@@ -75,51 +75,6 @@ class App extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return LoginPage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.login,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Login',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
                                     return const FundsFormPage();
                                   },
                                 ),
@@ -144,7 +99,7 @@ class App extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  'Formulario \nfondos',
+                                  'Solicitud de \nfondos',
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -240,7 +195,7 @@ class App extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  'Rendiciones',
+                                  'Rendicion de Gastos',
                                   style: TextStyle(
                                     color: Colors.black,
                                   ),
@@ -290,7 +245,7 @@ class App extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Text(
-                                  'Nueva rendición',
+                                  'Nueva rendición de Gastos',
                                   style: TextStyle(
                                     color: Colors.black,
                                   ),
@@ -351,104 +306,6 @@ class App extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const LoginPageApart();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.local_gas_station,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Login page',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const LoginPageApart();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                /*Icon(
-                                  Icons.pause_presentation,
-                                  color: customBlue,
-                                  size: 60,
-                                ),*/
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  '',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
               const SizedBox(

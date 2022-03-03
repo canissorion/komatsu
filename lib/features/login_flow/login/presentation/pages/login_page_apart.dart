@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../app.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../widgets/login_microsoft_button.dart';
 
 class LoginPageApart extends StatelessWidget {
-  const LoginPageApart({Key? key}) : super(key: key);
-
+  const LoginPageApart({Key? key, required this.flavor}) : super(key: key);
+  final String flavor;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,16 @@ class LoginPageApart extends StatelessWidget {
               height: 60,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return App(flavor: flavor);
+                    },
+                  ),
+                );
+              },
               child: Ink(
                 child: LoginMicrosoftButton(),
               ),

@@ -4,6 +4,7 @@ import 'package:kcc_mobile_app/features/expenses_flow/new_expense/data/repositor
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/repositories/new_expense_repository.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
+import 'package:msal_mobile/msal_mobile.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
 import 'features/expenses_flow/approvals_history/data/repositories/approval_history_repositoy_impl.dart';
@@ -204,7 +205,11 @@ Future<void> init() async {
   );
 
   // Core
-
+  const String SCOPE =
+      'api://8dc52a5c-4af1-4e1a-b06a-429233d8d57c/user_impersonation';
+  const String TENANT_ID = 'organizations';
+  String authority = "https://login.microsoftonline.com/$TENANT_ID";
+  MsalMobile msal;
   // External
   final BaseOptions options = BaseOptions(
     receiveDataWhenStatusError: true,
