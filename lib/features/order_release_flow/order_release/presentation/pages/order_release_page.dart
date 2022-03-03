@@ -73,7 +73,7 @@ class OrderReleasePage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const MassActionWidget(),
+                      //const MassActionWidget(),
                       const FiltersWidget(),
                       const SearchingBarOcWidget(),
                       GestureDetector(

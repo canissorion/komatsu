@@ -96,7 +96,6 @@ class NewExpensePage extends StatelessWidget {
                               children: [
                                 NewExpenseFormWidget(
                                   newExpense: newExpense,
-                                  value: state.selectField!,
                                 ),
                                 const DocumentSelectedListPage(),
                                 ExpenseResumeCloseWidget(

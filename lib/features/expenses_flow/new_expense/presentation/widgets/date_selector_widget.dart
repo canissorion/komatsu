@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DateSelectorWidget extends StatelessWidget {
   const DateSelectorWidget({
@@ -39,9 +40,10 @@ class DateSelectorWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Text('01/31/2022'),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child:
+                        Text(DateFormat('dd/MM/yyyy').format(DateTime.now())),
                   ),
                   Container(
                     color: Colors.grey[300],

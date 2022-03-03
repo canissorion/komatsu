@@ -158,16 +158,18 @@ class TaskClosureWidget extends StatelessWidget {
               SizedBox(
                 width: 100,
                 height: 35,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                child: Container(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      primary: Colors.red,
                     ),
-                    primary: Colors.red,
+                    onPressed: !checked ? null : () {},
+                    child: const Text('Rechazar'),
                   ),
-                  onPressed: !checked ? null : () {},
-                  child: const Text('Rechazar'),
                 ),
               ),
             ],
