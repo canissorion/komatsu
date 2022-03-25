@@ -8,6 +8,9 @@ import '../../domain/entities/approval_history_list_entitie.dart';
 import '../bloc/approvals_history_bloc.dart';
 import '../widgets/approvals_widget.dart';
 
+/// This is a Page, History of approvals
+///
+/// {@category Approvals}
 class ApprovalsPage extends StatelessWidget {
   const ApprovalsPage({Key? key}) : super(key: key);
 

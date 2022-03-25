@@ -78,6 +78,10 @@ class DocumentPendingApprove extends StatelessWidget {
                         '${data.owner.firstName} ${data.owner.lastName}',
                         style: const TextStyle(fontSize: 15),
                       ),
+                      Text(
+                        'CLP: 277.306',
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
                       Row(
                         children: <Widget>[
                           Expanded(

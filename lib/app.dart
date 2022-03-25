@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/injection_container.dart';
 
 import 'core/utils/komatsu_colors.dart';
+import 'core/utils/navigator_utils.dart';
 import 'features/expenses_flow/new_expense/presentation/pages/new_expense_page.dart';
 import 'features/expenses_flow/pending_expenses/presentation/pages/pending_expense_page.dart';
 import 'features/funds_flow/funds_form/presentation/pages/funds_form_page.dart';
 import 'features/funds_flow/pending_funds/presentation/pages/pending_funds_page.dart';
+import 'features/login_flow/login/presentation/bloc/login_bloc.dart';
 import 'features/login_flow/login/presentation/pages/login_page.dart';
 import 'features/login_flow/login/presentation/pages/login_page_apart.dart';
 import 'features/order_release_flow/order_release/presentation/pages/order_release_page.dart';
@@ -22,297 +26,74 @@ class App extends StatelessWidget {
     return Scaffold(
       appBar: AppBarWidget(),
       drawer: const DrawerWidget(),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            Container(
+              child: const Text(
+                "Menu",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              Container(
-                child: const Text(
-                  "Dashboard",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Column(
+              children: [
+                ExpansionTile(
+                  expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                  onExpansionChanged: (bool) {
+                    pushToPage(context, PendingExpensePage());
+                  },
+                  title: Row(
+                    children: const [
+                      Icon(Icons.insert_chart),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Rendicion de gastos (1)')
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  PendingsBox(
-                    gradientOne: Color.fromRGBO(45, 179, 152, 1),
-                    gradientTwo: Color.fromRGBO(60, 200, 172, 1),
-                    text: 'Aprobados',
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  PendingsBox(
-                    gradientOne: Color.fromRGBO(230, 93, 74, 1),
-                    gradientTwo: Color.fromRGBO(246, 128, 111, 1),
-                    text: 'Pendientes',
-                    numberColor: Color.fromRGBO(246, 128, 111, 1),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                ExpansionTile(
+                  onExpansionChanged: (data) {
+                    pushToPage(context, PendingFundsPage());
+                  },
+                  expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                  title: Row(
+                    children: const [
+                      Icon(Icons.insert_chart),
                       SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const FundsFormPage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.article_outlined,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Solicitud de \nfondos',
-                                  style: TextStyle(color: Colors.black),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        width: 10,
                       ),
+                      Text('Solicitud de fondos (1)')
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                ),
+                ExpansionTile(
+                  onExpansionChanged: (data) {
+                    pushToPage(context, OrderReleasePage());
+                  },
+                  expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                  title: Row(
+                    children: const [
+                      Icon(Icons.insert_chart),
                       SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const PendingFundsPage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.attach_money,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Fondos',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        width: 10,
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const PendingExpensePage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.calculate,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Rendicion de Gastos',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      Text('Liberacion orden de compra (1)')
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const NewExpensePage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.add_task,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Nueva rendición de Gastos',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 160,
-                        height: 135,
-                        child: Card(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const OrderReleasePage();
-                                  },
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              primary: Colors.white,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.checklist,
-                                  color: customBlue,
-                                  size: 60,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Liberar ordenes\nde compra',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
         ),
       ),
     );

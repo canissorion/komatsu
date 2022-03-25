@@ -5,6 +5,7 @@ import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/history_widget.dart';
@@ -59,7 +60,7 @@ class ReleaseOcDetailPage extends StatelessWidget {
                         ),
                       );
                     } else {
-                      final OrderReleaseEntitie orderRelease =
+                      final OrderReleaceResumeList orderRelease =
                           state.orderRelease!;
                       return Column(
                         children: [

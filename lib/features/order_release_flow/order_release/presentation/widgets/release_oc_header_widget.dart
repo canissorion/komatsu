@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kcc_mobile_app/app.dart';
+import 'package:kcc_mobile_app/core/utils/navigator_utils.dart';
 import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_entitie.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 
 class ReleaseOcHeaderWidget extends StatelessWidget {
   const ReleaseOcHeaderWidget({Key? key, required this.data}) : super(key: key);
-  final OrderReleaseEntitie data;
+  final OrderReleaceResumeList data;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -47,7 +50,7 @@ class ReleaseOcHeaderWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  data.resumeCard.number,
+                  data.data![0].orderNumber!,
                   style: const TextStyle(
                     color: customBlue,
                     fontWeight: FontWeight.w500,
@@ -57,9 +60,14 @@ class ReleaseOcHeaderWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
-            'Cerrar',
-            style: TextStyle(color: customAccentBlue),
+          GestureDetector(
+            onTap: () {
+              pushAndReplaceToPage(context, App(flavor: 'Development'));
+            },
+            child: const Text(
+              'Cerrar',
+              style: TextStyle(color: customAccentBlue),
+            ),
           ),
           const SizedBox(
             width: 15,

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../core/usecases/usecase.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../../domain/usecases/order_release_usecase.dart';
 

@@ -6,6 +6,7 @@ import 'package:kcc_mobile_app/features/order_release_flow/order_release/present
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../widgets/mass_action_title_widget.dart';
 import '../widgets/reject_order_resume_widget.dart';
 import 'mass_reject_completed_page.dart';
@@ -57,7 +58,7 @@ class MassRejectPage extends StatelessWidget {
                       ),
                     );
                   } else {
-                    final OrderReleaseEntitie orderRelease =
+                    final OrderReleaceResumeList orderRelease =
                         state.orderRelease!;
                     return Column(
                       children: [

@@ -47,23 +47,23 @@ class ViaticumFormWidget extends StatelessWidget {
         const FormFieldWidget(
           title: 'Cuenta',
         ),
-        ObtainData(
-          codes: "CONCEPTO_GASTOS",
-          list: listConcept,
-          newExpenseData: newExpense,
-          title: 'Concepto del gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "CONCEPTO_GASTOS",
+        //   list: listConcept,
+        //   newExpenseData: newExpense,
+        //   title: 'Concepto del gasto',
+        //   titleColor: Colors.white,
+        // ),
         const SizedBox(
           height: 15,
         ),
-        ObtainData(
-          codes: "DETALLE_GASTO",
-          list: listDetail,
-          newExpenseData: newExpense,
-          title: 'Detalle gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "DETALLE_GASTO",
+        //   list: listDetail,
+        //   newExpenseData: newExpense,
+        //   title: 'Detalle gasto',
+        //   titleColor: Colors.white,
+        // ),
         const SizedBox(
           height: 15,
         ),

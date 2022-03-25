@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 
 class ReleasebuttonWidget extends StatelessWidget {
   const ReleasebuttonWidget({Key? key, required this.orderRelease})
       : super(key: key);
 
-  final OrderReleaseEntitie orderRelease;
+  final OrderReleaceResumeList orderRelease;
   @override
   Widget build(BuildContext context) {
     return Center(

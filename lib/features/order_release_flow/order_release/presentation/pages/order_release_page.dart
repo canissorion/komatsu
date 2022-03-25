@@ -4,6 +4,7 @@ import '../../../../../injection_container.dart';
 
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/filters_widget.dart';
@@ -58,7 +59,8 @@ class OrderReleasePage extends StatelessWidget {
                     ),
                   );
                 } else {
-                  final OrderReleaseEntitie orderRelease = state.orderRelease!;
+                  final OrderReleaceResumeList orderRelease =
+                      state.orderRelease!;
                   return Column(
                     children: [
                       const SizedBox(
@@ -76,21 +78,28 @@ class OrderReleasePage extends StatelessWidget {
                       //const MassActionWidget(),
                       const FiltersWidget(),
                       const SearchingBarOcWidget(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const ReleaseOcDetailPage();
-                              },
-                            ),
-                          );
-                        },
-                        child: OrderReleaseCardWidget(
-                          data: orderRelease,
-                        ),
-                      )
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.618,
+                        child: ListView.builder(
+                            itemCount: orderRelease.data!.length,
+                            itemBuilder: (context, i) {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const ReleaseOcDetailPage();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: OrderReleaseCardWidget(
+                                  data: orderRelease.data![i],
+                                ),
+                              );
+                            }),
+                      ),
                     ],
                   );
                 }

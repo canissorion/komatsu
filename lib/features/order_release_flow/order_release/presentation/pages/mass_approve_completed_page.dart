@@ -5,6 +5,7 @@ import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/mass_action_title_widget.dart';
@@ -56,61 +57,64 @@ class MassApproveCompletedPage extends StatelessWidget {
                     ),
                   );
                 } else {
-                  final OrderReleaseEntitie orderRelease = state.orderRelease!;
+                  final OrderReleaceResumeList orderRelease =
+                      state.orderRelease!;
                   return Column(
                     children: [
                       const MassActionTitleWidget(),
                       const SizedBox(
                         height: 20,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Row(
-                                children: const [
-                                  Icon(
-                                    Icons.check_box,
-                                    color: Colors.green,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                    //height: 10,
-                                  ),
-                                  Text(
-                                    "Aprobacion masiva de ordenes de Compra",
-                                  )
-                                ],
-                              ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.check_box,
+                              color: Colors.green,
+                              size: 30,
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              width: 10,
+                              //height: 10,
                             ),
-                            TitleDataWidget(
-                              title: 'N Orden',
-                              info: orderRelease.resumeCard.number,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                'Accion concluida exitosamente.',
-                                style: TextStyle(
-                                  color: customBlue,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
+                            Text(
+                              "Aprobacion masiva de ordenes de Compra",
                             )
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ListView.builder(itemBuilder: (context, i) {
+                        return SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TitleDataWidget(
+                                title: 'N Orden',
+                                info: orderRelease.data![i].orderNumber!,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Accion concluida exitosamente.',
+                                  style: TextStyle(
+                                    color: customBlue,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      })
                     ],
                   );
                 }

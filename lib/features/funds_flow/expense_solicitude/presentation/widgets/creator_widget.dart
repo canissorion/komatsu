@@ -24,7 +24,7 @@ class CreatorWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InformationTitleWidget(
-                title: 'Nombre:',
+                title: 'Solicitante:',
                 info:
                     '${expenseSolicitude.creator.firstName}, ${expenseSolicitude.creator.lastName}',
               ),

@@ -31,27 +31,32 @@ class ApprovalsHistory extends StatelessWidget {
                     ),
                     Text(
                       dateTimeConverter(data.approvals[index].approval.date),
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Container(
-                      width: 80,
-                      height: 30.0,
+                      width: 120,
+                      height: 50.0,
                       decoration: BoxDecoration(
                         color:
                             data.approvals[index].approver.action == 'devuelto'
                                 ? Colors.red
                                 : Colors.green,
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                       child: Center(
                         child: Text(
-                          data.approvals[index].approver.action == 'devuelto'
-                              ? "Rechazado"
-                              : "Aprobado",
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 13),
+                          data.approvals[index].statusInTheFlow.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: (data.approvals[index].statusInTheFlow
+                                          .length <
+                                      9)
+                                  ? 14
+                                  : 12),
                         ),
                       ),
                     ),
@@ -70,21 +75,6 @@ class ApprovalsHistory extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Estado:',
-                          style: TextStyle(
-                            color: customBlue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(data.approvals[index].statusInTheFlow),
-                        const Divider(
-                          thickness: 2,
-                          endIndent: 100,
-                        ),
                         const Text(
                           'Comentario:',
                           style: TextStyle(

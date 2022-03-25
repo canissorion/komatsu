@@ -2,7 +2,7 @@ part of 'order_release_bloc.dart';
 
 abstract class OrderReleaseState extends Equatable {
   final String? errorMessage;
-  final OrderReleaseEntitie? orderRelease;
+  final OrderReleaceResumeList? orderRelease;
   final bool? mark;
 
   const OrderReleaseState({this.errorMessage, this.orderRelease, this.mark});
@@ -16,7 +16,7 @@ class Empty extends OrderReleaseState {}
 class Loading extends OrderReleaseState {}
 
 class Loaded extends OrderReleaseState {
-  final OrderReleaseEntitie orderRelease;
+  final OrderReleaceResumeList orderRelease;
   final bool mark;
 
   const Loaded({required this.orderRelease, required this.mark});

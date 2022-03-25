@@ -1,244 +1,134 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
+import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/vales_bloc/vales_bloc.dart';
 
 import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../core/utils/number_format.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../../../../shared/presentation/widgets/information_title_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
-import '../bloc/new_expense_bloc.dart';
 
 class ExpenseListSelectorPage extends StatelessWidget {
   const ExpenseListSelectorPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarWidget(),
-      drawer: const DrawerWidget(),
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (BuildContext context) => sl<NewExpenseBloc>(),
-          )
-        ],
-        child: Column(
-          children: [
-            BlocBuilder<NewExpenseBloc, NewExpenseState>(
-              builder: (context, state) {
-                if (state is EmptyNewExpenses) {
-                  BlocProvider.of<NewExpenseBloc>(
-                    context,
-                    listen: false,
-                  ).add(GetNewExpenseEvent());
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.75,
-                    child: const Center(
-                      child: Text('No hay Información'),
+    return BlocProvider(
+      create: (context) => sl<ValesBloc>(),
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBarWidget(),
+          drawer: const DrawerWidget(),
+          body: Column(children: [
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30.0, top: 40, bottom: 10),
+                    child: Text(
+                      'VALES DISPONIBLES',
+                      style: TextStyle(
+                          color: customBlue,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
                     ),
-                  );
-                } else if (state is ErrorNewExpenses) {
-                  return Center(
-                    child: Text(state.errorMessage),
-                  );
-                } else if (state is LoadingNewExpenses) {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.8,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      ],
-                    ),
-                  );
-                } else {
-                  final NewExpenseEntitie newExpense = state.newExpense!;
-                  return Column(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        color: customBlue,
-                        child: Column(
-                          children: [
-                            const SizedBox(
-                              height: 70,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              color: Colors.white,
-                              child: Table(
-                                border: TableBorder.all(
-                                  color: customBlue,
-                                  width: 2,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.65,
+                    child: ListView.builder(
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Divider(
+                                thickness: 2,
+                              ),
+                              SizedBox(
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Checkbox(
+                                          value: false,
+                                          onChanged: (value) {},
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        InformationTitleWidget(
+                                          title: 'Folio',
+                                          info: '#370000002',
+                                        ),
+                                        InformationTitleWidget(
+                                          title: 'Monto',
+                                          info: 'CLP \$888888',
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 40,
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        InformationTitleWidget(
+                                          title: 'Empresa',
+                                          info: '3001',
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                columnWidths: const {
-                                  0: FlexColumnWidth(2),
-                                  1: FlexColumnWidth(4),
-                                  2: FlexColumnWidth(3),
-                                  3: FlexColumnWidth(2),
-                                  4: FlexColumnWidth(4),
-                                },
-                                children: [
-                                  TableRow(
-                                    decoration:
-                                        BoxDecoration(color: Colors.grey[200]),
-                                    children: const [
-                                      SizedBox(),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          top: 8.0,
-                                          bottom: 8,
-                                        ),
-                                        child: Center(child: Text('Folio')),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          top: 8.0,
-                                          bottom: 8,
-                                        ),
-                                        child: Center(child: Text('Empresa')),
-                                      ),
-                                      SizedBox(),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          top: 8.0,
-                                          bottom: 8,
-                                        ),
-                                        child: Center(child: Text('Monto')),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Checkbox(
-                                        checkColor: Colors.white,
-                                        value: false,
-                                        onChanged: (bool? value) {},
-                                      ),
-                                      TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(
-                                          child: Text(
-                                            "37000000002",
-                                          ),
-                                        ),
-                                      ),
-                                      TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(
-                                          child: Text("3001"),
-                                        ),
-                                      ),
-                                      TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(
-                                          child: Text("CLP"),
-                                        ),
-                                      ),
-                                      TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(
-                                          child: Text(
-                                            numberFormat(
-                                              888888,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Checkbox(
-                                        checkColor: Colors.white,
-                                        value: false,
-                                        onChanged: (bool? value) {},
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child:
-                                            Center(child: Text('37000000002')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('3001')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('CLP')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('888888')),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Checkbox(
-                                        checkColor: Colors.white,
-                                        value: false,
-                                        onChanged: (bool? value) {},
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child:
-                                            Center(child: Text('37000000002')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('3001')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('CLP')),
-                                      ),
-                                      const TableCell(
-                                        verticalAlignment:
-                                            TableCellVerticalAlignment.middle,
-                                        child: Center(child: Text('888888')),
-                                      ),
-                                    ],
-                                  )
-                                ],
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Row(
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    child: const Text('Seleccionar'),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                              if (index == 3)
+                                Divider(
+                                  thickness: 2,
+                                ),
+                            ],
+                          );
+                        }),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text('AGREGAR'),
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(customBlue)),
                       ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: Text('CANCELAR'),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  customBlue))),
                     ],
-                  );
-                }
-              },
+                  )
+                ],
+              ),
             )
-          ],
-        ),
-      ),
+          ])),
     );
   }
 }

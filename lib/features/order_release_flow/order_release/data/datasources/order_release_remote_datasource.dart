@@ -1,21 +1,33 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kcc_mobile_app/features/order_release_flow/order_release/data/models/order_release_model.dart';
+
+import '../../../../../core/error/exceptions.dart';
+import '../models/order_release_resume_list_model.dart';
 
 abstract class OrderReleaseRemoteDataSource {
   //Future<PendingExpensesModel> getPendingApprove();
-  Future<OrderReleaseModel> getOrderRelease();
+  Future<OrderReleaceResumeList> getOrderRelease();
 }
 
 class OrderReleaseRemoteDataSourceImpl implements OrderReleaseRemoteDataSource {
   late final Dio client;
-
+  final String url = dotenv.env['serverOrderRelease']!;
   OrderReleaseRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<OrderReleaseModel> getOrderRelease() async {
-    final String response =
-        await rootBundle.loadString("assets/json/order_release.json");
-    return orderReleaseFromJson(response);
+  Future<OrderReleaceResumeList> getOrderRelease() async {
+    final response = await client.get(
+      '$url/purchase-orders?order=ASC&pageNumber=1&pageSize=10',
+      options: Options(headers: {'authorization': 1}),
+    );
+    if (response.statusCode == 200) {
+      return orderReleaceResumeListFromJson(json.encode(response.data));
+    } else {
+      throw ServerException();
+    }
   }
 }

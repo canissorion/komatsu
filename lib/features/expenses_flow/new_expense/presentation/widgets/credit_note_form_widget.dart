@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/new_expense_entitie.dart';
-import '../bloc/new_expense_bloc.dart';
+
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
@@ -47,23 +47,23 @@ class CreditNoteFormWidget extends StatelessWidget {
           title: 'IVA',
           keyboard: TextInputType.number,
         ),
-        ObtainData(
-          codes: "CONCEPTO_GASTOS",
-          list: listConcept,
-          newExpenseData: newExpense,
-          title: 'Concepto del gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "CONCEPTO_GASTOS",
+        //   list: listConcept,
+        //   newExpenseData: newExpense,
+        //   title: 'Concepto del gasto',
+        //   titleColor: Colors.white,
+        // ),
         const SizedBox(
           height: 15,
         ),
-        ObtainData(
-          codes: "DETALLE_GASTO",
-          list: listDetail,
-          newExpenseData: newExpense,
-          title: 'Detalle gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "DETALLE_GASTO",
+        //   list: listDetail,
+        //   newExpenseData: newExpense,
+        //   title: 'Detalle gasto',
+        //   titleColor: Colors.white,
+        // ),
         const SizedBox(
           height: 15,
         ),

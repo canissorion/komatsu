@@ -21,14 +21,6 @@ class FundsFormPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<FundsFormBloc>(),
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: customBlue,
-          onPressed: () {},
-          child: const Icon(
-            Icons.add,
-            size: 50,
-          ),
-        ),
         appBar: AppBarWidget(),
         drawer: const DrawerWidget(),
         body: SingleChildScrollView(

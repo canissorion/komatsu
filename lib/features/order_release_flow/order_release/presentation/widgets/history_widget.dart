@@ -3,6 +3,7 @@ import 'package:timelines/timelines.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 
 const kTileHeight = 50.0;
@@ -10,11 +11,11 @@ const kTileHeight = 50.0;
 class HistoryLiberatorWidget extends StatelessWidget {
   const HistoryLiberatorWidget({Key? key, required this.orderRelease})
       : super(key: key);
-  final OrderReleaseEntitie orderRelease;
+  final OrderReleaceResumeList orderRelease;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: 1,
       itemBuilder: (context, index) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +31,7 @@ class HistoryLiberatorWidget extends StatelessWidget {
                       height: 13,
                     ),
                     Text(
-                      dateTimeConverter(orderRelease.liberation.liberationDate),
+                      dateTimeConverter(000000),
                     ),
                     const SizedBox(
                       height: 10,
@@ -39,16 +40,12 @@ class HistoryLiberatorWidget extends StatelessWidget {
                       width: 80,
                       height: 30.0,
                       decoration: BoxDecoration(
-                        color: orderRelease.liberation.liberationStatus == 'R'
-                            ? customRed500
-                            : customGreen500,
+                        color: customRed500,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Center(
                         child: Text(
-                          orderRelease.liberation.liberationStatus == 'R'
-                              ? "Rechazado"
-                              : "Aprobado",
+                          "Rechazado",
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 13,
@@ -81,12 +78,12 @@ class HistoryLiberatorWidget extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(orderRelease.liberation.sendTo),
+                        Text(' '),
                         const Divider(
                           thickness: 2,
                           color: customBlue50,
                         ),
-                        _OnTimeBar(user: orderRelease),
+                        _OnTimeBar(user: orderRelease.data![0]),
                       ],
                     ),
                   ),
@@ -116,7 +113,7 @@ class HistoryLiberatorWidget extends StatelessWidget {
 class _OnTimeBar extends StatelessWidget {
   const _OnTimeBar({Key? key, required this.user}) : super(key: key);
 
-  final OrderReleaseEntitie user;
+  final Datum user;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +122,7 @@ class _OnTimeBar extends StatelessWidget {
         CircleAvatar(
           radius: 15,
           backgroundColor: customBlue,
-          child: Text(user.liberator.liberatorFirstName.characters.first),
+          child: Text(user.liberatingUser!),
         ),
         const SizedBox(
           width: 10,
@@ -137,19 +134,19 @@ class _OnTimeBar extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  user.liberator.liberatorId,
+                  '00000',
                   textAlign: TextAlign.end,
                   style: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
             Text(
-              user.liberator.liberatorFirstName,
+              user.liberatingUser!,
               textAlign: TextAlign.end,
               style: const TextStyle(fontSize: 12),
             ),
             Text(
-              user.liberator.mail,
+              'falta@algo.cl',
               textAlign: TextAlign.end,
               style: const TextStyle(fontSize: 12),
             ),

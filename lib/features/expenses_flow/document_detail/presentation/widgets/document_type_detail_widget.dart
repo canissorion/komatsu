@@ -27,8 +27,8 @@ class DocumentTypeDetailWidget extends StatelessWidget {
               value: documentDetail.rutEmisor,
             ),
             IndividualDetailWidget(
-              title: 'Tipo Documento',
-              value: documentDetail.tipoDocumento,
+              title: 'N° de Documento',
+              value: documentDetail.numeroDocumento,
             ),
           ],
         ),
@@ -45,10 +45,6 @@ class DocumentTypeDetailWidget extends StatelessWidget {
             IndividualDetailWidget(
               title: 'Subtipo',
               value: documentDetail.subtipo,
-            ),
-            IndividualDetailWidget(
-              title: 'N° de Documento',
-              value: documentDetail.numeroDocumento,
             ),
             GestureDetector(
               onTap: () {

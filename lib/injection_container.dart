@@ -3,7 +3,6 @@ import 'package:get_it/get_it.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/data/repositories/new_expense_repository_impl.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/repositories/new_expense_repository.dart';
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
 import 'package:msal_mobile/msal_mobile.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
@@ -25,7 +24,10 @@ import 'features/expenses_flow/expense_detail/domain/usecases/expense_detail_use
 import 'features/expenses_flow/expense_detail/domain/usecases/sub_document_resume_usecase.dart';
 import 'features/expenses_flow/expense_detail/presentation/bloc/expense_detail_bloc.dart';
 import 'features/expenses_flow/new_expense/data/datasources/new_expense_remote_datasource.dart';
+import 'features/expenses_flow/new_expense/presentation/bloc/form_bloc/form_bloc.dart';
+import 'features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
 import 'features/expenses_flow/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
+import 'features/expenses_flow/new_expense/presentation/bloc/vales_bloc/vales_bloc.dart';
 import 'features/expenses_flow/pending_expenses/data/datasources/pending_items_remote_datasource.dart';
 import 'features/expenses_flow/pending_expenses/data/repositories/pending_items_list_repository_impl.dart';
 import 'features/expenses_flow/pending_expenses/domain/repositories/pending_items_list_repository.dart';
@@ -51,6 +53,7 @@ import 'features/funds_flow/pending_funds/data/repositories/pending_funds_reposi
 import 'features/funds_flow/pending_funds/domain/repositories/pending_funds_repository.dart';
 import 'features/funds_flow/pending_funds/domain/usecases/pending_funds_list_usecase.dart';
 import 'features/funds_flow/pending_funds/presentation/bloc/funds_list_bloc.dart';
+import 'features/login_flow/login/presentation/bloc/login_bloc.dart';
 import 'features/order_release_flow/order_release/data/datasources/order_release_remote_datasource.dart';
 import 'features/order_release_flow/order_release/data/repositories/order_release_impl.dart';
 import 'features/order_release_flow/order_release/domain/repositories/order_release_repository.dart';
@@ -62,6 +65,12 @@ final sl = GetIt.instance;
 Future<void> init() async {
   // Features - Detalle Documento
   // Bloc
+  sl.registerFactory(() => LoginBloc());
+
+  sl.registerFactory(() => FormBloc());
+
+  sl.registerFactory(() => ValesBloc());
+
   sl.registerFactory(
     () => DocumentDetailBloc(getDocumentDetail: sl()),
   );

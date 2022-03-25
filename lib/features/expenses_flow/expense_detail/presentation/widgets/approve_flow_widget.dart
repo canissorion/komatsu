@@ -44,20 +44,11 @@ class ApproveFlowWidget extends StatelessWidget {
             ],
           ),
           InformationTitleWidget(
-            title: 'Enviado a',
-            info:
-                '${expenseDetail.manager.firstName} ${expenseDetail.manager.lastName}',
-          ),
-          InformationTitleWidget(
             title: 'Fecha',
             info: dateTimeConverter(expenseDetail.creationDate),
           ),
-          const InformationTitleWidget(
-            title: 'Estado',
-            info: 'ENVIADO A JEFE APROBADOR (FALTA)',
-          ),
           InformationTitleWidget(
-            title: 'Comentario de Aprobador',
+            title: 'Comentario Solicitante',
             info: expenseDetail.approver.comments,
           )
         ],

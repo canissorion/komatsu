@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 
 class OrderReleaseCardWidget extends StatelessWidget {
   const OrderReleaseCardWidget({Key? key, required this.data})
       : super(key: key);
 
-  final OrderReleaseEntitie data;
+  final Datum data;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +25,7 @@ class OrderReleaseCardWidget extends StatelessWidget {
                       height: 24,
                     ),
                     Text(
-                      'Folio ${data.resumeCard.number}',
+                      'Folio ${data.orderNumber}',
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontWeight: FontWeight.bold,
@@ -34,14 +35,14 @@ class OrderReleaseCardWidget extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      data.provider.typeProvider,
+                      data.providerId!,
                       style: const TextStyle(fontSize: 17),
                     ),
                     const SizedBox(
                       height: 4,
                     ),
                     Text(
-                      data.provider.providerName,
+                      data.providerName!,
                       style: const TextStyle(fontSize: 17),
                     )
                   ],
@@ -55,7 +56,7 @@ class OrderReleaseCardWidget extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        dateTimeConverter(data.creationDate),
+                        dateTimeConverter(data.recordDate!),
                         style:
                             const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
@@ -81,7 +82,7 @@ class OrderReleaseCardWidget extends StatelessWidget {
                           bottom: 4,
                           top: 4,
                         ),
-                        child: Rectangle(item: data),
+                        child: Rectangle(),
                       ),
                     ),
                   ),
@@ -106,21 +107,20 @@ class OrderReleaseCardWidget extends StatelessWidget {
 }
 
 class Rectangle extends StatelessWidget {
-  const Rectangle({Key? key, required this.item}) : super(key: key);
-  final OrderReleaseEntitie item;
+  const Rectangle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: item.generalStatus == 0 ? 50 : 100,
+      width: 50,
       height: 20.0,
       decoration: BoxDecoration(
-        color: item.generalStatus == 0 ? Colors.green : Colors.orange,
+        color: Colors.green,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Center(
         child: Text(
-          item.generalStatus == 0 ? "Nuevo" : "En tratamiento",
+          "Nuevo",
           style: const TextStyle(color: Colors.white),
         ),
       ),

@@ -71,7 +71,7 @@ class PendingFundsPage extends StatelessWidget {
                   ),
                   const Center(
                     child: Text(
-                      'Mis rendiciones de Fondos',
+                      'Solicitudes de Fondos',
                       textAlign: TextAlign.center,
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

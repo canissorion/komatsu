@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import 'reason_field_widget.dart';
 import 'title_data_widget.dart';
@@ -7,7 +8,7 @@ import 'title_data_widget.dart';
 class RejectOrderResumeWidget extends StatelessWidget {
   const RejectOrderResumeWidget({Key? key, required this.orderRelease})
       : super(key: key);
-  final OrderReleaseEntitie orderRelease;
+  final OrderReleaceResumeList orderRelease;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,17 +22,19 @@ class RejectOrderResumeWidget extends StatelessWidget {
               children: [
                 TitleDataWidget(
                   title: 'Fecha Registro',
-                  info: dateTimeConverter(orderRelease.creationDate),
+                  info: dateTimeConverter(
+                      orderRelease.data![0].recordDate!),
                 ),
                 TitleDataWidget(
                   title: 'N Orden',
-                  info: orderRelease.resumeCard.number,
+                  info: orderRelease.data![0].freeNumber!,
                 ),
               ],
             ),
             TitleDataWidget(
               title: 'Codigo estrategia',
-              info: orderRelease.stategyCode.toString(),
+              info: orderRelease.data![0].requirementTrackingNumber
+                  .toString(),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 10),
@@ -42,7 +45,7 @@ class RejectOrderResumeWidget extends StatelessWidget {
             ),
             TitleDataWidget(
               title: 'Respuesta',
-              info: orderRelease.answer,
+              info: ' ',
             ),
             const Divider(
               thickness: 3,

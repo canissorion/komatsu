@@ -29,23 +29,24 @@ class TicketFormWidget extends StatelessWidget {
           title: 'Valor total de la boleta',
           keyboard: TextInputType.number,
         ),
-        ObtainData(
-          codes: "CONCEPTO_GASTOS",
-          list: listConcept,
-          newExpenseData: newExpense,
-          title: 'Concepto del gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "CONCEPTO_GASTOS",
+        //   list: listConcept,
+        //   newExpenseData: newExpense,
+        //   title: 'Concepto del gasto',
+        //   titleColor: Colors.white,
+          
+        // ),
         const SizedBox(
           height: 15,
         ),
-        ObtainData(
-          codes: "DETALLE_GASTO",
-          list: listDetail,
-          newExpenseData: newExpense,
-          title: 'Detalle gasto',
-          titleColor: Colors.white,
-        ),
+        // ObtainData(
+        //   codes: "DETALLE_GASTO",
+        //   list: listDetail,
+        //   newExpenseData: newExpense,
+        //   title: 'Detalle gasto',
+        //   titleColor: Colors.white,
+        // ),
         const SizedBox(
           height: 15,
         ),

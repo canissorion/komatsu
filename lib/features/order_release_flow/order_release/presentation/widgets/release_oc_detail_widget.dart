@@ -3,6 +3,7 @@ import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/number_format.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../../domain/entitites/order_release_entitie.dart';
 import '../pages/mass_approve_page.dart';
 import '../pages/mass_reject_page.dart';
@@ -13,7 +14,7 @@ class ReleaseDetailWidget extends StatelessWidget {
   const ReleaseDetailWidget({Key? key, required this.orderRelease})
       : super(key: key);
 
-  final OrderReleaseEntitie orderRelease;
+  final OrderReleaceResumeList orderRelease;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,11 +36,12 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Fecha Registro',
-                      info: dateTimeConverter(orderRelease.creationDate),
+                      info: dateTimeConverter(
+                          orderRelease.data![0].recordDate!),
                     ),
                     TitleDataWidget(
                       title: 'Urg. Neces.',
-                      info: orderRelease.record.urgency,
+                      info: orderRelease.data![0].urgentNeed!,
                     ),
                   ],
                 ),
@@ -51,11 +53,11 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'N Orden',
-                      info: orderRelease.record.orderNumber.toString(),
+                      info: orderRelease.data![0].orderNumber!,
                     ),
                     TitleDataWidget(
                       title: 'Grp. Compra',
-                      info: orderRelease.record.grpOrder.toString(),
+                      info: orderRelease.data![0].buyGroup!,
                     ),
                   ],
                 ),
@@ -71,15 +73,15 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Proveedor',
-                      info: orderRelease.provider.providerId.toString(),
+                      info: orderRelease.data![0].providerId!,
                     ),
                     TitleDataWidget(
                       title: 'Nombre Proveedor',
-                      info: orderRelease.provider.providerName,
+                      info: orderRelease.data![0].providerName!,
                     ),
                     TitleDataWidget(
                       title: 'Centro',
-                      info: orderRelease.center.centerId.toString(),
+                      info: orderRelease.data![0].centerId!,
                     ),
                   ],
                 ),
@@ -95,7 +97,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                     ),
                     TitleDataWidget(
                       title: 'Nombre Centro',
-                      info: orderRelease.center.centerName,
+                      info: orderRelease.data![0].centerName!,
                     ),
                   ],
                 )
@@ -111,7 +113,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                     TitleDataWidget(
                       title: 'Monto Total',
                       info:
-                          "\$${numberFormat(orderRelease.currency.totalAmount)}",
+                          "\$${numberFormat(orderRelease.data![0].totalAmount!.toInt())}",
                     ),
                   ],
                 ),
@@ -122,7 +124,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Moneda',
-                      info: orderRelease.currency.code,
+                      info: orderRelease.data![0].currency!,
                     ),
                   ],
                 )
@@ -138,8 +140,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Solicitante',
-                      info:
-                          "${orderRelease.applicant.applicantLastName} ${orderRelease.applicant.applicantFirstName} ",
+                      info: "${orderRelease.data![0].applicant}",
                     ),
                   ],
                 ),
@@ -151,7 +152,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                         title: 'Num. Necesidad',
-                        info: orderRelease.needNumber.toString()),
+                        info: orderRelease.data![0].freeNumber!),
                   ],
                 ),
                 const SizedBox(
@@ -161,7 +162,8 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Org. de Compras',
-                      info: orderRelease.purchasingOrg.toString(),
+                      info:
+                          orderRelease.data![0].purchasingOrganization!,
                     ),
                   ],
                 ),
@@ -177,8 +179,7 @@ class ReleaseDetailWidget extends StatelessWidget {
               children: [
                 TitleDataWidget(
                   title: 'Usuario Liberador',
-                  info:
-                      "${orderRelease.liberator.liberatorLastName} ${orderRelease.liberator.liberatorFirstName} ",
+                  info: "${orderRelease.data![0].liberatingUser} ",
                 ),
               ],
             ),
@@ -188,7 +189,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Prioridad de la',
-                      info: orderRelease.priority,
+                      info: orderRelease.data![0].orderPriority!,
                     ),
                   ],
                 ),

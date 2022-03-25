@@ -1,7 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
+
+import '../../domain/entities/new_expense_id_domain_parameter_value_entitie.dart';
 
 class TitleAndSelectorWidget extends StatelessWidget {
   const TitleAndSelectorWidget({
@@ -9,11 +10,15 @@ class TitleAndSelectorWidget extends StatelessWidget {
     required this.title,
     required this.items,
     this.titleColor,
+    required this.change,
+    required this.value,
   }) : super(key: key);
 
   final String title;
-  final List<String> items;
+  final List<DomainParameterValueEntitie> items;
   final Color? titleColor;
+  final Function change;
+  final int? value;
 
   @override
   Widget build(BuildContext context) {
@@ -45,24 +50,20 @@ class TitleAndSelectorWidget extends StatelessWidget {
                   OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
             ),
             child: DropdownButtonHideUnderline(
-              child: DropdownButton2<String>(
+              child: DropdownButton2<int>(
                 hint: const Text("Selecione una opción"),
+                value: value,
                 itemHeight: 40,
                 isDense: true,
                 isExpanded: true,
                 items: items.map((e) {
-                  return DropdownMenuItem<String>(
-                    value: e,
-                    child: Text(e),
+                  return DropdownMenuItem<int>(
+                    value: e.idDomainParameterValue,
+                    child: Text(e.descriptionShort),
                   );
                 }).toList(),
-                onChanged: (String? newValue) {
-                  BlocProvider.of<NewExpenseBloc>(
-                    context,
-                    listen: false,
-                  ).add(
-                    ChangeSelectFieldData(newValue!),
-                  );
+                onChanged: (newValue) {
+                  change(newValue);
                 },
                 scrollbarAlwaysShow: true,
                 dropdownDecoration: BoxDecoration(

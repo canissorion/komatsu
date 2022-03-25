@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 
+import '../../../../../app.dart';
+import '../../../../../core/utils/navigator_utils.dart';
+
 class MassActionTitleWidget extends StatelessWidget {
   const MassActionTitleWidget({
     Key? key,
@@ -58,9 +61,14 @@ class MassActionTitleWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
-            'Cerrar',
-            style: TextStyle(color: customAccentBlue),
+          GestureDetector(
+            onTap: () {
+              pushAndReplaceToPage(context, App(flavor: 'Development'));
+            },
+            child: const Text(
+              'Cerrar',
+              style: TextStyle(color: customAccentBlue),
+            ),
           ),
           const SizedBox(
             width: 15,

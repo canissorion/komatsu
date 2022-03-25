@@ -7,6 +7,7 @@ import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../widgets/mass_action_title_widget.dart';
 import '../widgets/title_data_widget.dart';
 
@@ -56,7 +57,8 @@ class MassRejectCompletedPage extends StatelessWidget {
                     ),
                   );
                 } else {
-                  final OrderReleaseEntitie orderRelease = state.orderRelease!;
+                  final OrderReleaceResumeList orderRelease =
+                      state.orderRelease!;
                   return Column(
                     children: [
                       const MassActionTitleWidget(),
@@ -92,7 +94,7 @@ class MassRejectCompletedPage extends StatelessWidget {
                             ),
                             TitleDataWidget(
                               title: 'N Orden',
-                              info: orderRelease.resumeCard.number,
+                              info: orderRelease.data![0].freeNumber!,
                             ),
                             const SizedBox(
                               height: 10,
