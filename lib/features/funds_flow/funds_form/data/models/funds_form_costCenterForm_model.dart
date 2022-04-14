@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import '../../domain/entities/funds_form_costCenterForm_entitie.dart';
 
 class CostCenterFormModel extends CostCenterFormEntitie {

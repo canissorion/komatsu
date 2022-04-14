@@ -2,9 +2,11 @@ import 'package:currency_text_input_formatter/currency_text_input_formatter.dart
 import 'package:flutter/material.dart';
 
 class TitleAndTextfieldWidget extends StatelessWidget {
-  const TitleAndTextfieldWidget(
-      {Key? key, required this.title, this.titleColor})
-      : super(key: key);
+  const TitleAndTextfieldWidget({
+    Key? key,
+    required this.title,
+    this.titleColor,
+  }) : super(key: key);
 
   final String title;
   final Color? titleColor;

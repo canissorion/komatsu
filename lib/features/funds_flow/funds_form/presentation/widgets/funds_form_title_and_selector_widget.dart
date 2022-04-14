@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TitleAndSelectorWidget extends StatelessWidget {
-  const TitleAndSelectorWidget(
-      {Key? key, required this.title, required this.items, this.titleColor})
-      : super(key: key);
+  const TitleAndSelectorWidget({
+    Key? key,
+    required this.title,
+    required this.items,
+    this.titleColor,
+  }) : super(key: key);
 
   final String title;
   final List<String> items;

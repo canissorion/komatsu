@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'form_bloc.dart';
 
 abstract class FormState extends Equatable {

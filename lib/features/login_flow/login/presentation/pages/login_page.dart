@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, always_declare_return_types, type_annotate_public_apis
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -96,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
     // you would use this instead to auth for all organizations: "https://login.microsoftonline.com/common"
     await msal.acquireTokenSilent([SCOPE], authority).then((result) {
       print('access token (truncated): ${result!.accessToken}');
-      log(result!.accessToken!);
+      log(result.accessToken!);
     }).catchError((exception) {
       if (exception is MsalMobileException) {
         logMsalMobileError(exception);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import 'reason_field_widget.dart';
 import 'title_data_widget.dart';
 
@@ -22,8 +21,7 @@ class RejectOrderResumeWidget extends StatelessWidget {
               children: [
                 TitleDataWidget(
                   title: 'Fecha Registro',
-                  info: dateTimeConverter(
-                      orderRelease.data![0].recordDate!),
+                  info: dateTimeConverter(orderRelease.data![0].recordDate!),
                 ),
                 TitleDataWidget(
                   title: 'N Orden',
@@ -33,8 +31,7 @@ class RejectOrderResumeWidget extends StatelessWidget {
             ),
             TitleDataWidget(
               title: 'Codigo estrategia',
-              info: orderRelease.data![0].requirementTrackingNumber
-                  .toString(),
+              info: orderRelease.data![0].requirementTrackingNumber.toString(),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 10),
@@ -43,7 +40,7 @@ class RejectOrderResumeWidget extends StatelessWidget {
                 textLines: 5,
               ),
             ),
-            TitleDataWidget(
+            const TitleDataWidget(
               title: 'Respuesta',
               info: ' ',
             ),

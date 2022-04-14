@@ -1,6 +1,8 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'dart:convert';
 
-import 'package:kcc_mobile_app/shared/data/model/pagination_model.dart';
+import '../../../../../shared/data/model/pagination_model.dart';
 
 import '../../domain/entities/attachment_entitie.dart';
 import '../../domain/entities/sub_document_entitie.dart';
@@ -23,11 +25,13 @@ class SubDocumentResumeListModel extends SubDocumentResumeListEntitie {
         pagination: PaginationModel.fromJson(
           json["pagination"] as Map<String, dynamic>,
         ),
-        data: List<SubDocumentResumeModel>.from(json["data"].map(
-          (x) => SubDocumentResumeModel.fromJson(
-            x as Map<String, dynamic>,
-          ),
-        ) as Iterable<dynamic>),
+        data: List<SubDocumentResumeModel>.from(
+          json["data"].map(
+            (x) => SubDocumentResumeModel.fromJson(
+              x as Map<String, dynamic>,
+            ),
+          ) as Iterable<dynamic>,
+        ),
       );
 }
 

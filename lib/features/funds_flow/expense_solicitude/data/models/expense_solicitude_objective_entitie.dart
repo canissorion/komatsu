@@ -1,7 +1,7 @@
 import '../../domain/entities/expense_solicitude_objective_entitie.dart';
 
 class ObjectiveModel extends ObjectiveEntitie {
-  ObjectiveModel({
+  const ObjectiveModel({
     required String advance,
     required int estimateTime,
   }) : super(advance: advance, estimateTime: estimateTime);

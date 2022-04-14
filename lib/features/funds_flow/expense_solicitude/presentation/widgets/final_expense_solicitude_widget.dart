@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/expense_solicitude_entitie.dart';
 
 class FinalExpenseFundsWidget extends StatelessWidget {
-  const FinalExpenseFundsWidget(
-      {Key? key, required this.expenseSolicitude, required this.option})
-      : super(key: key);
+  const FinalExpenseFundsWidget({
+    Key? key,
+    required this.expenseSolicitude,
+    required this.option,
+  }) : super(key: key);
   final ExpenseSolicitudeEntitie expenseSolicitude;
   final bool option;
 

@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: non_constant_identifier_names
+
 part of 'order_release_resume_list_model.dart';
 
 // **************************************************************************
@@ -7,7 +9,8 @@ part of 'order_release_resume_list_model.dart';
 // **************************************************************************
 
 _$_OrderReleaceResumeList _$$_OrderReleaceResumeListFromJson(
-        Map<String, dynamic> json) =>
+  Map<String, dynamic> json,
+) =>
     _$_OrderReleaceResumeList(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
@@ -22,7 +25,8 @@ _$_OrderReleaceResumeList _$$_OrderReleaceResumeListFromJson(
     );
 
 Map<String, dynamic> _$$_OrderReleaceResumeListToJson(
-        _$_OrderReleaceResumeList instance) =>
+  _$_OrderReleaceResumeList instance,
+) =>
     <String, dynamic>{
       'data': instance.data,
       'isArray': instance.isArray,

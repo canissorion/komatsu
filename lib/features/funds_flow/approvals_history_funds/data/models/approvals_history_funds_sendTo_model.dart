@@ -1,4 +1,6 @@
-import 'package:kcc_mobile_app/features/funds_flow/approvals_history_funds/domain/entities/approvals_history_funds_sendTo_entitie.dart';
+// ignore_for_file: file_names
+
+import '../../domain/entities/approvals_history_funds_sendTo_entitie.dart';
 
 class SendToModel extends SendToEntitie {
   const SendToModel({

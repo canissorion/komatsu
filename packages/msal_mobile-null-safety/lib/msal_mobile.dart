@@ -1,18 +1,21 @@
+// ignore_for_file: lines_longer_than_80_chars, require_trailing_commas, unnecessary_null_comparison, prefer_is_empty, unnecessary_this
+
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+
 import 'exception.dart';
 import 'payload.dart';
 import 'result.dart';
 
-export 'exception.dart';
 export 'account.dart';
+export 'exception.dart';
 export 'payload.dart';
 
 class MsalMobile {
-  static const MethodChannel _channel =
-      const MethodChannel('com.gbwisx.msal_mobile');
+  static const MethodChannel _channel = MethodChannel('com.gbwisx.msal_mobile');
   static bool initialized = false;
 
   /// Creates a new MsalMobile client object to make calls to the MSAL library.
@@ -42,9 +45,10 @@ class MsalMobile {
       'authority': authority
     });
     final result = response != null
-        ? MsalMobileResult.fromJson(jsonDecode(response))
+        ? MsalMobileResult.fromJson(
+            jsonDecode(response) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess && result!.exception != null) {
+    if (!result!.isSuccess && result.exception != null) {
       throw MsalMobileException.copy(result.exception, result.innerException);
     }
     initialized = true;
@@ -80,12 +84,13 @@ class MsalMobile {
 
     final response = await _channel.invokeMethod('getAccount');
     final result = response != null
-        ? MsalMobileGetAccountResult.fromJson(jsonDecode(response))
+        ? MsalMobileGetAccountResult.fromJson(
+            jsonDecode(response as String) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess && result!.exception != null) {
-      throw MsalMobileException.copy(result!.exception, result!.innerException);
+    if (!result!.isSuccess && result.exception != null) {
+      throw MsalMobileException.copy(result.exception, result.innerException);
     }
-    return result!.payload;
+    return result.payload;
   }
 
   /// Signs a user into MSAL if there is not currently any user signed in.  This should be done prior to retrieving
@@ -102,18 +107,19 @@ class MsalMobile {
       <String, dynamic>{'loginHint': loginHint, 'scopes': scopes},
     );
     final result = response != null
-        ? MsalMobileAuthenticationResult.fromJson(jsonDecode(response))
+        ? MsalMobileAuthenticationResult.fromJson(
+            jsonDecode(response as String) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess && result!.exception != null) {
+    if (!result!.isSuccess && result.exception != null) {
       // check if the user is already signed in.  That could be the cause of an invalid_parameter failure from MSAL
       final signedIn = await this.getSignedIn();
       if (signedIn) {
         throw MsalMobileException.fromErrorCode(
             MsalMobileExceptionErrorCode.alreadySignedIn);
       }
-      throw MsalMobileException.copy(result!.exception, result!.innerException);
+      throw MsalMobileException.copy(result.exception, result.innerException);
     }
-    return result!.payload;
+    return result.payload;
   }
 
   /// Signs a user out of MSAL if there is currently a user signed in.
@@ -125,10 +131,11 @@ class MsalMobile {
 
     final response = await _channel.invokeMethod('signOut');
     final result = response != null
-        ? MsalMobileResult.fromJson(jsonDecode(response))
+        ? MsalMobileResult.fromJson(
+            jsonDecode(response as String) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess && result!.exception != null) {
-      throw MsalMobileException.copy(result!.exception, result!.innerException);
+    if (!result!.isSuccess && result.exception != null) {
+      throw MsalMobileException.copy(result.exception, result.innerException);
     }
   }
 
@@ -145,12 +152,13 @@ class MsalMobile {
       <String, dynamic>{'scopes': scopes},
     );
     final result = response != null
-        ? MsalMobileAuthenticationResult.fromJson(jsonDecode(response))
+        ? MsalMobileAuthenticationResult.fromJson(
+            jsonDecode(response as String) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess! && result!.exception != null) {
-      throw MsalMobileException.copy(result!.exception, result!.innerException);
+    if (!result!.isSuccess && result.exception != null) {
+      throw MsalMobileException.copy(result.exception, result.innerException);
     }
-    return result!.payload;
+    return result.payload;
   }
 
   /// Acquires a token silently (without UI).  An exception will be thrown if a token cannot be acquired silently.  A user must
@@ -167,12 +175,13 @@ class MsalMobile {
       <String, dynamic>{'scopes': scopes, 'authority': authority},
     );
     final result = response != null
-        ? MsalMobileAuthenticationResult.fromJson(jsonDecode(response))
+        ? MsalMobileAuthenticationResult.fromJson(
+            jsonDecode(response as String) as Map<String, dynamic>)
         : null;
-    if (!result!.isSuccess! && result!.exception != null) {
-      throw MsalMobileException.copy(result!.exception, result!.innerException);
+    if (!result!.isSuccess && result.exception != null) {
+      throw MsalMobileException.copy(result.exception, result.innerException);
     }
-    return result!.payload;
+    return result.payload;
   }
 
   /// Attempts to acquire a token silently.  If silent token acquisition fails because the UI is required, then an attempt to acquire a token interactively will be made.
@@ -188,9 +197,10 @@ class MsalMobile {
       <String, dynamic>{'scopes': scopes, 'authority': authority},
     );
     final silentResult = silentResponse != null
-        ? MsalMobileAuthenticationResult.fromJson(jsonDecode(silentResponse))
+        ? MsalMobileAuthenticationResult.fromJson(
+            jsonDecode(silentResponse as String) as Map<String, dynamic>)
         : null;
-    if (!silentResult!.isSuccess! && silentResult!.isUiRequired!) {
+    if (!silentResult!.isSuccess && silentResult.isUiRequired!) {
       // acquire a token interactively
       final interactiveResponse = await _channel.invokeMethod(
         'acquireToken',
@@ -198,18 +208,18 @@ class MsalMobile {
       );
       final interactiveResult = interactiveResponse != null
           ? MsalMobileAuthenticationResult.fromJson(
-              jsonDecode(interactiveResponse))
+              jsonDecode(interactiveResponse as String) as Map<String, dynamic>)
           : null;
-      if (!interactiveResult!.isSuccess! &&
-          interactiveResult!.exception != null) {
+      if (!interactiveResult!.isSuccess &&
+          interactiveResult.exception != null) {
         throw MsalMobileException.copy(
-            interactiveResult!.exception, interactiveResult!.innerException);
+            interactiveResult.exception, interactiveResult.innerException);
       }
-      return interactiveResult!.payload;
-    } else if (!silentResult!.isSuccess! && silentResult!.exception != null) {
+      return interactiveResult.payload;
+    } else if (!silentResult.isSuccess && silentResult.exception != null) {
       throw MsalMobileException.copy(
-          silentResult!.exception, silentResult!.innerException);
+          silentResult.exception, silentResult.innerException);
     }
-    return silentResult!.payload;
+    return silentResult.payload;
   }
 }

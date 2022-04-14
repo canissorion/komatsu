@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:kcc_mobile_app/shared/data/model/pagination_model.dart';
+import '../../../../../shared/data/model/pagination_model.dart';
 
 import '../../domain/entities/approval_history_list_entitie.dart';
 import 'approval_data_model.dart';
@@ -17,7 +17,8 @@ class ApprovalsHistoryModel extends ApprovalsHistoryListEntitie {
   factory ApprovalsHistoryModel.fromJson(Map<String, dynamic> json) =>
       ApprovalsHistoryModel(
         pagination: PaginationModel.fromJson(
-            json["pagination"] as Map<String, dynamic>),
+          json["pagination"] as Map<String, dynamic>,
+        ),
         data: ApprovalDataModel.fromJson(json["data"] as Map<String, dynamic>),
       );
 

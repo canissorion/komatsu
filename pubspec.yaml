@@ -49,7 +49,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^19.4.43-beta
   timelines: ^0.1.0
   msal_mobile:
-    path: packages\msal_mobile-null-safety
+    path: packages/msal_mobile-null-safety
   freezed_annotation: ^1.1.0
   json_annotation: ^4.4.0
   json_serializable: ^6.1.5

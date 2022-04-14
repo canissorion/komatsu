@@ -1,7 +1,8 @@
+// ignore_for_file: lines_longer_than_80_chars, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import '../../domain/entities/expense_detail_entitie.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
 import '../bloc/expense_detail_bloc.dart';
 import '../pages/final_expense_detail_page.dart';

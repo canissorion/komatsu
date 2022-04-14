@@ -5,7 +5,6 @@ import '../../domain/entities/new_expense_entitie.dart';
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
-import 'obtain_data_widget.dart';
 
 class CreditNoteFormWidget extends StatelessWidget {
   CreditNoteFormWidget({
@@ -20,30 +19,30 @@ class CreditNoteFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const DateSelectorWidget(),
-        const SizedBox(
+      children: const [
+        DateSelectorWidget(),
+        SizedBox(
           height: 15,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Numero de credito',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'RUT',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Total',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Base Excenta',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Base Afecta',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'IVA',
           keyboard: TextInputType.number,
         ),
@@ -54,7 +53,7 @@ class CreditNoteFormWidget extends StatelessWidget {
         //   title: 'Concepto del gasto',
         //   titleColor: Colors.white,
         // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
         // ObtainData(
@@ -64,10 +63,10 @@ class CreditNoteFormWidget extends StatelessWidget {
         //   title: 'Detalle gasto',
         //   titleColor: Colors.white,
         // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
-        const DescriptionFieldWidget(
+        DescriptionFieldWidget(
           title: 'Descripcion del Gasto',
           textLines: 5,
         ),

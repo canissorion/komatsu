@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import '../../domain/entities/approval_data_entitie.dart';
 
 import 'approval_element_history_model.dart';

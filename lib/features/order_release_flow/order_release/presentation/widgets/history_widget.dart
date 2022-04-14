@@ -4,7 +4,6 @@ import 'package:timelines/timelines.dart';
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 
 const kTileHeight = 50.0;
 
@@ -43,10 +42,10 @@ class HistoryLiberatorWidget extends StatelessWidget {
                         color: customRed500,
                         borderRadius: BorderRadius.circular(25),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Rechazado",
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 13,
                           ),
@@ -58,12 +57,20 @@ class HistoryLiberatorWidget extends StatelessWidget {
               ),
               contents: Container(
                 padding: const EdgeInsets.only(
-                    top: 20.0, bottom: 20, right: 10, left: 10),
+                  top: 20.0,
+                  bottom: 20,
+                  right: 10,
+                  left: 10,
+                ),
                 child: Card(
                   elevation: 5,
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        top: 13.0, bottom: 13, right: 10, left: 10),
+                      top: 13.0,
+                      bottom: 13,
+                      right: 10,
+                      left: 10,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +85,7 @@ class HistoryLiberatorWidget extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(' '),
+                        const Text(' '),
                         const Divider(
                           thickness: 2,
                           color: customBlue50,
@@ -132,11 +139,11 @@ class _OnTimeBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: [
+              children: const [
                 Text(
                   '00000',
                   textAlign: TextAlign.end,
-                  style: const TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12),
                 ),
               ],
             ),
@@ -145,10 +152,10 @@ class _OnTimeBar extends StatelessWidget {
               textAlign: TextAlign.end,
               style: const TextStyle(fontSize: 12),
             ),
-            Text(
+            const Text(
               'falta@algo.cl',
               textAlign: TextAlign.end,
-              style: const TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: 12),
             ),
           ],
         ),

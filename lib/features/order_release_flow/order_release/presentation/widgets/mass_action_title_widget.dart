@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 
 import '../../../../../app.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../core/utils/navigator_utils.dart';
 
 class MassActionTitleWidget extends StatelessWidget {
@@ -63,7 +63,7 @@ class MassActionTitleWidget extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              pushAndReplaceToPage(context, App(flavor: 'Development'));
+              pushAndReplaceToPage(context, const App(flavor: 'Development'));
             },
             child: const Text(
               'Cerrar',

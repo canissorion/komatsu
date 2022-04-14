@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import 'title_data_widget.dart';
 
 class ApproveOrderResumeWidget extends StatelessWidget {

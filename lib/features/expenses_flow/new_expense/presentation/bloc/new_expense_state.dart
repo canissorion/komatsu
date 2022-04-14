@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'new_expense_bloc.dart';
 
 abstract class NewExpenseState extends Equatable {

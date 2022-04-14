@@ -1,30 +1,32 @@
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_center_entitie.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_currency_entitite.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_provider_entitie.dart';
+
 import 'order_release_applicant_entitie.dart';
+import 'order_release_center_entitie.dart';
+import 'order_release_currency_entitite.dart';
 import 'order_release_liberation_entitie.dart';
 import 'order_release_liberator_entitie.dart';
+import 'order_release_provider_entitie.dart';
 import 'order_release_record_entitie.dart';
 import 'order_release_resume_card_entitie.dart';
 
 class OrderReleaseEntitie extends Equatable {
-  const OrderReleaseEntitie(
-      {required this.resumeCard,
-      required this.creationDate,
-      required this.liberation,
-      required this.liberator,
-      required this.priority,
-      required this.applicant,
-      required this.needNumber,
-      required this.purchasingOrg,
-      required this.record,
-      required this.stategyCode,
-      required this.answer,
-      required this.generalStatus,
-      required this.currency,
-      required this.provider,
-      required this.center});
+  const OrderReleaseEntitie({
+    required this.resumeCard,
+    required this.creationDate,
+    required this.liberation,
+    required this.liberator,
+    required this.priority,
+    required this.applicant,
+    required this.needNumber,
+    required this.purchasingOrg,
+    required this.record,
+    required this.stategyCode,
+    required this.answer,
+    required this.generalStatus,
+    required this.currency,
+    required this.provider,
+    required this.center,
+  });
 
   final ResumeCardEntitie resumeCard;
   final int creationDate;

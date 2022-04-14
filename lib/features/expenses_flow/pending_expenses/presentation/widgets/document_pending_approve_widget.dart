@@ -1,6 +1,6 @@
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/datetime_convert.dart';
+import '../../../../../core/utils/datetime_convert.dart';
 
 import '../../domain/entities/pending_expenses_entitie.dart';
 
@@ -78,7 +78,7 @@ class DocumentPendingApprove extends StatelessWidget {
                         '${data.owner.firstName} ${data.owner.lastName}',
                         style: const TextStyle(fontSize: 15),
                       ),
-                      Text(
+                      const Text(
                         'CLP: 277.306',
                         style: TextStyle(fontWeight: FontWeight.w500),
                       ),

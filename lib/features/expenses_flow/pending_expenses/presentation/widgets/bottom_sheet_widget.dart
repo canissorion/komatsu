@@ -2,8 +2,7 @@ import 'package:bottom_picker/bottom_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
 import '../bloc/expense_list_bloc.dart';
 
@@ -160,7 +159,8 @@ class QuickActionBottomSheet extends StatelessWidget {
                                                   child: Text(
                                                     DateFormat('dd/MM/yyyy')
                                                         .format(
-                                                            state.startDate!),
+                                                      state.startDate!,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -239,9 +239,11 @@ class _QuickActionWidget extends StatelessWidget {
   final IconData iconData;
   final String actionText;
 
-  const _QuickActionWidget(
-      {Key? key, required this.iconData, required this.actionText})
-      : super(key: key);
+  const _QuickActionWidget({
+    Key? key,
+    required this.iconData,
+    required this.actionText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

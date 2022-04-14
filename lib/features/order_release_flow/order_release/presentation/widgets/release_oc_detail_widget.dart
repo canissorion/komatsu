@@ -1,10 +1,10 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/number_format.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import '../pages/mass_approve_page.dart';
 import '../pages/mass_reject_page.dart';
 import 'release_oc_button_widget.dart';
@@ -36,8 +36,8 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Fecha Registro',
-                      info: dateTimeConverter(
-                          orderRelease.data![0].recordDate!),
+                      info:
+                          dateTimeConverter(orderRelease.data![0].recordDate!),
                     ),
                     TitleDataWidget(
                       title: 'Urg. Neces.',
@@ -151,8 +151,9 @@ class ReleaseDetailWidget extends StatelessWidget {
                 Column(
                   children: [
                     TitleDataWidget(
-                        title: 'Num. Necesidad',
-                        info: orderRelease.data![0].freeNumber!),
+                      title: 'Num. Necesidad',
+                      info: orderRelease.data![0].freeNumber!,
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -162,8 +163,7 @@ class ReleaseDetailWidget extends StatelessWidget {
                   children: [
                     TitleDataWidget(
                       title: 'Org. de Compras',
-                      info:
-                          orderRelease.data![0].purchasingOrganization!,
+                      info: orderRelease.data![0].purchasingOrganization!,
                     ),
                   ],
                 ),

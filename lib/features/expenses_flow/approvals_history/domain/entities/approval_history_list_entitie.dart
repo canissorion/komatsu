@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/shared/domain/entitie/pagination_entitie.dart';
+import '../../../../../shared/domain/entitie/pagination_entitie.dart';
 
 import 'approval_data_entitie.dart';
 

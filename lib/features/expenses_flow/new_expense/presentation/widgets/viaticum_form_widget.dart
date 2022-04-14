@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
-import 'title_and_selector_widget.dart';
 
 class ViaticumFormWidget extends StatelessWidget {
   ViaticumFormWidget({
@@ -19,55 +17,41 @@ class ViaticumFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const DateSelectorWidget(),
-        const SizedBox(
+      children: const [
+        DateSelectorWidget(),
+        SizedBox(
           height: 15,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Numero de documento',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Tipo de Viatico',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Descripcion del viatico',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Valor total',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Objeto de Imputacion',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'CECO',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Cuenta',
         ),
-        // ObtainData(
-        //   codes: "CONCEPTO_GASTOS",
-        //   list: listConcept,
-        //   newExpenseData: newExpense,
-        //   title: 'Concepto del gasto',
-        //   titleColor: Colors.white,
-        // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
-        // ObtainData(
-        //   codes: "DETALLE_GASTO",
-        //   list: listDetail,
-        //   newExpenseData: newExpense,
-        //   title: 'Detalle gasto',
-        //   titleColor: Colors.white,
-        // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
-        const DescriptionFieldWidget(
+        DescriptionFieldWidget(
           title: 'Descripcion del Gasto',
           textLines: 5,
         ),

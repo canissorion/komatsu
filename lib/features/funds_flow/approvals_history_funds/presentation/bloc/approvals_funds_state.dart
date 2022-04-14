@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'approvals_funds_bloc.dart';
 
 abstract class ApprovalsFundsState extends Equatable {

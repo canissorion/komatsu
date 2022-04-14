@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_redundant_argument_values
+
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
 
@@ -22,7 +24,9 @@ class ReasonFieldWidget extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color: Colors.white, border: Border.all(color: Colors.black)),
+            color: Colors.white,
+            border: Border.all(color: Colors.black),
+          ),
           height: 80,
           width: MediaQuery.of(context).size.width * 0.9,
           child: TextField(

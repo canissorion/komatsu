@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/entities/new_expense_entitie.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
 
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../domain/entities/new_expense_entitie.dart';
+import '../bloc/new_expense_bloc.dart';
 import '../bloc/step_wizard_bloc/step_wizard_bloc.dart';
 import '../widgets/expense_resume_close_widget.dart';
 import '../widgets/form_steps_widget.dart';
@@ -98,7 +98,7 @@ class NewExpensePage extends StatelessWidget {
                                   newExpense: newExpense,
                                 ),
                                 const DocumentSelectedListPage(),
-                                ExpenseResumeCloseWidget()
+                                const ExpenseResumeCloseWidget()
                               ],
                             ),
                           ),

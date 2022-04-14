@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, prefer_relative_imports
 
 import 'package:flutter/material.dart';
 import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
@@ -14,7 +14,6 @@ class UserFundsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      //mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(

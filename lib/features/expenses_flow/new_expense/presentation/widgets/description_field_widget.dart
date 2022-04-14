@@ -15,7 +15,10 @@ class DescriptionFieldWidget extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 15),
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+          ),
         ),
         const SizedBox(
           height: 4,

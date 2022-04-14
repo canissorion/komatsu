@@ -2,16 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/funds_flow/funds_form/presentation/widgets/funds_form_request_generated_widget.dart';
 
+import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
-import '../../domain/entities/funds_form_entitie.dart';
 import '../bloc/funds_form_bloc.dart';
-import '../widgets/funds_form_details_widget.dart';
-import '../widgets/funds_form_header_widget.dart';
+import '../widgets/funds_form_request_generated_widget.dart';
 
 class RequestGeneratedPage extends StatelessWidget {
   const RequestGeneratedPage({Key? key}) : super(key: key);

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
 import '../../../../../core/utils/number_format.dart';
-import '../../domain/entities/new_expense_entitie.dart';
 
 class ExpenseResumeCloseWidget extends StatelessWidget {
-  ExpenseResumeCloseWidget({Key? key}) : super(key: key);
+  const ExpenseResumeCloseWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +77,13 @@ class ExpenseResumeCloseWidget extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       '100',
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       '100',
                     ),
                     const SizedBox(

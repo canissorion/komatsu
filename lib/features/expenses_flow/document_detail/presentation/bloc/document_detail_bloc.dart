@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
+import '../../../../../core/usecases/usecase.dart';
 
 import '../../domain/entities/document_detail_entitie.dart';
 import '../../domain/usecases/document_detail_usecase.dart';

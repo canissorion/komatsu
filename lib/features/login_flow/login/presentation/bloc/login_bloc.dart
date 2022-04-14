@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_locals, constant_identifier_names
+
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
@@ -16,18 +18,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     on<InitLoginEvent>((event, emit) async {
       emit(Loading());
-      print('test');
       await MsalMobile.create('assets/json/auth_config.json', authority)
           .then((client) => emit(Loaded(msal: client, isSignedIn: false)));
     });
 
     on<UserLoged>((event, emit) async {
-      print('test');
       await state.msal!.getAccount().then((value) {
-        emit(UserSignIn(
+        emit(
+          UserSignIn(
             msal: state.msal!,
             isSignedIn: true,
-            user: userDataFromJson(jsonEncode(value!.currentAccount!.claims))));
+            user: userDataFromJson(jsonEncode(value!.currentAccount!.claims)),
+          ),
+        );
       });
     });
   }

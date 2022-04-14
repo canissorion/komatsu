@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/information_title_widget.dart';
+import '../../../../../shared/presentation/widgets/information_title_widget.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 
 class ExpenseDataWidget extends StatelessWidget {

@@ -22,7 +22,10 @@ class MassActionWidget extends StatelessWidget {
           const Text(
             'Acción Masiva',
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w500, fontSize: 17),
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+            ),
           ),
           const SizedBox(
             height: 10,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/pages/subdocument_selector_list.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/appbar_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/drawer_widget.dart';
+
+import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../shared/presentation/widgets/appbar_widget.dart';
+import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import 'subdocument_selector_list.dart';
 
 class SubDocumentAlertPage extends StatelessWidget {
   const SubDocumentAlertPage({Key? key}) : super(key: key);

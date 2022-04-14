@@ -6,7 +6,6 @@ import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/mass_action_title_widget.dart';
 import '../widgets/title_data_widget.dart';
@@ -87,34 +86,36 @@ class MassApproveCompletedPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      ListView.builder(itemBuilder: (context, i) {
-                        return SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TitleDataWidget(
-                                title: 'N Orden',
-                                info: orderRelease.data![i].orderNumber!,
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  'Accion concluida exitosamente.',
-                                  style: TextStyle(
-                                    color: customBlue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),
+                      ListView.builder(
+                        itemBuilder: (context, i) {
+                          return SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.85,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                TitleDataWidget(
+                                  title: 'N Orden',
+                                  info: orderRelease.data![i].orderNumber!,
                                 ),
-                              )
-                            ],
-                          ),
-                        );
-                      })
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Accion concluida exitosamente.',
+                                    style: TextStyle(
+                                      color: customBlue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      )
                     ],
                   );
                 }

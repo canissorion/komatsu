@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,10 +18,8 @@ class AppBarWidget extends PreferredSize {
                   backgroundColor: Colors.white,
                   centerTitle: true,
                   title: Text(
-                    state.user!.name!.split(' ')[0] +
-                        ' ' +
-                        state.user!.name!.split(' ')[2],
-                    style: TextStyle(color: customBlue),
+                    '${state.user.name!.split(' ')[0]} ${state.user.name!.split(' ')[2]}',
+                    style: const TextStyle(color: customBlue),
                   ),
                   iconTheme: const IconThemeData(color: customBlue),
                 );
@@ -28,7 +28,7 @@ class AppBarWidget extends PreferredSize {
                   context,
                   listen: false,
                 ).add(UserLoged());
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             },
           ),

@@ -8,7 +8,8 @@ import 'approvals_history_funds_approval_element_model.dart';
 
 ApprovalsHistoryFundsModel approvalsHistoryFundsFromJson(String str) =>
     ApprovalsHistoryFundsModel.fromJson(
-        json.decode(str) as Map<String, dynamic>);
+      json.decode(str) as Map<String, dynamic>,
+    );
 
 class ApprovalsHistoryFundsModel extends ApprovalsHistoryFundsEntitie {
   const ApprovalsHistoryFundsModel({

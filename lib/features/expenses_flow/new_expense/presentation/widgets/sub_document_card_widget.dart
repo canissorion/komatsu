@@ -32,7 +32,11 @@ class SubDocumentCardWidget extends StatelessWidget {
             splashColor: customAccentBlue,
             child: Padding(
               padding: const EdgeInsets.only(
-                  left: 8.0, right: 8, top: 15, bottom: 15),
+                left: 8.0,
+                right: 8,
+                top: 15,
+                bottom: 15,
+              ),
               child: Row(
                 children: [
                   Container(

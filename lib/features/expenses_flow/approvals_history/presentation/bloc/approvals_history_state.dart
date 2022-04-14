@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'approvals_history_bloc.dart';
 
 abstract class ApprovalsHistoryState extends Equatable {

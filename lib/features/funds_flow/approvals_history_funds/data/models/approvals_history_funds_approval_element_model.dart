@@ -12,11 +12,12 @@ class ApprovalElementModel extends ApprovalElementEntitie {
     required SendToModel sendTo,
     required int receivedDate,
   }) : super(
-            approval: approval,
-            approver: approver,
-            statusInTheFlow: statusInTheFlow,
-            sendTo: sendTo,
-            receivedDate: receivedDate);
+          approval: approval,
+          approver: approver,
+          statusInTheFlow: statusInTheFlow,
+          sendTo: sendTo,
+          receivedDate: receivedDate,
+        );
 
   factory ApprovalElementModel.fromJson(Map<String, dynamic> json) =>
       ApprovalElementModel(

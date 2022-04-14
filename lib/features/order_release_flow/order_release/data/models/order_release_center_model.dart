@@ -1,4 +1,4 @@
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_center_entitie.dart';
+import '../../domain/entitites/order_release_center_entitie.dart';
 
 class CenterModel extends CenterEntitie {
   const CenterModel({

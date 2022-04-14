@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_positional_boolean_parameters
+// ignore_for_file: annotate_overrides, overridden_fields
 
 part of 'login_bloc.dart';
 
@@ -31,8 +31,11 @@ class UserSignIn extends LoginState {
   final bool isSignedIn;
   final UserData user;
 
-  const UserSignIn(
-      {required this.msal, required this.isSignedIn, required this.user});
+  const UserSignIn({
+    required this.msal,
+    required this.isSignedIn,
+    required this.user,
+  });
 
   @override
   List<Object?> get props => [msal, isSignedIn, user];

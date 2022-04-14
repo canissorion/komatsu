@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
@@ -36,7 +38,8 @@ class ReleaseLiberationsWidget extends StatelessWidget {
                     TitleDataBlueWidget(
                       title: 'Fecha Lib',
                       data: dateTimeConverter(
-                          orderRelease.liberation.liberationDate),
+                        orderRelease.liberation.liberationDate,
+                      ),
                     ),
                     const SizedBox(
                       width: 100,

@@ -5,10 +5,8 @@ import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/filters_widget.dart';
-import '../widgets/mass_action_widget.dart';
 import '../widgets/order_release_card_widget.dart';
 import '../widgets/search_bar_oc_widget.dart';
 import 'release_oc_detail_page.dart';
@@ -70,7 +68,9 @@ class OrderReleasePage extends StatelessWidget {
                         'Liberación\nOrdenes de Compra',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 20),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -81,24 +81,25 @@ class OrderReleasePage extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.618,
                         child: ListView.builder(
-                            itemCount: orderRelease.data!.length,
-                            itemBuilder: (context, i) {
-                              return GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return const ReleaseOcDetailPage();
-                                      },
-                                    ),
-                                  );
-                                },
-                                child: OrderReleaseCardWidget(
-                                  data: orderRelease.data![i],
-                                ),
-                              );
-                            }),
+                          itemCount: orderRelease.data!.length,
+                          itemBuilder: (context, i) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return const ReleaseOcDetailPage();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: OrderReleaseCardWidget(
+                                data: orderRelease.data![i],
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ],
                   );

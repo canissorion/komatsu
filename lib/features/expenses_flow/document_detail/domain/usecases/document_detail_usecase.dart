@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/core/error/failures.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
+import '../../../../../core/error/failures.dart';
+import '../../../../../core/usecases/usecase.dart';
 
 import '../entities/document_detail_entitie.dart';
 import '../repositories/document_detail_repository.dart';

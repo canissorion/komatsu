@@ -1,4 +1,5 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: prefer_if_null_operators, unnecessary_null_comparison
+
 import '../../domain/entities/new_expense_id_domain_parameter_value_entitie.dart';
 
 class DomainParameterValueModel extends DomainParameterValueEntitie {

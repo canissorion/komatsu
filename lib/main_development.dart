@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:kcc_mobile_app/features/login_flow/login/presentation/bloc/login_bloc.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
 
-import 'app.dart';
+import 'features/login_flow/login/presentation/bloc/login_bloc.dart';
 import 'features/login_flow/login/presentation/pages/login_page_apart.dart';
+import 'injection_container.dart';
 import 'injection_container.dart' as di;
 
 Future<void> main() async {
@@ -13,7 +12,7 @@ Future<void> main() async {
   await dotenv.load(fileName: '.env.dev');
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [BlocProvider(create: (context) => sl<LoginBloc>())],
       child: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: LoginPageApart(flavor: 'Development'),
           );

@@ -68,11 +68,16 @@ class PendingsBox extends StatelessWidget {
                       '8',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: numberColor ?? Color.fromRGBO(45, 179, 152, 1),
+                        color: numberColor ??
+                            const Color.fromRGBO(
+                              45,
+                              179,
+                              152,
+                              1,
+                            ),
                         fontFamily: 'SF Pro Text',
                         fontSize: 13,
-                        letterSpacing:
-                            0 /*percentages not used in flutter. defaulting to zero*/,
+                        letterSpacing: 0,
                         fontWeight: FontWeight.normal,
                         height: 1.3846153846153846,
                       ),

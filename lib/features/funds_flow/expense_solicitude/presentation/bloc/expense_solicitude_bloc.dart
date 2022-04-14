@@ -35,10 +35,12 @@ class ExpenseSolicitudeBloc
 
     on<MarkEvent>((event, emit) async {
       if (state.expenseSolicitude == null) return;
-      emit(Loaded(
-        expenseSolicitude: state.expenseSolicitude!,
-        mark: !state.mark!,
-      ));
+      emit(
+        Loaded(
+          expenseSolicitude: state.expenseSolicitude!,
+          mark: !state.mark!,
+        ),
+      );
     });
   }
 }

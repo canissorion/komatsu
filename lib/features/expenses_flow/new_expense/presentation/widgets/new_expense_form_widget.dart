@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/bloc/form_bloc/form_bloc.dart'
-    as fr;
 // ignore: prefer_relative_imports
 import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
-import '../../../../../core/utils/komatsu_colors.dart';
+
+import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/information_title_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
-
 import '../../domain/entities/new_expense_id_domain_parameter_value_entitie.dart';
+import '../bloc/form_bloc/form_bloc.dart' as fr;
 import '../bloc/vales_bloc/vales_bloc.dart';
 import '../pages/expenses_list_selector_page.dart';
 
@@ -140,26 +138,23 @@ class NewExpenseFormWidget extends StatelessWidget {
                               color: Colors.grey[800],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Divider(
+                              const Divider(
                                 thickness: 2,
                               ),
                               SizedBox(
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
+                                      children: const [
                                         InformationTitleWidget(
                                           title: 'Folio',
                                           info: '#370000002',
@@ -170,26 +165,24 @@ class NewExpenseFormWidget extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 40,
                                     ),
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
+                                      children: const [
                                         InformationTitleWidget(
                                           title: 'Empresa',
                                           info: '3001',
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 20,
                                     ),
                                     Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         SizedBox(
                                           height: 40,
                                         ),
@@ -201,7 +194,7 @@ class NewExpenseFormWidget extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           ElevatedButton(

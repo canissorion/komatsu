@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../../../../core/usecases/usecase.dart';
 import '../../domain/entities/pending_expenses_entitie.dart';
 import '../../domain/entities/pending_items_list_entitie.dart';
 import '../../domain/usecases/pending_items_list_usecase.dart';
@@ -12,11 +12,9 @@ part 'expense_list_state.dart';
 
 class PendingExpenseBloc
     extends Bloc<PendingExpenseEvent, PendingExpenseState> {
-  //final GetPendingDocumentDetail getPendingDocumentDetail;
   final GetPendingDocumentDetailListUseCase getPendingDocumentListDetail;
 
   PendingExpenseBloc({
-    //required this.getPendingDocumentDetail,
     required this.getPendingDocumentListDetail,
   }) : super(Empty()) {
     on<GetPendingExpenseEvent>((event, emit) async {
@@ -27,7 +25,6 @@ class PendingExpenseBloc
         (l) => emit(Error(errorMessage: l.toString())),
         (r) => emit(
           Loaded(
-            //pendingDocumentDetail: state.pendingDocumentDetail!,
             items: r,
             refreshController: RefreshController(),
             startDate: DateTime.now(),
@@ -70,7 +67,6 @@ class PendingExpenseBloc
         if (state.pendingDocumentDetail == null) return;
         emit(
           Loaded(
-            //pendingDocumentDetail: state.pendingDocumentDetail!,
             refreshController: state.refreshController!,
             items: state.items,
             startDate: state.startDate!,

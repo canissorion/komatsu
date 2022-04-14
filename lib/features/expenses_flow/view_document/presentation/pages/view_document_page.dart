@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/appbar_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/drawer_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/header_title_widget.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+import '../../../../../shared/presentation/widgets/appbar_widget.dart';
+import '../../../../../shared/presentation/widgets/drawer_widget.dart';
+import '../../../../../shared/presentation/widgets/header_title_widget.dart';
 
 class ViewDocumentPage extends StatelessWidget {
   const ViewDocumentPage({Key? key}) : super(key: key);

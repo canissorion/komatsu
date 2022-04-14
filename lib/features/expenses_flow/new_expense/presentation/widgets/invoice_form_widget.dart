@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/presentation/widgets/obtain_data_widget.dart';
 import '../../domain/entities/new_expense_entitie.dart';
 import 'date_selector_widget.dart';
 import 'description_field_widget.dart';
 import 'form_field_widget.dart';
-import 'title_and_selector_widget.dart';
 
 class InvoiceFormWidget extends StatelessWidget {
   InvoiceFormWidget({Key? key, required this.newExpense}) : super(key: key);
@@ -17,30 +14,30 @@ class InvoiceFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const DateSelectorWidget(),
-        const SizedBox(
+      children: const [
+        DateSelectorWidget(),
+        SizedBox(
           height: 15,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Numero de Factura',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Rut Emisor',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Valor total Factura',
           keyboard: TextInputType.number,
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Base Excenta',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'Base Afecta',
         ),
-        const FormFieldWidget(
+        FormFieldWidget(
           title: 'IVA',
           keyboard: TextInputType.number,
         ),
@@ -51,7 +48,7 @@ class InvoiceFormWidget extends StatelessWidget {
         //   title: 'Concepto del gasto',
         //   titleColor: Colors.white,
         // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
         // ObtainData(
@@ -61,10 +58,10 @@ class InvoiceFormWidget extends StatelessWidget {
         //   title: 'Detalle gasto',
         //   titleColor: Colors.white,
         // ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
-        const DescriptionFieldWidget(
+        DescriptionFieldWidget(
           title: 'Descripcion del Gasto',
           textLines: 5,
         ),

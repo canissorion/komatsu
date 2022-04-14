@@ -43,7 +43,7 @@ class FundsFormBloc extends Bloc<FundsFormEvent, FundsFormState> {
         Loaded(
           fundsForm: state.fundsForm!,
           mark: !state.mark!,
-          date: state.date!,
+          date: state.date,
         ),
       );
     });

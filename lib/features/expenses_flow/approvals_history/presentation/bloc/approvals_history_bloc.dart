@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kcc_mobile_app/core/usecases/usecase.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../../../../core/usecases/usecase.dart';
 import '../../domain/entities/approval_history_list_entitie.dart';
 import '../../domain/usecases/approval_history_list_usecase.dart';
 

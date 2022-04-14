@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'order_release_bloc.dart';
 
 abstract class OrderReleaseState extends Equatable {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/login_flow/login/presentation/bloc/login_bloc.dart';
 
 import '../../../app.dart';
 import '../../../core/utils/komatsu_colors.dart';
@@ -10,6 +9,7 @@ import '../../../features/expenses_flow/pending_expenses/presentation/pages/pend
 import '../../../features/funds_flow/funds_form/presentation/pages/funds_form_page.dart';
 import '../../../features/funds_flow/pending_funds/presentation/pages/pending_funds_page.dart';
 import '../../../features/hes_release_flow/features/hes_release/presentation/pages/hes_dashboard_page.dart';
+import '../../../features/login_flow/login/presentation/bloc/login_bloc.dart';
 import '../../../features/order_release_flow/order_release/presentation/pages/order_release_page.dart';
 
 // Ventana lateral ccon menu
@@ -25,7 +25,7 @@ class DrawerWidget extends StatelessWidget {
             context,
             listen: false,
           ).add(UserLoged());
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         } else {
           return Theme(
             data: Theme.of(context).copyWith(canvasColor: customBlue),
@@ -49,12 +49,11 @@ class DrawerWidget extends StatelessWidget {
                       ),
                     ),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           state.user!.name!,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -71,12 +70,14 @@ class DrawerWidget extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         pushAndReplaceToPage(
-                            context, App(flavor: 'Development'));
+                          context,
+                          const App(flavor: 'Development'),
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16.0, bottom: 20),
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(Icons.home),
                             SizedBox(
                               width: 10,
@@ -91,12 +92,12 @@ class DrawerWidget extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        pushToPage(context, HesDashboardPage());
+                        pushToPage(context, const HesDashboardPage());
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16.0, bottom: 10),
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(Icons.check_rounded),
                             SizedBox(
                               width: 10,
@@ -122,20 +123,27 @@ class DrawerWidget extends StatelessWidget {
                       ),
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              pushAndReplaceToPage(
-                                  context, PendingExpensePage());
-                            },
-                            child: Text('Bandeja de Aprobacion')),
-                        SizedBox(
+                          onTap: () {
+                            pushAndReplaceToPage(
+                              context,
+                              const PendingExpensePage(),
+                            );
+                          },
+                          child: const Text('Bandeja de Aprobacion'),
+                        ),
+                        const SizedBox(
                           height: 20,
                         ),
                         GestureDetector(
-                            onTap: () {
-                              pushAndReplaceToPage(context, NewExpensePage());
-                            },
-                            child: Text('Nueva Rendicion')),
-                        SizedBox(
+                          onTap: () {
+                            pushAndReplaceToPage(
+                              context,
+                              const NewExpensePage(),
+                            );
+                          },
+                          child: const Text('Nueva Rendicion'),
+                        ),
+                        const SizedBox(
                           height: 10,
                         )
                       ],
@@ -153,19 +161,27 @@ class DrawerWidget extends StatelessWidget {
                       ),
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              pushAndReplaceToPage(context, PendingFundsPage());
-                            },
-                            child: Text('Bandeja de Aprobacion')),
-                        SizedBox(
+                          onTap: () {
+                            pushAndReplaceToPage(
+                              context,
+                              const PendingFundsPage(),
+                            );
+                          },
+                          child: const Text('Bandeja de Aprobacion'),
+                        ),
+                        const SizedBox(
                           height: 20,
                         ),
                         GestureDetector(
-                            onTap: () {
-                              pushAndReplaceToPage(context, FundsFormPage());
-                            },
-                            child: Text('Nueva Solicitud')),
-                        SizedBox(
+                          onTap: () {
+                            pushAndReplaceToPage(
+                              context,
+                              const FundsFormPage(),
+                            );
+                          },
+                          child: const Text('Nueva Solicitud'),
+                        ),
+                        const SizedBox(
                           height: 20,
                         )
                       ],
@@ -182,11 +198,15 @@ class DrawerWidget extends StatelessWidget {
                       ),
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              pushAndReplaceToPage(context, OrderReleasePage());
-                            },
-                            child: Text('Liberacion orden de compra')),
-                        SizedBox(
+                          onTap: () {
+                            pushAndReplaceToPage(
+                              context,
+                              const OrderReleasePage(),
+                            );
+                          },
+                          child: const Text('Liberacion orden de compra'),
+                        ),
+                        const SizedBox(
                           height: 20,
                         ),
                       ],

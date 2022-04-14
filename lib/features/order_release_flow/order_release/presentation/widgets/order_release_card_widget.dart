@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/datetime_convert.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 
 class OrderReleaseCardWidget extends StatelessWidget {
   const OrderReleaseCardWidget({Key? key, required this.data})
@@ -74,9 +73,9 @@ class OrderReleaseCardWidget extends StatelessWidget {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           left: 7.0,
                           right: 7,
                           bottom: 4,
@@ -118,10 +117,10 @@ class Rectangle extends StatelessWidget {
         color: Colors.green,
         borderRadius: BorderRadius.circular(4),
       ),
-      child: Center(
+      child: const Center(
         child: Text(
           "Nuevo",
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white),
         ),
       ),
     );

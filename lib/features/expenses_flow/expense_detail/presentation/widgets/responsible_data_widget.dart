@@ -1,7 +1,9 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/information_title_widget.dart';
-import 'package:kcc_mobile_app/shared/presentation/widgets/rectangle_widget.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../shared/presentation/widgets/information_title_widget.dart';
+import '../../../../../shared/presentation/widgets/rectangle_widget.dart';
 import '../../domain/entities/expense_detail_entitie.dart';
 
 class ResponsibleData extends StatelessWidget {

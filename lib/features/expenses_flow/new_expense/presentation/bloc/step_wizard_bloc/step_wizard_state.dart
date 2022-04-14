@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'step_wizard_bloc.dart';
 
 abstract class StepWizardState extends Equatable {

@@ -159,7 +159,8 @@ class QuickActionBottomSheet extends StatelessWidget {
                                                   child: Text(
                                                     DateFormat('dd/MM/yyyy')
                                                         .format(
-                                                            state.startDate!),
+                                                      state.startDate!,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -238,9 +239,11 @@ class _QuickActionWidget extends StatelessWidget {
   final IconData iconData;
   final String actionText;
 
-  const _QuickActionWidget(
-      {Key? key, required this.iconData, required this.actionText})
-      : super(key: key);
+  const _QuickActionWidget({
+    Key? key,
+    required this.iconData,
+    required this.actionText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

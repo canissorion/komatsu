@@ -1,11 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/core/error/exceptions.dart';
-import 'package:kcc_mobile_app/core/error/failures.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/pending_expenses/domain/entities/pending_items_list_entitie.dart';
+import '../../../../../core/error/exceptions.dart';
+import '../../../../../core/error/failures.dart';
+import '../../domain/entities/pending_items_list_entitie.dart';
 
 import '../../domain/repositories/pending_items_list_repository.dart';
 import '../datasources/pending_items_remote_datasource.dart';
-import '../models/pending_items_list_model.dart';
 
 class PendingDocumentDetailListRepositoryImpl
     implements PendingDocumentDetailListRepository {

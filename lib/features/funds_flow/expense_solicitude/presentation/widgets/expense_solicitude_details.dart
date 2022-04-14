@@ -9,9 +9,11 @@ import 'objective_widget.dart';
 import 'task_closure_funds_widget.dart';
 
 class ExpenseSolicitudeDetailWidget extends StatelessWidget {
-  const ExpenseSolicitudeDetailWidget(
-      {Key? key, required this.expenseSolicitude, required this.mark})
-      : super(key: key);
+  const ExpenseSolicitudeDetailWidget({
+    Key? key,
+    required this.expenseSolicitude,
+    required this.mark,
+  }) : super(key: key);
 
   final ExpenseSolicitudeEntitie expenseSolicitude;
   final bool mark;

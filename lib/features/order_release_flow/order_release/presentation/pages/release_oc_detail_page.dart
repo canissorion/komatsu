@@ -6,7 +6,6 @@ import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/history_widget.dart';
 import '../widgets/release_oc_attachment_widget.dart';

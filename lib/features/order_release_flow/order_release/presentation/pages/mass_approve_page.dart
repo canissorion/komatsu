@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/data/models/order_release_resume_list_model.dart';
 
 import '../../../../../injection_container.dart';
 import '../../../../../shared/presentation/widgets/appbar_widget.dart';
 import '../../../../../shared/presentation/widgets/drawer_widget.dart';
-import '../../domain/entitites/order_release_entitie.dart';
+import '../../data/models/order_release_resume_list_model.dart';
 import '../bloc/order_release_bloc.dart';
 import '../widgets/approve_order_resume_widget.dart';
 import '../widgets/mass_action_title_widget.dart';

@@ -62,7 +62,7 @@ class FormStepWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.46,
                 child: StepProgressIndicator(
                   size: 6,
-                  roundedEdges: Radius.circular(10),
+                  roundedEdges: const Radius.circular(10),
                   totalSteps: 3,
                   currentStep: pagePosition,
                   selectedColor: customBlue,

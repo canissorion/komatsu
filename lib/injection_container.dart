@@ -1,9 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/data/repositories/new_expense_repository_impl.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/repositories/new_expense_repository.dart';
-import 'package:kcc_mobile_app/features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
-import 'package:msal_mobile/msal_mobile.dart';
 
 import 'features/expenses_flow/approvals_history/data/datasources/approvals_remote_datasources.dart';
 import 'features/expenses_flow/approvals_history/data/repositories/approval_history_repositoy_impl.dart';
@@ -24,6 +20,9 @@ import 'features/expenses_flow/expense_detail/domain/usecases/expense_detail_use
 import 'features/expenses_flow/expense_detail/domain/usecases/sub_document_resume_usecase.dart';
 import 'features/expenses_flow/expense_detail/presentation/bloc/expense_detail_bloc.dart';
 import 'features/expenses_flow/new_expense/data/datasources/new_expense_remote_datasource.dart';
+import 'features/expenses_flow/new_expense/data/repositories/new_expense_repository_impl.dart';
+import 'features/expenses_flow/new_expense/domain/repositories/new_expense_repository.dart';
+import 'features/expenses_flow/new_expense/domain/usecases/new_expense_usecase.dart';
 import 'features/expenses_flow/new_expense/presentation/bloc/form_bloc/form_bloc.dart';
 import 'features/expenses_flow/new_expense/presentation/bloc/new_expense_bloc.dart';
 import 'features/expenses_flow/new_expense/presentation/bloc/step_wizard_bloc/step_wizard_bloc.dart';
@@ -214,11 +213,7 @@ Future<void> init() async {
   );
 
   // Core
-  const String SCOPE =
-      'api://8dc52a5c-4af1-4e1a-b06a-429233d8d57c/user_impersonation';
-  const String TENANT_ID = 'organizations';
-  String authority = "https://login.microsoftonline.com/$TENANT_ID";
-  MsalMobile msal;
+
   // External
   final BaseOptions options = BaseOptions(
     receiveDataWhenStatusError: true,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/core/utils/komatsu_colors.dart';
 
 import '../../../../../app.dart';
+import '../../../../../core/utils/komatsu_colors.dart';
 
 class RequestGenerated extends StatelessWidget {
   const RequestGenerated({

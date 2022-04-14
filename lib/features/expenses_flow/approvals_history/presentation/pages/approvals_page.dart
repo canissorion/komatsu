@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
+import '../../../../../injection_container.dart';
 
 import '../../domain/entities/approval_history_list_entitie.dart';
 import '../bloc/approvals_history_bloc.dart';

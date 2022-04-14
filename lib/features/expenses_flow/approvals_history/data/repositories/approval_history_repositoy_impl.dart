@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:kcc_mobile_app/core/error/exceptions.dart';
-import 'package:kcc_mobile_app/core/error/failures.dart';
+import '../../../../../core/error/exceptions.dart';
+import '../../../../../core/error/failures.dart';
 
 import '../../domain/entities/approval_history_list_entitie.dart';
 import '../../domain/repositories/approval_history_repository.dart';

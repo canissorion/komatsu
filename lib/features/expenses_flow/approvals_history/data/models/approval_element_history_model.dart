@@ -16,9 +16,11 @@ class ApprovalElementHistoryModel extends ApprovalElementHistoryEntitie {
   factory ApprovalElementHistoryModel.fromJson(Map<String, dynamic> json) =>
       ApprovalElementHistoryModel(
         approval: ApprovalsApprovalHistoryModel.fromJson(
-            json["approval"] as Map<String, dynamic>),
+          json["approval"] as Map<String, dynamic>,
+        ),
         approver: ApproverHistoryModel.fromJson(
-            json["approver"] as Map<String, dynamic>),
+          json["approver"] as Map<String, dynamic>,
+        ),
         statusInTheFlow: json["statusInTheFlow"] as String,
       );
 }

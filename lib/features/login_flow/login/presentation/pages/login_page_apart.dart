@@ -1,8 +1,7 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kcc_mobile_app/injection_container.dart';
 
 import '../../../../../app.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
@@ -49,7 +48,7 @@ class LoginPageApart extends StatelessWidget {
                 ),
               );
             } else if (state is UserSignIn) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else {
               const String SCOPE =
                   'api://8dc52a5c-4af1-4e1a-b06a-429233d8d57c/user_impersonation';
@@ -72,9 +71,10 @@ class LoginPageApart extends StatelessWidget {
                     'RHPAM',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: customBlue),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      color: customBlue,
+                    ),
                   ),
                   const SizedBox(
                     height: 60,

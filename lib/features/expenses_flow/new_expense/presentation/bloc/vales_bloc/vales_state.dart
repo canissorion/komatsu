@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 part of 'vales_bloc.dart';
 
 abstract class ValesState extends Equatable {

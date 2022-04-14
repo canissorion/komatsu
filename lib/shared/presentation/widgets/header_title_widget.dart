@@ -4,9 +4,11 @@ import '../../../core/utils/komatsu_colors.dart';
 
 class HeaderTitleWidget extends StatelessWidget {
   // ignore: lines_longer_than_80_chars
-  const HeaderTitleWidget(
-      {Key? key, required this.invoiceNumber, this.position})
-      : super(key: key);
+  const HeaderTitleWidget({
+    Key? key,
+    required this.invoiceNumber,
+    this.position,
+  }) : super(key: key);
 
   final String invoiceNumber;
   final bool? position;

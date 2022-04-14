@@ -1,3 +1,5 @@
+// ignore_for_file: noop_primitive_operations
+
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
@@ -51,12 +53,13 @@ class ApprovalsHistory extends StatelessWidget {
                           data.approvals[index].statusInTheFlow.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: (data.approvals[index].statusInTheFlow
-                                          .length <
-                                      9)
-                                  ? 14
-                                  : 12),
+                            color: Colors.white,
+                            fontSize:
+                                (data.approvals[index].statusInTheFlow.length <
+                                        9)
+                                    ? 14
+                                    : 12,
+                          ),
                         ),
                       ),
                     ),
@@ -65,12 +68,20 @@ class ApprovalsHistory extends StatelessWidget {
               ),
               contents: Container(
                 padding: const EdgeInsets.only(
-                    top: 20.0, bottom: 20, right: 10, left: 10),
+                  top: 20.0,
+                  bottom: 20,
+                  right: 10,
+                  left: 10,
+                ),
                 child: Card(
                   elevation: 5,
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        top: 13.0, bottom: 13, right: 10, left: 10),
+                      top: 13.0,
+                      bottom: 13,
+                      right: 10,
+                      left: 10,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,

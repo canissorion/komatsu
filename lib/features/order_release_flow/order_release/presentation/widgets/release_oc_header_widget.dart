@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kcc_mobile_app/app.dart';
-import 'package:kcc_mobile_app/core/utils/navigator_utils.dart';
-import 'package:kcc_mobile_app/features/order_release_flow/order_release/domain/entitites/order_release_entitie.dart';
+
+import '../../../../../app.dart';
 import '../../../../../core/utils/komatsu_colors.dart';
+import '../../../../../core/utils/navigator_utils.dart';
 import '../../data/models/order_release_resume_list_model.dart';
 
 class ReleaseOcHeaderWidget extends StatelessWidget {
@@ -62,7 +62,7 @@ class ReleaseOcHeaderWidget extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              pushAndReplaceToPage(context, App(flavor: 'Development'));
+              pushAndReplaceToPage(context, const App(flavor: 'Development'));
             },
             child: const Text(
               'Cerrar',

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/komatsu_colors.dart';
 import '../../data/models/order_release_resume_list_model.dart';
-import '../../domain/entitites/order_release_entitie.dart';
 
 class ReleasebuttonWidget extends StatelessWidget {
   const ReleasebuttonWidget({Key? key, required this.orderRelease})
@@ -14,20 +12,9 @@ class ReleasebuttonWidget extends StatelessWidget {
       child: Card(
         elevation: 5,
         color: const Color(0xffcccccc),
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.06,
           width: MediaQuery.of(context).size.width * 0.34,
-          /*decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            //color: Color.fromARGB(255, 221, 219, 219),
-            boxShadow: const <BoxShadow>[
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 35.0,
-                offset: Offset(0.0, 0.9),
-              )
-            ],
-          ),*/
           child: Padding(
             padding: const EdgeInsets.only(
               left: 10.0,

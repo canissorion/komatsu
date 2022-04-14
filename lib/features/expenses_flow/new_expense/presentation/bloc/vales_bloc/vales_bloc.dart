@@ -7,10 +7,10 @@ part 'vales_state.dart';
 class ValesBloc extends Bloc<ValesEvent, ValesState> {
   ValesBloc() : super(Empty()) {
     on<GetValesEvent>((event, emit) async {
-      emit(Loaded(mark: [true]));
+      emit(const Loaded(mark: [true]));
     });
     on<AddValesEvent>((event, emit) async {
-      emit(Loaded(mark: [true]));
+      emit(const Loaded(mark: [true]));
     });
   }
 }
